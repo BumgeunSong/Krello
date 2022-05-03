@@ -9,24 +9,14 @@
 /* Begin PBXBuildFile section */
 		BCC51DF928210F5700CDD04F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DF828210F5700CDD04F /* AppDelegate.swift */; };
 		BCC51DFB28210F5700CDD04F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DFA28210F5700CDD04F /* SceneDelegate.swift */; };
-		BCC51DFD28210F5700CDD04F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DFC28210F5700CDD04F /* ViewController.swift */; };
-		BCC51E0028210F5700CDD04F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC51DFE28210F5700CDD04F /* Main.storyboard */; };
+		BCC51DFD28210F5700CDD04F /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DFC28210F5700CDD04F /* RootViewController.swift */; };
 		BCC51E0228210F5800CDD04F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E0128210F5800CDD04F /* Assets.xcassets */; };
 		BCC51E0528210F5800CDD04F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E0328210F5800CDD04F /* LaunchScreen.storyboard */; };
 		BCC51E1028210F5800CDD04F /* KrelloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51E0F28210F5800CDD04F /* KrelloTests.swift */; };
-		BCC51E1A28210F5800CDD04F /* KrelloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51E1928210F5800CDD04F /* KrelloUITests.swift */; };
-		BCC51E1C28210F5800CDD04F /* KrelloUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51E1B28210F5800CDD04F /* KrelloUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		BCC51E0C28210F5800CDD04F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BCC51DED28210F5700CDD04F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BCC51DF428210F5700CDD04F;
-			remoteInfo = Krello;
-		};
-		BCC51E1628210F5800CDD04F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BCC51DED28210F5700CDD04F /* Project object */;
 			proxyType = 1;
@@ -39,14 +29,12 @@
 		BCC51DF528210F5700CDD04F /* Krello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Krello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC51DF828210F5700CDD04F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCC51DFA28210F5700CDD04F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BCC51DFC28210F5700CDD04F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BCC51DFF28210F5700CDD04F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BCC51DFC28210F5700CDD04F /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		BCC51E0128210F5800CDD04F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCC51E0428210F5800CDD04F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCC51E0628210F5800CDD04F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCC51E0B28210F5800CDD04F /* KrelloTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KrelloTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC51E0F28210F5800CDD04F /* KrelloTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrelloTests.swift; sourceTree = "<group>"; };
-		BCC51E1528210F5800CDD04F /* KrelloUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KrelloUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC51E1928210F5800CDD04F /* KrelloUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrelloUITests.swift; sourceTree = "<group>"; };
 		BCC51E1B28210F5800CDD04F /* KrelloUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrelloUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,13 +48,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		BCC51E0828210F5800CDD04F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BCC51E1228210F5800CDD04F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -91,7 +72,6 @@
 			children = (
 				BCC51DF528210F5700CDD04F /* Krello.app */,
 				BCC51E0B28210F5800CDD04F /* KrelloTests.xctest */,
-				BCC51E1528210F5800CDD04F /* KrelloUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,10 +79,14 @@
 		BCC51DF728210F5700CDD04F /* Krello */ = {
 			isa = PBXGroup;
 			children = (
+				BCC51E2E2821115C00CDD04F /* Controller */,
+				BCC51E2D2821115300CDD04F /* Common */,
+				BCC51E2A2821113900CDD04F /* View */,
+				BCC51E292821113900CDD04F /* Supporting */,
+				BCC51E282821112200CDD04F /* Model */,
 				BCC51DF828210F5700CDD04F /* AppDelegate.swift */,
 				BCC51DFA28210F5700CDD04F /* SceneDelegate.swift */,
-				BCC51DFC28210F5700CDD04F /* ViewController.swift */,
-				BCC51DFE28210F5700CDD04F /* Main.storyboard */,
+				BCC51DFC28210F5700CDD04F /* RootViewController.swift */,
 				BCC51E0128210F5800CDD04F /* Assets.xcassets */,
 				BCC51E0328210F5800CDD04F /* LaunchScreen.storyboard */,
 				BCC51E0628210F5800CDD04F /* Info.plist */,
@@ -125,6 +109,57 @@
 				BCC51E1B28210F5800CDD04F /* KrelloUITestsLaunchTests.swift */,
 			);
 			path = KrelloUITests;
+			sourceTree = "<group>";
+		};
+		BCC51E282821112200CDD04F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BCC51E292821113900CDD04F /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		BCC51E2A2821113900CDD04F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BCC51E2B2821113A00CDD04F /* New Group */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BCC51E2B2821113A00CDD04F /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				BCC51E2C2821113A00CDD04F /* New Group */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		BCC51E2C2821113A00CDD04F /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		BCC51E2D2821115300CDD04F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		BCC51E2E2821115C00CDD04F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,24 +200,6 @@
 			productReference = BCC51E0B28210F5800CDD04F /* KrelloTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		BCC51E1428210F5800CDD04F /* KrelloUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BCC51E2528210F5800CDD04F /* Build configuration list for PBXNativeTarget "KrelloUITests" */;
-			buildPhases = (
-				BCC51E1128210F5800CDD04F /* Sources */,
-				BCC51E1228210F5800CDD04F /* Frameworks */,
-				BCC51E1328210F5800CDD04F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BCC51E1728210F5800CDD04F /* PBXTargetDependency */,
-			);
-			name = KrelloUITests;
-			productName = KrelloUITests;
-			productReference = BCC51E1528210F5800CDD04F /* KrelloUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,10 +214,6 @@
 						CreatedOnToolsVersion = 13.3;
 					};
 					BCC51E0A28210F5800CDD04F = {
-						CreatedOnToolsVersion = 13.3;
-						TestTargetID = BCC51DF428210F5700CDD04F;
-					};
-					BCC51E1428210F5800CDD04F = {
 						CreatedOnToolsVersion = 13.3;
 						TestTargetID = BCC51DF428210F5700CDD04F;
 					};
@@ -221,7 +234,6 @@
 			targets = (
 				BCC51DF428210F5700CDD04F /* Krello */,
 				BCC51E0A28210F5800CDD04F /* KrelloTests */,
-				BCC51E1428210F5800CDD04F /* KrelloUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -233,18 +245,10 @@
 			files = (
 				BCC51E0528210F5800CDD04F /* LaunchScreen.storyboard in Resources */,
 				BCC51E0228210F5800CDD04F /* Assets.xcassets in Resources */,
-				BCC51E0028210F5700CDD04F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		BCC51E0928210F5800CDD04F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BCC51E1328210F5800CDD04F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -258,7 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCC51DFD28210F5700CDD04F /* ViewController.swift in Sources */,
+				BCC51DFD28210F5700CDD04F /* RootViewController.swift in Sources */,
 				BCC51DF928210F5700CDD04F /* AppDelegate.swift in Sources */,
 				BCC51DFB28210F5700CDD04F /* SceneDelegate.swift in Sources */,
 			);
@@ -272,15 +276,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BCC51E1128210F5800CDD04F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BCC51E1A28210F5800CDD04F /* KrelloUITests.swift in Sources */,
-				BCC51E1C28210F5800CDD04F /* KrelloUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -289,22 +284,9 @@
 			target = BCC51DF428210F5700CDD04F /* Krello */;
 			targetProxy = BCC51E0C28210F5800CDD04F /* PBXContainerItemProxy */;
 		};
-		BCC51E1728210F5800CDD04F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BCC51DF428210F5700CDD04F /* Krello */;
-			targetProxy = BCC51E1628210F5800CDD04F /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BCC51DFE28210F5700CDD04F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BCC51DFF28210F5700CDD04F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BCC51E0328210F5800CDD04F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -366,7 +348,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -420,7 +402,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -442,9 +424,9 @@
 				INFOPLIST_FILE = Krello/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -470,9 +452,9 @@
 				INFOPLIST_FILE = Krello/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -526,42 +508,6 @@
 			};
 			name = Release;
 		};
-		BCC51E2628210F5800CDD04F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B3PWYBKFUK;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.eddysong.KrelloUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Krello;
-			};
-			name = Debug;
-		};
-		BCC51E2728210F5800CDD04F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B3PWYBKFUK;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.eddysong.KrelloUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Krello;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -588,15 +534,6 @@
 			buildConfigurations = (
 				BCC51E2328210F5800CDD04F /* Debug */,
 				BCC51E2428210F5800CDD04F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BCC51E2528210F5800CDD04F /* Build configuration list for PBXNativeTarget "KrelloUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BCC51E2628210F5800CDD04F /* Debug */,
-				BCC51E2728210F5800CDD04F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
