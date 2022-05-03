@@ -1,0 +1,45 @@
+name: Krello
+
+include:
+  - Krello_spec.yml
+options:
+  bundleIdPrefix: com.KaiRosaEddy
+
+
+targets:
+  Krello:
+    type: application
+    platform: iOS
+    deploymentTarget: "13.0"
+    sources: Krello
+    settings:
+      configs:
+        debug:
+          CUSTOM_BUILD_SETTING: my_debug_value
+        release:
+          CUSTOM_BUILD_SETTING: my_release_value
+    dependencies:
+      - target: MyFramework
+      - carthage: Alamofire
+      - framework: Vendor/MyFramework.framework
+      - sdk: Contacts.framework
+      - sdk: libc++.tbd
+      - package: Yams
+  KrelloTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [KrelloTests]
+
+schemes:
+  KrelloScheme:
+    build:
+      targets:
+        Krello: all
+        KrelloTests: [test]
+    run:
+      config: Development
+      language: ko
+    test:
+      config: Development
+      gatherCoverageData: true
+      targets: [KrelloTests]
