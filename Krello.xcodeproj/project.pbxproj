@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2489037CC5378EEE0CE8730A /* Pods_Krello.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D15D9EBA901D0B5B1CA0FD61 /* Pods_Krello.framework */; };
+		9CFD1B2C1F608EA9228C54AB /* Pods_KrelloTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992A62047D85C6E5349BC267 /* Pods_KrelloTests.framework */; };
 		BCC51DF928210F5700CDD04F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DF828210F5700CDD04F /* AppDelegate.swift */; };
 		BCC51DFB28210F5700CDD04F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DFA28210F5700CDD04F /* SceneDelegate.swift */; };
 		BCC51DFD28210F5700CDD04F /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DFC28210F5700CDD04F /* RootViewController.swift */; };
@@ -28,6 +30,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01560B6CE738BCBD939EADB8 /* Pods-Krello.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Krello.release.xcconfig"; path = "Target Support Files/Pods-Krello/Pods-Krello.release.xcconfig"; sourceTree = "<group>"; };
+		8302E3DED610EF1C02403E3E /* Pods-KrelloTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KrelloTests.debug.xcconfig"; path = "Target Support Files/Pods-KrelloTests/Pods-KrelloTests.debug.xcconfig"; sourceTree = "<group>"; };
+		992A62047D85C6E5349BC267 /* Pods_KrelloTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KrelloTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3D344D63B79E92BEEC611E7 /* Pods-KrelloTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KrelloTests.release.xcconfig"; path = "Target Support Files/Pods-KrelloTests/Pods-KrelloTests.release.xcconfig"; sourceTree = "<group>"; };
+		AAB53DB7ADEBD0FCFCF20435 /* Pods-Krello.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Krello.debug.xcconfig"; path = "Target Support Files/Pods-Krello/Pods-Krello.debug.xcconfig"; sourceTree = "<group>"; };
 		BCC51DF528210F5700CDD04F /* Krello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Krello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC51DF828210F5700CDD04F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCC51DFA28210F5700CDD04F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +46,7 @@
 		BCC51E0F28210F5800CDD04F /* KrelloTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrelloTests.swift; sourceTree = "<group>"; };
 		BCC51E312821174200CDD04F /* Something+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Something+Extension.swift"; sourceTree = "<group>"; };
 		BCC51E3328211AA500CDD04F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D15D9EBA901D0B5B1CA0FD61 /* Pods_Krello.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Krello.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2489037CC5378EEE0CE8730A /* Pods_Krello.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,18 +62,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CFD1B2C1F608EA9228C54AB /* Pods_KrelloTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		95AEF5F2C33780BBA0D4AB52 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AAB53DB7ADEBD0FCFCF20435 /* Pods-Krello.debug.xcconfig */,
+				01560B6CE738BCBD939EADB8 /* Pods-Krello.release.xcconfig */,
+				8302E3DED610EF1C02403E3E /* Pods-KrelloTests.debug.xcconfig */,
+				A3D344D63B79E92BEEC611E7 /* Pods-KrelloTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A012AC1263AFC72DBEDABB58 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D15D9EBA901D0B5B1CA0FD61 /* Pods_Krello.framework */,
+				992A62047D85C6E5349BC267 /* Pods_KrelloTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BCC51DEC28210F5700CDD04F = {
 			isa = PBXGroup;
 			children = (
 				BCC51DF728210F5700CDD04F /* Krello */,
 				BCC51E0E28210F5800CDD04F /* KrelloTests */,
 				BCC51DF628210F5700CDD04F /* Products */,
+				95AEF5F2C33780BBA0D4AB52 /* Pods */,
+				A012AC1263AFC72DBEDABB58 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,9 +180,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BCC51E1F28210F5800CDD04F /* Build configuration list for PBXNativeTarget "Krello" */;
 			buildPhases = (
+				AEAB42A32599ACB18F665491 /* [CP] Check Pods Manifest.lock */,
 				BCC51DF128210F5700CDD04F /* Sources */,
 				BCC51DF228210F5700CDD04F /* Frameworks */,
 				BCC51DF328210F5700CDD04F /* Resources */,
+				17FF449BAA7A29FAB83FBCD6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -164,9 +199,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BCC51E2228210F5800CDD04F /* Build configuration list for PBXNativeTarget "KrelloTests" */;
 			buildPhases = (
+				A47E1A3AE05055E94C81F35C /* [CP] Check Pods Manifest.lock */,
 				BCC51E0728210F5800CDD04F /* Sources */,
 				BCC51E0828210F5800CDD04F /* Frameworks */,
 				BCC51E0928210F5800CDD04F /* Resources */,
+				356908C21F0B511104A9DD03 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -206,8 +243,6 @@
 				Base,
 			);
 			mainGroup = BCC51DEC28210F5700CDD04F;
-			packageReferences = (
-			);
 			productRefGroup = BCC51DF628210F5700CDD04F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -237,6 +272,87 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		17FF449BAA7A29FAB83FBCD6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Krello/Pods-Krello-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Krello/Pods-Krello-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Krello/Pods-Krello-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		356908C21F0B511104A9DD03 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KrelloTests/Pods-KrelloTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KrelloTests/Pods-KrelloTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KrelloTests/Pods-KrelloTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A47E1A3AE05055E94C81F35C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KrelloTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AEAB42A32599ACB18F665491 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Krello-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BCC51DF128210F5700CDD04F /* Sources */ = {
@@ -396,6 +512,7 @@
 		};
 		BCC51E2028210F5800CDD04F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAB53DB7ADEBD0FCFCF20435 /* Pods-Krello.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -424,6 +541,7 @@
 		};
 		BCC51E2128210F5800CDD04F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01560B6CE738BCBD939EADB8 /* Pods-Krello.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -452,6 +570,7 @@
 		};
 		BCC51E2328210F5800CDD04F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8302E3DED610EF1C02403E3E /* Pods-KrelloTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -472,6 +591,7 @@
 		};
 		BCC51E2428210F5800CDD04F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3D344D63B79E92BEEC611E7 /* Pods-KrelloTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
