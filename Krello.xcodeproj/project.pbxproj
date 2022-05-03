@@ -14,6 +14,7 @@
 		BCC51E0528210F5800CDD04F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E0328210F5800CDD04F /* LaunchScreen.storyboard */; };
 		BCC51E1028210F5800CDD04F /* KrelloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51E0F28210F5800CDD04F /* KrelloTests.swift */; };
 		BCC51E322821174200CDD04F /* Something+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51E312821174200CDD04F /* Something+Extension.swift */; };
+		BCC51E3428211AA500CDD04F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E3328211AA500CDD04F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		BCC51E0B28210F5800CDD04F /* KrelloTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KrelloTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC51E0F28210F5800CDD04F /* KrelloTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrelloTests.swift; sourceTree = "<group>"; };
 		BCC51E312821174200CDD04F /* Something+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Something+Extension.swift"; sourceTree = "<group>"; };
+		BCC51E3328211AA500CDD04F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				BCC51DFA28210F5700CDD04F /* SceneDelegate.swift */,
 				BCC51E0128210F5800CDD04F /* Assets.xcassets */,
 				BCC51E0628210F5800CDD04F /* Info.plist */,
+				BCC51E3328211AA500CDD04F /* GoogleService-Info.plist */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -203,6 +206,8 @@
 				Base,
 			);
 			mainGroup = BCC51DEC28210F5700CDD04F;
+			packageReferences = (
+			);
 			productRefGroup = BCC51DF628210F5700CDD04F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -220,6 +225,7 @@
 			files = (
 				BCC51E0528210F5800CDD04F /* LaunchScreen.storyboard in Resources */,
 				BCC51E0228210F5800CDD04F /* Assets.xcassets in Resources */,
+				BCC51E3428211AA500CDD04F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +414,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.eddysong.Krello;
+				PRODUCT_BUNDLE_IDENTIFIER = com.KaiRosaEddy.Krello;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -436,7 +442,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.eddysong.Krello;
+				PRODUCT_BUNDLE_IDENTIFIER = com.KaiRosaEddy.Krello;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
