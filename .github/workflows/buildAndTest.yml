@@ -35,4 +35,4 @@ jobs:
 #        xcodebuild -workspace SideDishApp.xcworkspace -scheme SideDishApp -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12'
      - name: test
        run:
-        xcodebuild test -destination 'platform=iOS Simulator,OS=15.4,name=iPhone 12' -workspace Krello.xcworkspace -scheme Krello
+        xcodebuild test -destination 'platform=iOS Simulator,OS=15.2,name=iPhone 12' -workspace Krello.xcworkspace -scheme Krello
