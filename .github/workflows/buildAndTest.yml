@@ -16,6 +16,9 @@ on:
 jobs:
   builAndTest: 
     runs-on: macos-latest
+    env:
+      XC_PROJECT: ${{ 'Krello.xcworkspace' }}
+      XC_SCHEME: ${{ 'Krello' }}
     steps: 
      - uses: actions/checkout@v2
      - uses: actions/cache@v2
@@ -27,3 +30,9 @@ jobs:
      - name: CocoaPod Install
        run: 
         pod install
+#     - name: xcodebuild
+#       run:
+#        xcodebuild -workspace SideDishApp.xcworkspace -scheme SideDishApp -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12'
+     - name: test
+       run:
+        xcodebuild test -destination 'platform=iOS Simulator,OS=15.2,name=iPhone 12' -workspace Krello.xcworkspace -scheme Krello
