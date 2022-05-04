@@ -33,5 +33,5 @@ jobs:
         pod install
      - name: UnitTest
        run: |
-           xcodebuild test -workspace "$XC_PROJECT" -scheme "$XC_SCHEME" -destination 'platform=iOS Simulator,name=iPhone 13'
+           xcodebuild test -workspace "$XC_PROJECT" -scheme "$XC_SCHEME" -destination 'platform=iOS Simulator,name=iPhone 13,OS=latest'
        
