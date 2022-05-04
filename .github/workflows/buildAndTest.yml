@@ -17,7 +17,6 @@ jobs:
   builAndTest: 
     runs-on: macos-latest
     env:
-      XC_VERSION: ${{ '13.1' }}
       XC_PROJECT: ${{ 'Krello.xcworkspace' }}
       XC_SCHEME: ${{ 'Krello' }}
     steps: 
@@ -31,7 +30,10 @@ jobs:
      - name: CocoaPod Install
        run: 
         pod install
-     - name: UnitTest
-       run: |
-           xcodebuild test -workspace "$XC_PROJECT" -scheme "$XC_SCHEME" -destination 'platform=iOS Simulator,name=iPhone 13'
+#     - name: xcodebuild
+#       run:
+#        xcodebuild -workspace SideDishApp.xcworkspace -scheme SideDishApp -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12'
+     - name: test
+       run:
+        xcodebuild test -workspace "$XC_PROJECT" -scheme "$XC_SCHEME" -destination 'platform=iOS Simulator,name=iPhone 12'
        
