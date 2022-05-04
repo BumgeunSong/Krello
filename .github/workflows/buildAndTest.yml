@@ -19,7 +19,7 @@ jobs:
     env:
       XC_VERSION: ${{ '13.1' }}
       XC_PROJECT: ${{ 'Krello.xcworkspace' }}
-      XC_SCHEME: ${{ 'ExGithubAction' }}
+      XC_SCHEME: ${{ 'Krello' }}
     steps: 
      - uses: actions/checkout@v2
      - uses: actions/cache@v2

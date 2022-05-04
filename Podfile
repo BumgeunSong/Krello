@@ -1,3 +1,6 @@
+
+platform :ios, '10.0'
+
 target 'Krello' do
   use_frameworks!
 
