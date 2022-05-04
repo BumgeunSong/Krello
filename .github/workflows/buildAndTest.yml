@@ -16,6 +16,10 @@ on:
 jobs:
   builAndTest: 
     runs-on: macos-latest
+    env:
+      XC_VERSION: ${{ '13.1' }}
+      XC_PROJECT: ${{ 'Krello.xcworkspace' }}
+      XC_SCHEME: ${{ 'ExGithubAction' }}
     steps: 
      - uses: actions/checkout@v2
      - uses: actions/cache@v2
@@ -27,6 +31,10 @@ jobs:
      - name: CocoaPod Install
        run: 
         pod install
-     - name: Build
-       run:
-          xcodebuild -workspace Krello.xcworkspace -scheme Krello -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 13'
+#     - name: Build
+#       run:
+#          xcodebuild -workspace Krello.xcworkspace -scheme Krello -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 13'
+     - name: UnitTest
+       run: |
+           xcodebuild test -workspace "$XC_PROJECT" -scheme "$XC_SCHEME" -destination 'platform=iOS Simulator,name=iPhone 13'
+       
