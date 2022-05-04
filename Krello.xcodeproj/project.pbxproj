@@ -77,7 +77,6 @@
 				8302E3DED610EF1C02403E3E /* Pods-KrelloTests.debug.xcconfig */,
 				A3D344D63B79E92BEEC611E7 /* Pods-KrelloTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -181,6 +180,7 @@
 			buildConfigurationList = BCC51E1F28210F5800CDD04F /* Build configuration list for PBXNativeTarget "Krello" */;
 			buildPhases = (
 				AEAB42A32599ACB18F665491 /* [CP] Check Pods Manifest.lock */,
+				BC0B745528222C2A007AE2B6 /* SwiftLint Script */,
 				BCC51DF128210F5700CDD04F /* Sources */,
 				BCC51DF228210F5700CDD04F /* Frameworks */,
 				BCC51DF328210F5700CDD04F /* Resources */,
@@ -200,6 +200,7 @@
 			buildConfigurationList = BCC51E2228210F5800CDD04F /* Build configuration list for PBXNativeTarget "KrelloTests" */;
 			buildPhases = (
 				A47E1A3AE05055E94C81F35C /* [CP] Check Pods Manifest.lock */,
+				BC0B745428222B35007AE2B6 /* SwiftLint Script */,
 				BCC51E0728210F5800CDD04F /* Sources */,
 				BCC51E0828210F5800CDD04F /* Frameworks */,
 				BCC51E0928210F5800CDD04F /* Resources */,
@@ -351,6 +352,42 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		BC0B745428222B35007AE2B6 /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\n  echo \"SwiftLint completed\"\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		BC0B745528222C2A007AE2B6 /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" --fix\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
