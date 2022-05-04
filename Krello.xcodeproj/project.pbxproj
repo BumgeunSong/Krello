@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2489037CC5378EEE0CE8730A /* Pods_Krello.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D15D9EBA901D0B5B1CA0FD61 /* Pods_Krello.framework */; };
 		9CFD1B2C1F608EA9228C54AB /* Pods_KrelloTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992A62047D85C6E5349BC267 /* Pods_KrelloTests.framework */; };
+		BC0B745D28225BDD007AE2B6 /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0B745C28225BDD007AE2B6 /* Preview.swift */; };
 		BCC51DF928210F5700CDD04F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DF828210F5700CDD04F /* AppDelegate.swift */; };
 		BCC51DFB28210F5700CDD04F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DFA28210F5700CDD04F /* SceneDelegate.swift */; };
 		BCC51DFD28210F5700CDD04F /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DFC28210F5700CDD04F /* RootViewController.swift */; };
@@ -35,6 +36,7 @@
 		992A62047D85C6E5349BC267 /* Pods_KrelloTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KrelloTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D344D63B79E92BEEC611E7 /* Pods-KrelloTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KrelloTests.release.xcconfig"; path = "Target Support Files/Pods-KrelloTests/Pods-KrelloTests.release.xcconfig"; sourceTree = "<group>"; };
 		AAB53DB7ADEBD0FCFCF20435 /* Pods-Krello.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Krello.debug.xcconfig"; path = "Target Support Files/Pods-Krello/Pods-Krello.debug.xcconfig"; sourceTree = "<group>"; };
+		BC0B745C28225BDD007AE2B6 /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
 		BCC51DF528210F5700CDD04F /* Krello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Krello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC51DF828210F5700CDD04F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCC51DFA28210F5700CDD04F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				BCC51E0128210F5800CDD04F /* Assets.xcassets */,
 				BCC51E0628210F5800CDD04F /* Info.plist */,
 				BCC51E3328211AA500CDD04F /* GoogleService-Info.plist */,
+				BC0B745C28225BDD007AE2B6 /* Preview.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 			files = (
 				BCC51DFD28210F5700CDD04F /* RootViewController.swift in Sources */,
 				BCC51DF928210F5700CDD04F /* AppDelegate.swift in Sources */,
+				BC0B745D28225BDD007AE2B6 /* Preview.swift in Sources */,
 				BCC51E322821174200CDD04F /* Something+Extension.swift in Sources */,
 				BCC51DFB28210F5700CDD04F /* SceneDelegate.swift in Sources */,
 			);
