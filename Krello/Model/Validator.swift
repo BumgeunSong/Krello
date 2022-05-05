@@ -7,23 +7,6 @@
 
 import Foundation
 
-enum ValidationFailure: Error {
-    case invalidFormat(_ regex: Validator.Regex)
-    case passwordNotMatched
-}
-
-extension ValidationFailure {
-    var description: String {
-        switch self {
-        case .invalidFormat(let regex):
-            return "\(regex.type) 형식이 맞지 않습니다"
-        case .passwordNotMatched:
-            return "비밀번호가 일치하지 않습니다"
-        }
-
-    }
-}
-
 struct Validator {
 
     enum Regex: String {
@@ -43,18 +26,18 @@ struct Validator {
     }
 
     func isValidFormat(_ input: String, for regex: Regex) -> Result<Bool, ValidationFailure> {
-        if validateRegex(input, regex: regex) {
+        if validate(input, regex: regex) {
             return .success(true)
         } else {
             return .failure(.invalidFormat(regex))
         }
     }
 
-    private func validateRegex(_ input: String, regex: Regex) -> Bool {
+    private func validate(_ input: String, regex: Regex) -> Bool {
         NSPredicate(format: "SELF MATCHES %@", regex.rawValue).evaluate(with: input)
     }
 
-    func isPasswordMatched(password: String, confirmPassword: String) -> Result<Bool, ValidationFailure> {
+    func isMatched(password: String, confirmPassword: String) -> Result<Bool, ValidationFailure> {
         if password == confirmPassword {
             return .success(true)
         } else {
@@ -62,4 +45,21 @@ struct Validator {
         }
     }
 
+}
+
+enum ValidationFailure: Error {
+    case invalidFormat(_ regex: Validator.Regex)
+    case passwordNotMatched
+}
+
+extension ValidationFailure: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .invalidFormat(let regex):
+            return "\(regex.type) 형식이 맞지 않습니다"
+        case .passwordNotMatched:
+            return "비밀번호가 일치하지 않습니다"
+        }
+
+    }
 }

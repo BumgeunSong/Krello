@@ -34,7 +34,7 @@ class ValidatorTest: XCTestCase {
         case .success(let bool):
             XCTAssertTrue(bool)
         case .failure:
-            XCTFail()
+            XCTFail("Email SuccessValidation Failed")
         }
     }
 
@@ -50,7 +50,7 @@ class ValidatorTest: XCTestCase {
         case .failure(let value):
             XCTAssertEqual(ValidationFailure.invalidFormat(.email).description, value.description)
         case .success:
-            XCTFail()
+            XCTFail("Email FailureValidation Failed")
         }
     }
 
@@ -66,7 +66,7 @@ class ValidatorTest: XCTestCase {
         case .success(let bool):
             XCTAssertTrue(bool)
         case .failure:
-            XCTFail()
+            XCTFail("Password SuccessValidation Failed")
         }
     }
 
@@ -82,7 +82,7 @@ class ValidatorTest: XCTestCase {
         case .failure(let value):
             XCTAssertEqual(ValidationFailure.invalidFormat(.password).description, value.description)
         case .success:
-            XCTFail()
+            XCTFail("Password FailureValidation Failed")
         }
     }
 
@@ -98,7 +98,7 @@ class ValidatorTest: XCTestCase {
         case .success(let bool):
             XCTAssertTrue(bool)
         case .failure:
-            XCTFail()
+            XCTFail("UserName SuccessValidation Failed")
         }
     }
 
@@ -114,7 +114,7 @@ class ValidatorTest: XCTestCase {
         case .failure(let value):
             XCTAssertEqual(ValidationFailure.invalidFormat(.userName).description, value.description)
         case .success:
-            XCTFail()
+            XCTFail("UserName FailureValidation Failed")
         }
     }
 
@@ -125,13 +125,12 @@ class ValidatorTest: XCTestCase {
 
         // When
         let pass = sut.isPasswordMatched(password: password, confirmPassword: confirmPassword)
-
         // Then
         switch pass {
         case .success(let bool):
             XCTAssertTrue(bool)
         case .failure:
-            XCTFail()
+            XCTFail("PasswordConfirmation SuccessValidation Failed")
         }
     }
 
@@ -148,7 +147,7 @@ class ValidatorTest: XCTestCase {
         case .failure(let value):
             XCTAssertEqual(ValidationFailure.passwordNotMatched.description, value.description)
         case .success:
-            XCTFail()
+            XCTFail("PasswordConfirmation FailureValidation Failed")
         }
     }
 }
