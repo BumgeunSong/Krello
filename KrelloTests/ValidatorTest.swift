@@ -118,4 +118,37 @@ class ValidatorTest: XCTestCase {
         }
     }
 
+    func test_SuccessValidation_PasswordConfirmation() throws {
+        // Given
+        let password = "12345678A"
+        let confirmPassword = "12345678A"
+
+        // When
+        let pass = sut.isPasswordMatched(password: password, confirmPassword: confirmPassword)
+
+        // Then
+        switch pass {
+        case .success(let bool):
+            XCTAssertTrue(bool)
+        case .failure:
+            XCTFail()
+        }
+    }
+
+    func test_FailureValidation_PasswordConfirmation() throws {
+        // Given
+        let password = "12345678A"
+        let confirmPassword = "12345678"
+
+        // When
+        let fail = sut.isPasswordMatched(password: password, confirmPassword: confirmPassword)
+
+        // Then
+        switch fail {
+        case .failure(let value):
+            XCTAssertEqual(ValidationFailure.passwordNotMatched.description, value.description)
+        case .success:
+            XCTFail()
+        }
+    }
 }
