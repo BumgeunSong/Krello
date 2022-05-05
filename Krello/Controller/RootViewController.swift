@@ -11,7 +11,7 @@ class RootViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        view.backgroundColor = .gray
     }
 
 }
@@ -19,7 +19,7 @@ class RootViewController: UIViewController {
 // Add this to see preview
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
-struct ViewControllerPreviews: PreviewProvider {
+struct RootViewControllerPreviews: PreviewProvider {
     static var previews: some View {
         UIViewControllerPreview {
             // This is viewController you want to see.
