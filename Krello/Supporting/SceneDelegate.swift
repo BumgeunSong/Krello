@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene) // SceneDelegate의 프로퍼티에 설정해줌
-        let rootViewController = RootViewController() // 맨 처음 보여줄 ViewController
+        let rootViewController = LoginViewController() // 맨 처음 보여줄 ViewController
 
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
