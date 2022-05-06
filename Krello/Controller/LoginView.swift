@@ -39,6 +39,9 @@ extension UITextField {
 }
 
 class LoginView: DefaultView {
+    var didTapSignupButton: (() -> Void)?
+    var didTapLoginButton: (() -> Void)?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         createdSubviews()
@@ -46,9 +49,20 @@ class LoginView: DefaultView {
 
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
+
+        self.signupButton.addTarget(self, action: #selector(touchUpSignupButton), for: .touchUpInside)
+        self.loginButton.addTarget(self, action: #selector(touchUpLoginButton), for: .touchUpInside)
     }
 
     // MARK: - action methods
+    @objc private func touchUpSignupButton() {
+        didTapSignupButton?()
+    }
+
+    @objc private func touchUpLoginButton() {
+        didTapLoginButton?()
+    }
+
     @objc private func dismissKeyboard() {
         self.endEditing(true)
     }
