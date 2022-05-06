@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2489037CC5378EEE0CE8730A /* Pods_Krello.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D15D9EBA901D0B5B1CA0FD61 /* Pods_Krello.framework */; };
+		6FD292C12824E7A000A0ED7E /* LoginViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD292C02824E79F00A0ED7E /* LoginViewTest.swift */; };
+		6FD292C22824E98B00A0ED7E /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0B745C28225BDD007AE2B6 /* Preview.swift */; };
 		9CFD1B2C1F608EA9228C54AB /* Pods_KrelloTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992A62047D85C6E5349BC267 /* Pods_KrelloTests.framework */; };
 		BC0B745D28225BDD007AE2B6 /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0B745C28225BDD007AE2B6 /* Preview.swift */; };
 		BC0B746528236A35007AE2B6 /* KrelloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51E0F28210F5800CDD04F /* KrelloTests.swift */; };
@@ -45,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		01560B6CE738BCBD939EADB8 /* Pods-Krello.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Krello.release.xcconfig"; path = "Target Support Files/Pods-Krello/Pods-Krello.release.xcconfig"; sourceTree = "<group>"; };
+		6FD292C02824E79F00A0ED7E /* LoginViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTest.swift; sourceTree = "<group>"; };
 		8302E3DED610EF1C02403E3E /* Pods-KrelloTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KrelloTests.debug.xcconfig"; path = "Target Support Files/Pods-KrelloTests/Pods-KrelloTests.debug.xcconfig"; sourceTree = "<group>"; };
 		992A62047D85C6E5349BC267 /* Pods_KrelloTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KrelloTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D344D63B79E92BEEC611E7 /* Pods-KrelloTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KrelloTests.release.xcconfig"; path = "Target Support Files/Pods-KrelloTests/Pods-KrelloTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -147,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				BCC51E0F28210F5800CDD04F /* KrelloTests.swift */,
+				6FD292C02824E79F00A0ED7E /* LoginViewTest.swift */,
 			);
 			path = KrelloTests;
 			sourceTree = "<group>";
@@ -447,10 +451,12 @@
 			files = (
 				BC22098228239D7000159AC0 /* LoginViewController.swift in Sources */,
 				BC0B746528236A35007AE2B6 /* KrelloTests.swift in Sources */,
+				6FD292C12824E7A000A0ED7E /* LoginViewTest.swift in Sources */,
 				BC2209882823A87700159AC0 /* LoginView.swift in Sources */,
 				BC2209912823AE1600159AC0 /* LayoutAnchor+Extension.swift in Sources */,
 				BC2209852823A86000159AC0 /* DefaultView.swift in Sources */,
 				BC22098B2823AD9900159AC0 /* UIColor+Extension.swift in Sources */,
+				6FD292C22824E98B00A0ED7E /* Preview.swift in Sources */,
 				BC22098E2823ADB200159AC0 /* UIStackView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -154,7 +154,7 @@ class LoginView: DefaultView {
         return textField
     }()
 
-    private let loginButton: UIButton = {
+    let loginButton: UIButton = {
         let button = UIButton(type: .roundedRect)
         button.backgroundColor = .krelloGreen
         button.setTitle("로그인", for: .normal)
@@ -164,7 +164,7 @@ class LoginView: DefaultView {
         return button
     }()
 
-    private let signupButton: UIButton = {
+    let signupButton: UIButton = {
         let button = UIButton(type: .roundedRect)
         button.backgroundColor = .krelloGray
         button.setTitle("회원 가입", for: .normal)
