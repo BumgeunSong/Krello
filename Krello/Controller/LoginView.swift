@@ -42,9 +42,39 @@ class LoginView: DefaultView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         createdSubviews()
+        setupKeyboardActions()
+
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
     }
 
-    func createdSubviews() {
+    // MARK: - action methods
+    @objc private func dismissKeyboard() {
+        self.endEditing(true)
+    }
+
+    @objc private func keyboardWillShow(_ notification: NSNotification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+                return
+            }
+
+        if passwordTextField.isFirstResponder {
+            self.frame.origin.y = -keyboardSize.height/2
+        }
+    }
+
+    @objc private func keyboardWillHide(_ notification: NSNotification) {
+        self.frame.origin.y = 0
+    }
+
+    // MARK: - private methods
+    private func setupKeyboardActions() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+    }
+
+    private func createdSubviews() {
         backgroundColor = .krelloBlue
 
         let loginStackView = makeStackView(36)
@@ -91,6 +121,9 @@ class LoginView: DefaultView {
         textField.backgroundColor = .white
         textField.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         textField.setLeftPaddingPoints(8)
+        textField.returnKeyType = .done
+        textField.autocorrectionType = .no
+        textField.keyboardType = .emailAddress
         return textField
     }()
 
@@ -100,6 +133,10 @@ class LoginView: DefaultView {
         textField.placeholder = "password"
         textField.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         textField.setLeftPaddingPoints(8)
+        textField.returnKeyType = .done
+        textField.keyboardType = .alphabet
+        textField.autocorrectionType = .no
+        textField.isSecureTextEntry = true
         return textField
     }()
 
@@ -130,5 +167,12 @@ class LoginView: DefaultView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }
+}
 
+// MARK: - UITextFieldDelegate
+extension LoginView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
