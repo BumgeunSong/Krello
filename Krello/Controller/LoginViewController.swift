@@ -13,6 +13,14 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = loginView
+
+        loginView.didTapLoginButton = {
+            print("로그인버튼 눌러버렸다")
+        }
+
+        loginView.didTapSignupButton = {
+            print("가입버튼 눌러버렸다")
+        }
     }
 }
 

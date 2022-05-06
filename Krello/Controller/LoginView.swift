@@ -9,7 +9,7 @@ import UIKit
 
 class PaddedTextField: UITextField {
 
-    let padding = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+    private let padding = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
 
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
@@ -39,12 +39,56 @@ extension UITextField {
 }
 
 class LoginView: DefaultView {
+    var didTapSignupButton: (() -> Void)?
+    var didTapLoginButton: (() -> Void)?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         createdSubviews()
+        setupKeyboardActions()
+
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+
+        self.signupButton.addTarget(self, action: #selector(touchUpSignupButton), for: .touchUpInside)
+        self.loginButton.addTarget(self, action: #selector(touchUpLoginButton), for: .touchUpInside)
     }
 
-    func createdSubviews() {
+    // MARK: - action methods
+    @objc private func touchUpSignupButton() {
+        didTapSignupButton?()
+    }
+
+    @objc private func touchUpLoginButton() {
+        didTapLoginButton?()
+    }
+
+    @objc private func dismissKeyboard() {
+        self.endEditing(true)
+    }
+
+    @objc private func keyboardWillShow(_ notification: NSNotification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+                return
+            }
+
+        if passwordTextField.isFirstResponder {
+            self.frame.origin.y = -keyboardSize.height/2
+        }
+    }
+
+    @objc private func keyboardWillHide(_ notification: NSNotification) {
+        self.frame.origin.y = 0
+    }
+
+    // MARK: - private methods
+    private func setupKeyboardActions() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+    }
+
+    private func createdSubviews() {
         backgroundColor = .krelloBlue
 
         let loginStackView = makeStackView(36)
@@ -76,7 +120,7 @@ class LoginView: DefaultView {
         ])
     }
 
-    let appNameLabel: UILabel = {
+    private let appNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Krello"
         label.font = UIFont.systemFont(ofSize: 60, weight: .bold)
@@ -91,6 +135,9 @@ class LoginView: DefaultView {
         textField.backgroundColor = .white
         textField.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         textField.setLeftPaddingPoints(8)
+        textField.returnKeyType = .done
+        textField.autocorrectionType = .no
+        textField.keyboardType = .emailAddress
         return textField
     }()
 
@@ -100,6 +147,10 @@ class LoginView: DefaultView {
         textField.placeholder = "password"
         textField.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         textField.setLeftPaddingPoints(8)
+        textField.returnKeyType = .done
+        textField.keyboardType = .alphabet
+        textField.autocorrectionType = .no
+        textField.isSecureTextEntry = true
         return textField
     }()
 
@@ -123,12 +174,23 @@ class LoginView: DefaultView {
         return button
     }()
 
-    func makeStackView(_ spacing: CGFloat) -> UIStackView {
+    private func makeStackView(_ spacing: CGFloat) -> UIStackView {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = spacing
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }
+}
 
+// MARK: - UITextFieldDelegate
+extension LoginView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextField {
+            passwordTextField.becomeFirstResponder()
+        } else {
+            passwordTextField.resignFirstResponder()
+        }
+        return true
+    }
 }
