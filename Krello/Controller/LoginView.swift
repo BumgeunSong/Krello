@@ -9,7 +9,7 @@ import UIKit
 
 class PaddedTextField: UITextField {
 
-    let padding = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+    private let padding = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
 
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
@@ -76,7 +76,7 @@ class LoginView: DefaultView {
         ])
     }
 
-    let appNameLabel: UILabel = {
+    private let appNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Krello"
         label.font = UIFont.systemFont(ofSize: 60, weight: .bold)
@@ -85,7 +85,7 @@ class LoginView: DefaultView {
         return label
     }()
 
-    let emailTextField: UITextField = {
+    private let emailTextField: UITextField = {
         let textField = PaddedTextField()
         textField.placeholder = "email"
         textField.backgroundColor = .white
@@ -94,7 +94,7 @@ class LoginView: DefaultView {
         return textField
     }()
 
-    let passwordTextField: UITextField = {
+    private let passwordTextField: UITextField = {
         let textField = PaddedTextField()
         textField.backgroundColor = .white
         textField.placeholder = "password"
@@ -103,7 +103,7 @@ class LoginView: DefaultView {
         return textField
     }()
 
-    let loginButton: UIButton = {
+    private let loginButton: UIButton = {
         let button = UIButton(type: .roundedRect)
         button.backgroundColor = .krelloGreen
         button.setTitle("로그인", for: .normal)
@@ -113,7 +113,7 @@ class LoginView: DefaultView {
         return button
     }()
 
-    let signupButton: UIButton = {
+    private let signupButton: UIButton = {
         let button = UIButton(type: .roundedRect)
         button.backgroundColor = .krelloGray
         button.setTitle("회원 가입", for: .normal)
@@ -123,7 +123,7 @@ class LoginView: DefaultView {
         return button
     }()
 
-    func makeStackView(_ spacing: CGFloat) -> UIStackView {
+    private func makeStackView(_ spacing: CGFloat) -> UIStackView {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = spacing
