@@ -38,7 +38,12 @@ struct Validator {
     }
 
     func isMatched(password: String, confirmPassword: String) -> Result<Bool, ValidationFailure> {
-        if password == confirmPassword {
+        let trimmedPassword = password.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedConfirmPassword = confirmPassword.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        guard !trimmedPassword.isEmpty && !trimmedConfirmPassword.isEmpty else { return .failure(.passwordEmpty)}
+
+        if trimmedPassword == trimmedConfirmPassword {
             return .success(true)
         } else {
             return .failure(.passwordNotMatched)
@@ -50,6 +55,7 @@ struct Validator {
 enum ValidationFailure: Error {
     case invalidFormat(_ regex: Validator.Regex)
     case passwordNotMatched
+    case passwordEmpty
 }
 
 extension ValidationFailure: CustomStringConvertible {
@@ -59,6 +65,8 @@ extension ValidationFailure: CustomStringConvertible {
             return "\(regex.type) 형식이 맞지 않습니다"
         case .passwordNotMatched:
             return "비밀번호가 일치하지 않습니다"
+        case .passwordEmpty:
+            return "비밀번호 를 입력해주세요"
         }
 
     }
