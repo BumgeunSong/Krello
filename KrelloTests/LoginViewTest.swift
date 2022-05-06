@@ -58,6 +58,20 @@ class LoginViewTest: XCTestCase {
 
         XCTAssertTrue(sut.passwordTextField.isFirstResponder)
     }
+
+    func test_passwordTextField_whenShouldReturn_shouldDismissKeyboard() {
+        // Given
+        putInViewHierarchy(sut)
+        sut.passwordTextField.becomeFirstResponder()
+        XCTAssertTrue(sut.passwordTextField.isFirstResponder)
+
+        // When
+        shouldReturn(in: sut.passwordTextField)
+
+        // Then
+        XCTAssertFalse(sut.passwordTextField.isFirstResponder)
+    }
+
     // MARK: - helper methods
     func tap(_ button: UIButton) {
         button.sendActions(for: .touchUpInside)
