@@ -18,6 +18,7 @@ class LoginViewTest: XCTestCase {
     }
 
     override func tearDownWithError() throws {
+        executeRunLoop()
         sut = nil
         try super.tearDownWithError()
     }
@@ -50,8 +51,28 @@ class LoginViewTest: XCTestCase {
         wait(for: [tapExpectation], timeout: 0.1)
     }
 
+    func test_emailTextField_whenShouldReturn_shouldMoveInputFocusToPasswordTextField() {
+        putInViewHierarchy(sut)
+
+        shouldReturn(in: sut.emailTextField)
+
+        XCTAssertTrue(sut.passwordTextField.isFirstResponder)
+    }
     // MARK: - helper methods
     func tap(_ button: UIButton) {
         button.sendActions(for: .touchUpInside)
+    }
+
+    func executeRunLoop() {
+        RunLoop.current.run(until: Date())
+    }
+
+    func putInViewHierarchy(_ view: UIView) {
+        let window = UIWindow()
+        window.addSubview(view)
+    }
+
+    @discardableResult func shouldReturn(in textField: UITextField) -> Bool? {
+        textField.delegate?.textFieldShouldReturn?(textField)
     }
 }

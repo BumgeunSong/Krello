@@ -129,7 +129,7 @@ class LoginView: DefaultView {
         return label
     }()
 
-    private let emailTextField: UITextField = {
+    let emailTextField: UITextField = {
         let textField = PaddedTextField()
         textField.placeholder = "email"
         textField.backgroundColor = .white
@@ -141,7 +141,7 @@ class LoginView: DefaultView {
         return textField
     }()
 
-    private let passwordTextField: UITextField = {
+    let passwordTextField: UITextField = {
         let textField = PaddedTextField()
         textField.backgroundColor = .white
         textField.placeholder = "password"
