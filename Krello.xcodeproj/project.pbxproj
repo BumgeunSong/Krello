@@ -12,14 +12,27 @@
 		B74502322823944000172502 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74502312823944000172502 /* Validator.swift */; };
 		B76D57042823F694009EEAEC /* ValidatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D57032823F694009EEAEC /* ValidatorTest.swift */; };
 		BC0B745D28225BDD007AE2B6 /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0B745C28225BDD007AE2B6 /* Preview.swift */; };
+		BC0B746528236A35007AE2B6 /* KrelloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51E0F28210F5800CDD04F /* KrelloTests.swift */; };
+		BC22098128239D7000159AC0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC22098028239D7000159AC0 /* LoginViewController.swift */; };
+		BC22098228239D7000159AC0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC22098028239D7000159AC0 /* LoginViewController.swift */; };
+		BC2209842823A86000159AC0 /* DefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2209832823A86000159AC0 /* DefaultView.swift */; };
+		BC2209852823A86000159AC0 /* DefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2209832823A86000159AC0 /* DefaultView.swift */; };
+		BC2209872823A87700159AC0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2209862823A87700159AC0 /* LoginView.swift */; };
+		BC2209882823A87700159AC0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2209862823A87700159AC0 /* LoginView.swift */; };
+		BC22098A2823AD9900159AC0 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2209892823AD9900159AC0 /* UIColor+Extension.swift */; };
+		BC22098B2823AD9900159AC0 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2209892823AD9900159AC0 /* UIColor+Extension.swift */; };
+		BC22098D2823ADB200159AC0 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC22098C2823ADB200159AC0 /* UIStackView+Extension.swift */; };
+		BC22098E2823ADB200159AC0 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC22098C2823ADB200159AC0 /* UIStackView+Extension.swift */; };
+		BC2209902823AE1600159AC0 /* LayoutAnchor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC22098F2823AE1600159AC0 /* LayoutAnchor+Extension.swift */; };
+		BC2209912823AE1600159AC0 /* LayoutAnchor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC22098F2823AE1600159AC0 /* LayoutAnchor+Extension.swift */; };
 		BCC51DF928210F5700CDD04F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DF828210F5700CDD04F /* AppDelegate.swift */; };
 		BCC51DFB28210F5700CDD04F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DFA28210F5700CDD04F /* SceneDelegate.swift */; };
 		BCC51DFD28210F5700CDD04F /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DFC28210F5700CDD04F /* RootViewController.swift */; };
 		BCC51E0228210F5800CDD04F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E0128210F5800CDD04F /* Assets.xcassets */; };
 		BCC51E0528210F5800CDD04F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E0328210F5800CDD04F /* LaunchScreen.storyboard */; };
-		BCC51E1028210F5800CDD04F /* KrelloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51E0F28210F5800CDD04F /* KrelloTests.swift */; };
 		BCC51E322821174200CDD04F /* Something+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51E312821174200CDD04F /* Something+Extension.swift */; };
 		BCC51E3428211AA500CDD04F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E3328211AA500CDD04F /* GoogleService-Info.plist */; };
+		BCD8350D2823C5C6001273C8 /* UIVIew+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8350C2823C5C6001273C8 /* UIVIew+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +54,12 @@
 		B74502312823944000172502 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Validator.swift; path = Krello/Model/Validator.swift; sourceTree = SOURCE_ROOT; };
 		B76D57032823F694009EEAEC /* ValidatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorTest.swift; sourceTree = "<group>"; };
 		BC0B745C28225BDD007AE2B6 /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
+		BC22098028239D7000159AC0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BC2209832823A86000159AC0 /* DefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultView.swift; sourceTree = "<group>"; };
+		BC2209862823A87700159AC0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		BC2209892823AD9900159AC0 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		BC22098C2823ADB200159AC0 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
+		BC22098F2823AE1600159AC0 /* LayoutAnchor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutAnchor+Extension.swift"; sourceTree = "<group>"; };
 		BCC51DF528210F5700CDD04F /* Krello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Krello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC51DF828210F5700CDD04F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCC51DFA28210F5700CDD04F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +71,7 @@
 		BCC51E0F28210F5800CDD04F /* KrelloTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrelloTests.swift; sourceTree = "<group>"; };
 		BCC51E312821174200CDD04F /* Something+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Something+Extension.swift"; sourceTree = "<group>"; };
 		BCC51E3328211AA500CDD04F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BCD8350C2823C5C6001273C8 /* UIVIew+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+Extension.swift"; sourceTree = "<group>"; };
 		D15D9EBA901D0B5B1CA0FD61 /* Pods_Krello.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Krello.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -177,6 +197,10 @@
 			isa = PBXGroup;
 			children = (
 				BCC51E312821174200CDD04F /* Something+Extension.swift */,
+				BC2209892823AD9900159AC0 /* UIColor+Extension.swift */,
+				BC22098F2823AE1600159AC0 /* LayoutAnchor+Extension.swift */,
+				BCD8350C2823C5C6001273C8 /* UIVIew+Extension.swift */,
+				BC22098C2823ADB200159AC0 /* UIStackView+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -185,6 +209,9 @@
 			isa = PBXGroup;
 			children = (
 				BCC51DFC28210F5700CDD04F /* RootViewController.swift */,
+				BC22098028239D7000159AC0 /* LoginViewController.swift */,
+				BC2209832823A86000159AC0 /* DefaultView.swift */,
+				BC2209862823A87700159AC0 /* LoginView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -386,7 +413,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\n  echo \"SwiftLint completed\"\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" --fix\n";
 		};
 		BC0B745528222C2A007AE2B6 /* SwiftLint Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -413,12 +440,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC22098128239D7000159AC0 /* LoginViewController.swift in Sources */,
+				BC2209902823AE1600159AC0 /* LayoutAnchor+Extension.swift in Sources */,
 				BCC51DFD28210F5700CDD04F /* RootViewController.swift in Sources */,
 				BCC51DF928210F5700CDD04F /* AppDelegate.swift in Sources */,
+				BC22098D2823ADB200159AC0 /* UIStackView+Extension.swift in Sources */,
+				BC22098A2823AD9900159AC0 /* UIColor+Extension.swift in Sources */,
 				BC0B745D28225BDD007AE2B6 /* Preview.swift in Sources */,
 				BCC51E322821174200CDD04F /* Something+Extension.swift in Sources */,
 				B74502322823944000172502 /* Validator.swift in Sources */,
 				BCC51DFB28210F5700CDD04F /* SceneDelegate.swift in Sources */,
+				BC2209872823A87700159AC0 /* LoginView.swift in Sources */,
+				BC2209842823A86000159AC0 /* DefaultView.swift in Sources */,
+				BCD8350D2823C5C6001273C8 /* UIVIew+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +462,13 @@
 			files = (
 				B76D57042823F694009EEAEC /* ValidatorTest.swift in Sources */,
 				BCC51E1028210F5800CDD04F /* KrelloTests.swift in Sources */,
+				BC22098228239D7000159AC0 /* LoginViewController.swift in Sources */,
+				BC0B746528236A35007AE2B6 /* KrelloTests.swift in Sources */,
+				BC2209882823A87700159AC0 /* LoginView.swift in Sources */,
+				BC2209912823AE1600159AC0 /* LayoutAnchor+Extension.swift in Sources */,
+				BC2209852823A86000159AC0 /* DefaultView.swift in Sources */,
+				BC22098B2823AD9900159AC0 /* UIColor+Extension.swift in Sources */,
+				BC22098E2823ADB200159AC0 /* UIStackView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

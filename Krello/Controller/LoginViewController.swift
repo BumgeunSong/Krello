@@ -1,29 +1,29 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  Krello
 //
-//  Created by Bumgeun Song on 2022/05/03.
+//  Created by Bumgeun Song on 2022/05/05.
 //
 
 import UIKit
 
-class RootViewController: UIViewController {
+class LoginViewController: UIViewController {
+    let loginView = LoginView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .gray
+        view = loginView
     }
-
 }
 
 // Add this to see preview
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
-struct RootViewControllerPreviews: PreviewProvider {
+struct LoginViewControllerPreviews: PreviewProvider {
     static var previews: some View {
         UIViewControllerPreview {
             // This is viewController you want to see.
-            return RootViewController()
+            return LoginViewController()
         }
         .previewDevice("iPhone 12")
     }
