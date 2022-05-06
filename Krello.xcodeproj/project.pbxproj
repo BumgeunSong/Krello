@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2489037CC5378EEE0CE8730A /* Pods_Krello.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D15D9EBA901D0B5B1CA0FD61 /* Pods_Krello.framework */; };
 		9CFD1B2C1F608EA9228C54AB /* Pods_KrelloTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992A62047D85C6E5349BC267 /* Pods_KrelloTests.framework */; };
+		B74502322823944000172502 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74502312823944000172502 /* Validator.swift */; };
+		B76D57042823F694009EEAEC /* ValidatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D57032823F694009EEAEC /* ValidatorTest.swift */; };
+		B76D57062824DBA8009EEAEC /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0B745C28225BDD007AE2B6 /* Preview.swift */; };
 		BC0B745D28225BDD007AE2B6 /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0B745C28225BDD007AE2B6 /* Preview.swift */; };
 		BC0B746528236A35007AE2B6 /* KrelloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51E0F28210F5800CDD04F /* KrelloTests.swift */; };
 		BC22098128239D7000159AC0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC22098028239D7000159AC0 /* LoginViewController.swift */; };
@@ -49,6 +52,8 @@
 		992A62047D85C6E5349BC267 /* Pods_KrelloTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KrelloTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D344D63B79E92BEEC611E7 /* Pods-KrelloTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KrelloTests.release.xcconfig"; path = "Target Support Files/Pods-KrelloTests/Pods-KrelloTests.release.xcconfig"; sourceTree = "<group>"; };
 		AAB53DB7ADEBD0FCFCF20435 /* Pods-Krello.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Krello.debug.xcconfig"; path = "Target Support Files/Pods-Krello/Pods-Krello.debug.xcconfig"; sourceTree = "<group>"; };
+		B74502312823944000172502 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Validator.swift; path = Krello/Model/Validator.swift; sourceTree = SOURCE_ROOT; };
+		B76D57032823F694009EEAEC /* ValidatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorTest.swift; sourceTree = "<group>"; };
 		BC0B745C28225BDD007AE2B6 /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
 		BC22098028239D7000159AC0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BC2209832823A86000159AC0 /* DefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultView.swift; sourceTree = "<group>"; };
@@ -111,6 +116,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B7450233282394AB00172502 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B76D57002823C0F4009EEAEC /* Network */,
+				B74502312823944000172502 /* Validator.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B76D57002823C0F4009EEAEC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		BCC51DEC28210F5700CDD04F = {
 			isa = PBXGroup;
 			children = (
@@ -138,7 +159,7 @@
 				BCC51E2D2821115300CDD04F /* Common */,
 				BCC51E2A2821113900CDD04F /* View */,
 				BCC51E292821113900CDD04F /* Supporting */,
-				BCC51E282821112200CDD04F /* Model */,
+				B7450233282394AB00172502 /* Model */,
 			);
 			path = Krello;
 			sourceTree = "<group>";
@@ -146,16 +167,10 @@
 		BCC51E0E28210F5800CDD04F /* KrelloTests */ = {
 			isa = PBXGroup;
 			children = (
+				B76D57032823F694009EEAEC /* ValidatorTest.swift */,
 				BCC51E0F28210F5800CDD04F /* KrelloTests.swift */,
 			);
 			path = KrelloTests;
-			sourceTree = "<group>";
-		};
-		BCC51E282821112200CDD04F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		BCC51E292821113900CDD04F /* Supporting */ = {
@@ -434,6 +449,7 @@
 				BC22098A2823AD9900159AC0 /* UIColor+Extension.swift in Sources */,
 				BC0B745D28225BDD007AE2B6 /* Preview.swift in Sources */,
 				BCC51E322821174200CDD04F /* Something+Extension.swift in Sources */,
+				B74502322823944000172502 /* Validator.swift in Sources */,
 				BCC51DFB28210F5700CDD04F /* SceneDelegate.swift in Sources */,
 				BC2209872823A87700159AC0 /* LoginView.swift in Sources */,
 				BC2209842823A86000159AC0 /* DefaultView.swift in Sources */,
@@ -445,12 +461,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B76D57042823F694009EEAEC /* ValidatorTest.swift in Sources */,
 				BC22098228239D7000159AC0 /* LoginViewController.swift in Sources */,
 				BC0B746528236A35007AE2B6 /* KrelloTests.swift in Sources */,
 				BC2209882823A87700159AC0 /* LoginView.swift in Sources */,
 				BC2209912823AE1600159AC0 /* LayoutAnchor+Extension.swift in Sources */,
 				BC2209852823A86000159AC0 /* DefaultView.swift in Sources */,
 				BC22098B2823AD9900159AC0 /* UIColor+Extension.swift in Sources */,
+				B76D57062824DBA8009EEAEC /* Preview.swift in Sources */,
 				BC22098E2823ADB200159AC0 /* UIStackView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
