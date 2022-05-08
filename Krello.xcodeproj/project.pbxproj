@@ -10,6 +10,7 @@
 		2489037CC5378EEE0CE8730A /* Pods_Krello.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D15D9EBA901D0B5B1CA0FD61 /* Pods_Krello.framework */; };
 		9CFD1B2C1F608EA9228C54AB /* Pods_KrelloTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992A62047D85C6E5349BC267 /* Pods_KrelloTests.framework */; };
 		B74502322823944000172502 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74502312823944000172502 /* Validator.swift */; };
+		B74C021728283D9100C3602D /* AuthenticationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C021628283D9100C3602D /* AuthenticationEngine.swift */; };
 		B76D57042823F694009EEAEC /* ValidatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D57032823F694009EEAEC /* ValidatorTest.swift */; };
 		B76D57062824DBA8009EEAEC /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0B745C28225BDD007AE2B6 /* Preview.swift */; };
 		B76D57092824ED2F009EEAEC /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D57082824ED2F009EEAEC /* AuthenticationManager.swift */; };
@@ -58,6 +59,7 @@
 		A3D344D63B79E92BEEC611E7 /* Pods-KrelloTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KrelloTests.release.xcconfig"; path = "Target Support Files/Pods-KrelloTests/Pods-KrelloTests.release.xcconfig"; sourceTree = "<group>"; };
 		AAB53DB7ADEBD0FCFCF20435 /* Pods-Krello.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Krello.debug.xcconfig"; path = "Target Support Files/Pods-Krello/Pods-Krello.debug.xcconfig"; sourceTree = "<group>"; };
 		B74502312823944000172502 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Validator.swift; path = Krello/Model/Validator.swift; sourceTree = SOURCE_ROOT; };
+		B74C021628283D9100C3602D /* AuthenticationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationEngine.swift; sourceTree = "<group>"; };
 		B76D57032823F694009EEAEC /* ValidatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorTest.swift; sourceTree = "<group>"; };
 		B76D57082824ED2F009EEAEC /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		B76D570A2824EE21009EEAEC /* AuthenticationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInfo.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				B76D57082824ED2F009EEAEC /* AuthenticationManager.swift */,
+				B74C021628283D9100C3602D /* AuthenticationEngine.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				B74502322823944000172502 /* Validator.swift in Sources */,
 				B76D57092824ED2F009EEAEC /* AuthenticationManager.swift in Sources */,
 				BCC51DFB28210F5700CDD04F /* SceneDelegate.swift in Sources */,
+				B74C021728283D9100C3602D /* AuthenticationEngine.swift in Sources */,
 				BC2209872823A87700159AC0 /* LoginView.swift in Sources */,
 				BC2209842823A86000159AC0 /* DefaultView.swift in Sources */,
 				BCD8350D2823C5C6001273C8 /* UIVIew+Extension.swift in Sources */,

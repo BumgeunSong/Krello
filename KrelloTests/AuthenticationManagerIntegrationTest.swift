@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import OSLog
 @testable import Krello
 class AuthenticationManagerIntegrationTest: XCTestCase {
     var sut: AuthenticationManager!
@@ -30,9 +31,9 @@ class AuthenticationManagerIntegrationTest: XCTestCase {
         sut.signUp(info: userInfo) { result in
             switch result {
             case .success(let auth):
-                print(auth.uid)
+                os_log(.default, log: .default, "%@", auth.description)
             case .failure(let error):
-                print(error.localizedDescription)
+                os_log(.default, log: .default, "%@", error.localizedDescription)
             }
             registerExpect.fulfill()
         }
@@ -50,9 +51,9 @@ class AuthenticationManagerIntegrationTest: XCTestCase {
         sut.login(info: userInfo) {result in
             switch result {
             case .success(let auth):
-                print(auth.email)
+                os_log(.default, log: .default, "%@", auth.description)
             case .failure(let error):
-                print(error.localizedDescription)
+                os_log(.default, log: .default, "%@", error.localizedDescription)
             }
             logInExpect.fulfill()
         }
@@ -68,8 +69,8 @@ class AuthenticationManagerIntegrationTest: XCTestCase {
         sut.resignUser {result in
             switch result {
             case .success:
-                print("")
-            case .failure(let error):
+                os_log(.default, log: .default, "%@", "회원 삭제 성공")
+            case .failure:
                 XCTFail("ID should be deleted")
             }
             resignExpect.fulfill()
