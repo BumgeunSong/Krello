@@ -72,6 +72,26 @@ class LoginViewTest: XCTestCase {
         XCTAssertFalse(sut.passwordTextField.isFirstResponder)
     }
 
+    func test_view_withEmailTextFieldFocus_whenTapGesture_shouldDismissKeyboard() {
+        // Given
+        putInViewHierarchy(sut)
+        sut.emailTextField.becomeFirstResponder()
+        XCTAssertTrue(sut.emailTextField.isFirstResponder)
+
+        // When
+        let gesture = sut.gestureRecognizers?.first { $0 is UITapGestureRecognizer }
+        let target = (gesture?.value(forKey: "_targets") as? [NSObject])?.first
+        let selectorString = String(describing: target)
+            .components(separatedBy: ", ")
+            .first?
+            .replacingOccurrences(of: "(action=", with: "")
+            .replacingOccurrences(of: "Optional(", with: "") ?? ""
+        sut.perform(.init(stringLiteral: selectorString))
+
+        // Then
+        XCTAssertFalse(sut.isFirstResponder)
+    }
+
     // MARK: - helper methods
     func tap(_ button: UIButton) {
         button.sendActions(for: .touchUpInside)
