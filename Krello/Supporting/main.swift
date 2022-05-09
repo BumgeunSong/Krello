@@ -7,7 +7,7 @@
 
 import UIKit
 
-let appDelegateClass: AnyClass = NSClassFromString("TestingAppDelegate") ?? AppDelegate.self
+let appDelegateClass: AnyClass = NSClassFromString("AuthenticationManagerIntegrationTest") ?? AppDelegate.self
 
 UIApplicationMain(CommandLine.argc,
                   CommandLine.unsafeArgv,
