@@ -14,8 +14,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         view = loginView
 
-        loginView.didTapLoginButton = {
-            print("로그인버튼 눌러버렸다")
+        loginView.didTapLoginButton = { [weak self] in
+            let destinationVC = BoardListViewController()
+            let navigationViewController = UINavigationController(rootViewController: destinationVC)
+            navigationViewController.modalPresentationStyle = .fullScreen
+            self?.present(navigationViewController, animated: true)
         }
 
         loginView.didTapSignupButton = {

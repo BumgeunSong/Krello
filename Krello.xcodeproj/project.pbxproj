@@ -44,6 +44,10 @@
 		BCD8350D2823C5C6001273C8 /* UIVIew+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8350C2823C5C6001273C8 /* UIVIew+Extension.swift */; };
 		BCD8350F2824FC35001273C8 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8350E2824FC35001273C8 /* TestingAppDelegate.swift */; };
 		BCD835112824FC98001273C8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD835102824FC98001273C8 /* main.swift */; };
+		BCD83525282A0C75001273C8 /* BoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83524282A0C75001273C8 /* BoardCollectionViewCell.swift */; };
+		BCD83527282A0C7E001273C8 /* BoardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83526282A0C7E001273C8 /* BoardListViewController.swift */; };
+		BCD83528282A1796001273C8 /* BoardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83526282A0C7E001273C8 /* BoardListViewController.swift */; };
+		BCD83529282A1799001273C8 /* BoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83524282A0C75001273C8 /* BoardCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +96,8 @@
 		BCD8350C2823C5C6001273C8 /* UIVIew+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+Extension.swift"; sourceTree = "<group>"; };
 		BCD8350E2824FC35001273C8 /* TestingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
 		BCD835102824FC98001273C8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		BCD83524282A0C75001273C8 /* BoardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardCollectionViewCell.swift; sourceTree = "<group>"; };
+		BCD83526282A0C7E001273C8 /* BoardListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardListViewController.swift; sourceTree = "<group>"; };
 		D15D9EBA901D0B5B1CA0FD61 /* Pods_Krello.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Krello.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -217,6 +223,7 @@
 		BCC51E2A2821113900CDD04F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BCD83524282A0C75001273C8 /* BoardCollectionViewCell.swift */,
 				BCC51E0328210F5800CDD04F /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -241,6 +248,7 @@
 				BC22098028239D7000159AC0 /* LoginViewController.swift */,
 				BC2209832823A86000159AC0 /* DefaultView.swift */,
 				BC2209862823A87700159AC0 /* LoginView.swift */,
+				BCD83526282A0C7E001273C8 /* BoardListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -480,8 +488,10 @@
 				BC0B745D28225BDD007AE2B6 /* Preview.swift in Sources */,
 				BCC51E322821174200CDD04F /* Something+Extension.swift in Sources */,
 				B76D570B2824EE21009EEAEC /* AuthenticationInfo.swift in Sources */,
+				BCD83527282A0C7E001273C8 /* BoardListViewController.swift in Sources */,
 				BCD835112824FC98001273C8 /* main.swift in Sources */,
 				B74502322823944000172502 /* Validator.swift in Sources */,
+				BCD83525282A0C75001273C8 /* BoardCollectionViewCell.swift in Sources */,
 				B76D57092824ED2F009EEAEC /* AuthenticationManager.swift in Sources */,
 				BCC51DFB28210F5700CDD04F /* SceneDelegate.swift in Sources */,
 				BC2209872823A87700159AC0 /* LoginView.swift in Sources */,
@@ -501,10 +511,12 @@
 				6FD292C12824E7A000A0ED7E /* LoginViewTest.swift in Sources */,
 				BC2209882823A87700159AC0 /* LoginView.swift in Sources */,
 				BC2209912823AE1600159AC0 /* LayoutAnchor+Extension.swift in Sources */,
+				BCD83529282A1799001273C8 /* BoardCollectionViewCell.swift in Sources */,
 				B76D570F2826E1F4009EEAEC /* AuthenticationTest.swift in Sources */,
 				BCD8350F2824FC35001273C8 /* TestingAppDelegate.swift in Sources */,
 				BC2209852823A86000159AC0 /* DefaultView.swift in Sources */,
 				BC22098B2823AD9900159AC0 /* UIColor+Extension.swift in Sources */,
+				BCD83528282A1796001273C8 /* BoardListViewController.swift in Sources */,
 				6FD292C22824E98B00A0ED7E /* Preview.swift in Sources */,
 				B76D57062824DBA8009EEAEC /* Preview.swift in Sources */,
 				BC22098E2823ADB200159AC0 /* UIStackView+Extension.swift in Sources */,
