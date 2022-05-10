@@ -38,6 +38,7 @@ class BoardViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+
 }
 
 extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -48,6 +49,9 @@ extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BoardCollectionViewCell.identifier, for: indexPath) as? BoardCollectionViewCell else {return UICollectionViewCell()}
+//        let dataMock = TaskTableViewDataSource(status: "Todo", tasks: ["ㄱㄴㄷㄹ", "ㅁㅂㅅㅇ"])
+        cell.configure(status: "Todo", task: ["ㄱㄴㄷㄹ", "ㅁㅂㅅㅇ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ"])
+        self.collectionView.setNeedsLayout()
         return cell
     }
 
@@ -55,8 +59,7 @@ extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSou
         guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: PagingIndicatorReusableView.identifier, for: indexPath) as? PagingIndicatorReusableView else {
             return UICollectionReusableView()
         }
-        footer.configure(with: indexPath.item)
-
         return footer
     }
+
 }

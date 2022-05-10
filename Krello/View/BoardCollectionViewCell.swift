@@ -20,7 +20,6 @@ class TaskTableViewHeader: UITableViewHeaderFooterView {
     }
 
     func configure() {
-        backgroundColor = .krelloGray
         addSubview(title)
         title.frame = self.bounds
     }
@@ -32,28 +31,60 @@ class TaskTableViewHeader: UITableViewHeaderFooterView {
 
 class BoardCollectionViewCell: UICollectionViewCell {
 
-    var taskTableView = UITableView()
+    static let identifier = "BoardCollectionViewCell"
+
+    var taskTableView: UITableView!
+    // TODO: String은 임시 데이터 타입이므로 모델 생성시 교체.
+    var tasks: [String]?
+    var status: String?
+
+    // Status for header, tasks for populate cell
+    var headerView: UIView!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = .blue
+        configureHeaderView()
+        configureTableView()
+    }
 
-        addSubview(taskTableView)
+    func  configureHeaderView() {
+        headerView = UIView()
+        let label = UILabel()
+        headerView.backgroundColor = .brown
+        label.text = "Todo"
+        headerView.addSubview(label)
+        self.contentView.addSubview(headerView)
+        self.headerView.frame = self.contentView.bounds
+//        NSLayoutConstraint.activate([
+//            headerView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+//            headerView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+//            headerView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor)
+//        ])
+    }
+
+    func configureTableView() {
+        let uitableview = UITableView(frame: self.contentView.bounds, style: .insetGrouped)
+        taskTableView = uitableview
+        self.contentView.addSubview(taskTableView)
         taskTableView.register(UITableViewCell.self, forCellReuseIdentifier: "TaskTableViewCell")
         taskTableView.register(TaskTableViewHeader.self, forHeaderFooterViewReuseIdentifier: "TaskTableViewHeader")
-
+        taskTableView.backgroundColor = .secondarySystemBackground
         taskTableView.sectionHeaderHeight = 20
         taskTableView.delegate = self
-        taskTableView.frame = self.bounds
+        taskTableView.dataSource = self
+        taskTableView.estimatedRowHeight = 60
+        taskTableView.rowHeight = UITableView.automaticDimension
+//        taskTableView.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            taskTableView.topAnchor.constraint(equalTo: headerView.topAnchor)
+//        ])
     }
 
-    lazy var makeHeaderView: (String) -> UIView = { _ in
-        let view = UIView()
-
-        return view
-    }
-
-    func configure(with datasource: UITableViewDataSource) {
-        self.taskTableView.dataSource = datasource
+    func configure(status: String, task: [String]) {
+        self.tasks = task
+        self.status = status
+//        self.taskTableView.dataSource = datasource
         taskTableView.reloadData()
     }
 
@@ -64,20 +95,32 @@ class BoardCollectionViewCell: UICollectionViewCell {
         return header
     }
 
-    override func prepareForReuse() {
-        taskTableView.dataSource = nil
-        taskTableView.reloadData()
-    }
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-extension BoardCollectionViewCell: UITableViewDelegate {
+extension BoardCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // ...
     }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let tasks = tasks else {return 0}
+        return tasks.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let tasks = tasks else {return UITableViewCell()}
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell", for: indexPath)
+        cell.textLabel?.text = tasks[indexPath.row]
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        "addCard"
+    }
+
 }
 
 class TaskTableViewDataSource: NSObject, UITableViewDataSource {
