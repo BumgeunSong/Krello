@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2489037CC5378EEE0CE8730A /* Pods_Krello.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D15D9EBA901D0B5B1CA0FD61 /* Pods_Krello.framework */; };
+		6F60F18C282C19DA00E7A85B /* BoardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F60F18B282C19DA00E7A85B /* BoardManager.swift */; };
 		6FB31531282A3C6300E37BFD /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB31530282A3C6300E37BFD /* FirestoreService.swift */; };
 		6FB31533282A435D00E37BFD /* FirestoreServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB31532282A435D00E37BFD /* FirestoreServiceTest.swift */; };
 		6FD292C12824E7A000A0ED7E /* LoginViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD292C02824E79F00A0ED7E /* LoginViewTest.swift */; };
@@ -64,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		01560B6CE738BCBD939EADB8 /* Pods-Krello.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Krello.release.xcconfig"; path = "Target Support Files/Pods-Krello/Pods-Krello.release.xcconfig"; sourceTree = "<group>"; };
+		6F60F18B282C19DA00E7A85B /* BoardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardManager.swift; sourceTree = "<group>"; };
 		6FB31530282A3C6300E37BFD /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		6FB31532282A435D00E37BFD /* FirestoreServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServiceTest.swift; sourceTree = "<group>"; };
 		6FD292C02824E79F00A0ED7E /* LoginViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTest.swift; sourceTree = "<group>"; };
@@ -131,6 +133,14 @@
 				6FB31530282A3C6300E37BFD /* FirestoreService.swift */,
 			);
 			path = Firestore;
+			sourceTree = "<group>";
+		};
+		6F60F18D282C200600E7A85B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6F60F18B282C19DA00E7A85B /* BoardManager.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		95AEF5F2C33780BBA0D4AB52 /* Pods */ = {
@@ -202,6 +212,7 @@
 				BCC51E2A2821113900CDD04F /* View */,
 				BCC51E292821113900CDD04F /* Supporting */,
 				B7450233282394AB00172502 /* Model */,
+				6F60F18D282C200600E7A85B /* ViewModel */,
 			);
 			path = Krello;
 			sourceTree = "<group>";
@@ -507,6 +518,7 @@
 				BCD835112824FC98001273C8 /* main.swift in Sources */,
 				B74502322823944000172502 /* Validator.swift in Sources */,
 				BCD83525282A0C75001273C8 /* BoardCollectionViewCell.swift in Sources */,
+				6F60F18C282C19DA00E7A85B /* BoardManager.swift in Sources */,
 				B76D57092824ED2F009EEAEC /* AuthenticationManager.swift in Sources */,
 				BCC51DFB28210F5700CDD04F /* SceneDelegate.swift in Sources */,
 				BC2209872823A87700159AC0 /* LoginView.swift in Sources */,
