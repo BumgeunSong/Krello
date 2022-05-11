@@ -8,7 +8,8 @@
 import UIKit
 
 class BoardListViewController: UIViewController {
-    let dummy = ["Krello Board", "iOS study Board"]
+    private let boardManager = BoardManager()
+    private var dummy = [String]()
 
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -31,6 +32,14 @@ class BoardListViewController: UIViewController {
         ])
 
         setupNavigation()
+        loadViewData()
+    }
+
+    private func loadViewData() {
+        boardManager.load { titles in
+            self.dummy = titles
+            self.tableView.reloadData()
+        }
     }
 
     private func setupNavigation() {
