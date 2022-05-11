@@ -51,6 +51,18 @@
 		BCD83527282A0C7E001273C8 /* BoardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83526282A0C7E001273C8 /* BoardListViewController.swift */; };
 		BCD83528282A1796001273C8 /* BoardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83526282A0C7E001273C8 /* BoardListViewController.swift */; };
 		BCD83529282A1799001273C8 /* BoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83524282A0C75001273C8 /* BoardCollectionViewCell.swift */; };
+		BCD8352B282B8652001273C8 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8352A282B8652001273C8 /* BoardView.swift */; };
+		BCD8352C282B8652001273C8 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8352A282B8652001273C8 /* BoardView.swift */; };
+		BCD8352E282B9540001273C8 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8352D282B9540001273C8 /* PaddedLabel.swift */; };
+		BCD8352F282B9540001273C8 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8352D282B9540001273C8 /* PaddedLabel.swift */; };
+		BCD83531282B9F9B001273C8 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83530282B9F9B001273C8 /* TaskTableViewCell.swift */; };
+		BCD83532282B9F9B001273C8 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83530282B9F9B001273C8 /* TaskTableViewCell.swift */; };
+		BCD83534282BB166001273C8 /* TaskTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83533282BB166001273C8 /* TaskTableViewDataSource.swift */; };
+		BCD83535282BB166001273C8 /* TaskTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83533282BB166001273C8 /* TaskTableViewDataSource.swift */; };
+		BCD83537282BB170001273C8 /* TaskTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83536282BB170001273C8 /* TaskTableViewDelegate.swift */; };
+		BCD83538282BB170001273C8 /* TaskTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83536282BB170001273C8 /* TaskTableViewDelegate.swift */; };
+		BCD8353A282BB1E2001273C8 /* TaskStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83539282BB1E2001273C8 /* TaskStackView.swift */; };
+		BCD8353B282BB1E2001273C8 /* TaskStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83539282BB1E2001273C8 /* TaskStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +116,12 @@
 		BCD835102824FC98001273C8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		BCD83524282A0C75001273C8 /* BoardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardCollectionViewCell.swift; sourceTree = "<group>"; };
 		BCD83526282A0C7E001273C8 /* BoardListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardListViewController.swift; sourceTree = "<group>"; };
+		BCD8352A282B8652001273C8 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		BCD8352D282B9540001273C8 /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
+		BCD83530282B9F9B001273C8 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		BCD83533282BB166001273C8 /* TaskTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewDataSource.swift; sourceTree = "<group>"; };
+		BCD83536282BB170001273C8 /* TaskTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewDelegate.swift; sourceTree = "<group>"; };
+		BCD83539282BB1E2001273C8 /* TaskStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStackView.swift; sourceTree = "<group>"; };
 		D15D9EBA901D0B5B1CA0FD61 /* Pods_Krello.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Krello.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -229,7 +247,12 @@
 		BCC51E2A2821113900CDD04F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BC2209832823A86000159AC0 /* DefaultView.swift */,
+				BC2209862823A87700159AC0 /* LoginView.swift */,
 				BCD83524282A0C75001273C8 /* BoardCollectionViewCell.swift */,
+				BCD83539282BB1E2001273C8 /* TaskStackView.swift */,
+				BCD83530282B9F9B001273C8 /* TaskTableViewCell.swift */,
+				BCD8352A282B8652001273C8 /* BoardView.swift */,
 				BCC51E0328210F5800CDD04F /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -243,6 +266,7 @@
 				BC22098F2823AE1600159AC0 /* LayoutAnchor+Extension.swift */,
 				BCD8350C2823C5C6001273C8 /* UIVIew+Extension.swift */,
 				BC22098C2823ADB200159AC0 /* UIStackView+Extension.swift */,
+				BCD8352D282B9540001273C8 /* PaddedLabel.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -254,10 +278,10 @@
 				B74C0224282A294700C3602D /* BoardViewController.swift */,
 				BCD83526282A0C7E001273C8 /* BoardListViewController.swift */,
 				B74C0223282A294700C3602D /* PagingIndicatorReusableView.swift */,
+				BCD83533282BB166001273C8 /* TaskTableViewDataSource.swift */,
+				BCD83536282BB170001273C8 /* TaskTableViewDelegate.swift */,
 				B74C0222282A294700C3602D /* FlowLayoutMaker.swift */,
 				BC22098028239D7000159AC0 /* LoginViewController.swift */,
-				BC2209832823A86000159AC0 /* DefaultView.swift */,
-				BC2209862823A87700159AC0 /* LoginView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -497,8 +521,11 @@
 				BC0B745D28225BDD007AE2B6 /* Preview.swift in Sources */,
 				BCC51E322821174200CDD04F /* Something+Extension.swift in Sources */,
 				B76D570B2824EE21009EEAEC /* AuthenticationInfo.swift in Sources */,
+				BCD83531282B9F9B001273C8 /* TaskTableViewCell.swift in Sources */,
 				BCD83527282A0C7E001273C8 /* BoardListViewController.swift in Sources */,
 				BCD835112824FC98001273C8 /* main.swift in Sources */,
+				BCD8352E282B9540001273C8 /* PaddedLabel.swift in Sources */,
+				BCD8353A282BB1E2001273C8 /* TaskStackView.swift in Sources */,
 				B74502322823944000172502 /* Validator.swift in Sources */,
 				BCD83525282A0C75001273C8 /* BoardCollectionViewCell.swift in Sources */,
 				B76D57092824ED2F009EEAEC /* AuthenticationManager.swift in Sources */,
@@ -507,7 +534,10 @@
 				BC2209872823A87700159AC0 /* LoginView.swift in Sources */,
 				B74C0227282A294700C3602D /* BoardViewController.swift in Sources */,
 				B74C0226282A294700C3602D /* PagingIndicatorReusableView.swift in Sources */,
+				BCD83537282BB170001273C8 /* TaskTableViewDelegate.swift in Sources */,
+				BCD8352B282B8652001273C8 /* BoardView.swift in Sources */,
 				BC2209842823A86000159AC0 /* DefaultView.swift in Sources */,
+				BCD83534282BB166001273C8 /* TaskTableViewDataSource.swift in Sources */,
 				BCD8350D2823C5C6001273C8 /* UIVIew+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,17 +548,23 @@
 			files = (
 				B76D57042823F694009EEAEC /* ValidatorTest.swift in Sources */,
 				B76D570D2824F88C009EEAEC /* AuthenticationManagerIntegrationTest.swift in Sources */,
+				BCD8353B282BB1E2001273C8 /* TaskStackView.swift in Sources */,
 				BC22098228239D7000159AC0 /* LoginViewController.swift in Sources */,
 				BC0B746528236A35007AE2B6 /* KrelloTests.swift in Sources */,
 				6FD292C12824E7A000A0ED7E /* LoginViewTest.swift in Sources */,
+				BCD83535282BB166001273C8 /* TaskTableViewDataSource.swift in Sources */,
 				BC2209882823A87700159AC0 /* LoginView.swift in Sources */,
+				BCD8352F282B9540001273C8 /* PaddedLabel.swift in Sources */,
 				BC2209912823AE1600159AC0 /* LayoutAnchor+Extension.swift in Sources */,
+				BCD83538282BB170001273C8 /* TaskTableViewDelegate.swift in Sources */,
 				BCD83529282A1799001273C8 /* BoardCollectionViewCell.swift in Sources */,
 				B76D570F2826E1F4009EEAEC /* AuthenticationTest.swift in Sources */,
 				BCD8350F2824FC35001273C8 /* TestingAppDelegate.swift in Sources */,
 				BC2209852823A86000159AC0 /* DefaultView.swift in Sources */,
 				BC22098B2823AD9900159AC0 /* UIColor+Extension.swift in Sources */,
 				BCD83528282A1796001273C8 /* BoardListViewController.swift in Sources */,
+				BCD8352C282B8652001273C8 /* BoardView.swift in Sources */,
+				BCD83532282B9F9B001273C8 /* TaskTableViewCell.swift in Sources */,
 				6FD292C22824E98B00A0ED7E /* Preview.swift in Sources */,
 				B76D57062824DBA8009EEAEC /* Preview.swift in Sources */,
 				BC22098E2823ADB200159AC0 /* UIStackView+Extension.swift in Sources */,

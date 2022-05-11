@@ -7,20 +7,20 @@
 
 import UIKit
 
-enum FlowLayoutMaker {
-
-    static func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
-
-        let item = createItem()
-        let group = createGroup(item)
-        let section = createSection(group)
+extension UICollectionViewLayout {
+    static var krelloBoardLayout: UICollectionViewCompositionalLayout {
+        let item = BoardLayoutMaker.createItem()
+        let group = BoardLayoutMaker.createGroup(item)
+        let section = BoardLayoutMaker.createSection(group)
         let layout = UICollectionViewCompositionalLayout(section: section)
 
         return layout
     }
+}
 
+enum BoardLayoutMaker {
     static func createItem() -> NSCollectionLayoutItem {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.8))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
 
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: 12.0, bottom: 0.0, trailing: 12.0)
@@ -29,7 +29,7 @@ enum FlowLayoutMaker {
     }
 
     static func createGroup(_ item: NSCollectionLayoutItem) -> NSCollectionLayoutGroup {
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(0.8))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(0.9))
 
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
 
@@ -73,28 +73,4 @@ enum FlowLayoutMaker {
 
         return sectionFooter
     }
-
-}
-
-// MARK: - Layout Without table View
-
-extension FlowLayoutMaker {
-
-    // Create Item
-    static func createTaskItem() -> NSCollectionLayoutItem {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.8))
-
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: 12.0, bottom: 0.0, trailing: 12.0)
-
-        return item
-    }
-
-    // Create Group (instead of table view)
-    static func createTaskGroup() -> NSCollectionLayoutGroup {
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(50))
-        let group = NSCollectionLayoutGroup(layoutSize: groupSize)
-        return group
-    }
-
 }

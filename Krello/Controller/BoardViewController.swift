@@ -9,57 +9,57 @@ import UIKit
 
 class BoardViewController: UIViewController {
 
+    let dummyStatus = ["To do", "In progress", "Done"]
     let dummyTasks = [
         ["ㄱㄴㄷㄹ", "ㅁㅂㅅㅇ"],
         ["ㄱㄴㄷㄹ", "ㅁㅂㅅㅇ", "ㄱㄴㄷㄹ", "ㅁㅂㅅㅇ", "ㄱㄴㄷㄹ", "ㅁㅂㅅㅇ", "ㄱㄴㄷㄹ", "ㅁㅂㅅㅇ", "ㄱㄴㄷㄹ", "ㅁㅂㅅㅇ"],
         ["test"]
     ]
+    var boardName: String = "Dummy Board"
 
-    var collectionView: UICollectionView!
+    var boardView: BoardView?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureCollectionView()
-        view.backgroundColor =  .krelloGreen
+        configureNavBar()
+        configureSubviews()
+    }
+
+    func configureNavBar() {
+        navigationItem.title = boardName
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            .font: UIFont.systemFont(ofSize: 18, weight: .bold)
+        ]
+    }
+
+    func configureSubviews() {
+        let boardView = BoardView()
+        boardView.setDelegate(self)
+        boardView.setDataSource(self)
+        boardView.setLayout(.krelloBoardLayout)
+
+        self.boardView = boardView
+        self.view = boardView
     }
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        self.collectionView.collectionViewLayout = FlowLayoutMaker.createCompositionalLayout()
-    }
-
-    private func configureCollectionView() {
-        let layout = FlowLayoutMaker.createCompositionalLayout()
-        self.collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
-        self.collectionView.register(BoardCollectionViewCell.self, forCellWithReuseIdentifier: BoardCollectionViewCell.identifier)
-        self.collectionView.register(PagingIndicatorReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: PagingIndicatorReusableView.identifier)
-        self.collectionView.backgroundColor = .krelloGreen
-        self.view.addSubview(collectionView)
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
-            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
+        boardView?.setLayout(.krelloBoardLayout)
     }
 
 }
 
-extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension BoardViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        3
+        dummyStatus.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BoardCollectionViewCell.identifier, for: indexPath) as? BoardCollectionViewCell else {return UICollectionViewCell()}
-//        let dataMock = TaskTableViewDataSource(status: "Todo", tasks: ["ㄱㄴㄷㄹ", "ㅁㅂㅅㅇ"])
 
-        cell.configure(status: "Todo", task: dummyTasks[indexPath.row])
-
-        print("CollectionView \(indexPath.row) configured")
+        cell.configure(status: dummyStatus[indexPath.item], tasks: dummyTasks[indexPath.item])
 
         return cell
     }
@@ -70,5 +70,9 @@ extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSou
         }
         return footer
     }
+
+}
+
+extension BoardViewController: UICollectionViewDelegate {
 
 }

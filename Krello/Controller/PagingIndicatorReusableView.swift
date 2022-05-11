@@ -11,17 +11,19 @@ class PagingIndicatorReusableView: UICollectionReusableView {
 
     static let identifier = "PagingIndicatorReusableView"
 
-    // Define the number of pages.
     let pageSize = 3
     var pageControl: UIPageControl!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configure()
-//        setupView()
+        createSubviews()
     }
 
-    private func configure() {
+    required init?(coder: NSCoder) {
+        fatalError("Not implemented")
+    }
+
+    private func createSubviews() {
         pageControl = UIPageControl(frame: self.bounds)
         pageControl.currentPageIndicatorTintColor = UIColor.black
         pageControl.numberOfPages = pageSize
@@ -29,21 +31,7 @@ class PagingIndicatorReusableView: UICollectionReusableView {
         self.addSubview(pageControl)
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("Not implemented")
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
-
-    private func setupView() {
-
-          addSubview(pageControl)
-
-      }
-
-    func configure(with numberOfPages: Int) {
-            pageControl.currentPage = numberOfPages
+    func configure(numberOfPages: Int) {
+        pageControl.currentPage = numberOfPages
     }
 }
