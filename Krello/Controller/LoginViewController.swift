@@ -22,7 +22,10 @@ class LoginViewController: UIViewController {
         }
 
         loginView.didTapSignupButton = {
-            print("가입버튼 눌러버렸다")
+            let destinationVC = SignupViewController()
+            let navigationViewController = UINavigationController(rootViewController: destinationVC)
+//            navigationViewController.modalPresentationStyle = .fullScreen
+            self.present(navigationViewController, animated: true)
         }
     }
 }
