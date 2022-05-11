@@ -9,6 +9,12 @@ import UIKit
 
 class BoardViewController: UIViewController {
 
+    let dummyTasks = [
+        ["ㄱㄴㄷㄹ", "ㅁㅂㅅㅇ"],
+        ["ㄱㄴㄷㄹ", "ㅁㅂㅅㅇ", "ㄱㄴㄷㄹ", "ㅁㅂㅅㅇ", "ㄱㄴㄷㄹ", "ㅁㅂㅅㅇ", "ㄱㄴㄷㄹ", "ㅁㅂㅅㅇ", "ㄱㄴㄷㄹ", "ㅁㅂㅅㅇ"],
+        ["test"]
+    ]
+
     var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +56,11 @@ extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BoardCollectionViewCell.identifier, for: indexPath) as? BoardCollectionViewCell else {return UICollectionViewCell()}
 //        let dataMock = TaskTableViewDataSource(status: "Todo", tasks: ["ㄱㄴㄷㄹ", "ㅁㅂㅅㅇ"])
-        cell.configure(status: "Todo", task: ["ㄱㄴㄷㄹ", "ㅁㅂㅅㅇ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ", "ㄱㄴㄷㄹ"])
-        self.collectionView.setNeedsLayout()
+
+        cell.configure(status: "Todo", task: dummyTasks[indexPath.row])
+
+        print("CollectionView \(indexPath.row) configured")
+
         return cell
     }
 
