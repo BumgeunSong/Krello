@@ -42,7 +42,6 @@
 		BCC51DFD28210F5700CDD04F /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DFC28210F5700CDD04F /* RootViewController.swift */; };
 		BCC51E0228210F5800CDD04F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E0128210F5800CDD04F /* Assets.xcassets */; };
 		BCC51E0528210F5800CDD04F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E0328210F5800CDD04F /* LaunchScreen.storyboard */; };
-		BCC51E322821174200CDD04F /* Something+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51E312821174200CDD04F /* Something+Extension.swift */; };
 		BCC51E3428211AA500CDD04F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E3328211AA500CDD04F /* GoogleService-Info.plist */; };
 		BCD8350D2823C5C6001273C8 /* UIVIew+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8350C2823C5C6001273C8 /* UIVIew+Extension.swift */; };
 		BCD8350F2824FC35001273C8 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8350E2824FC35001273C8 /* TestingAppDelegate.swift */; };
@@ -63,6 +62,9 @@
 		BCD83538282BB170001273C8 /* TaskTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83536282BB170001273C8 /* TaskTableViewDelegate.swift */; };
 		BCD8353A282BB1E2001273C8 /* TaskStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83539282BB1E2001273C8 /* TaskStackView.swift */; };
 		BCD8353B282BB1E2001273C8 /* TaskStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83539282BB1E2001273C8 /* TaskStackView.swift */; };
+		BCD8353C282C047D001273C8 /* FlowLayoutMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0222282A294700C3602D /* FlowLayoutMaker.swift */; };
+		BCD8353D282C0484001273C8 /* PagingIndicatorReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0223282A294700C3602D /* PagingIndicatorReusableView.swift */; };
+		BCD8353E282C048A001273C8 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0224282A294700C3602D /* BoardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,7 +111,6 @@
 		BCC51E0628210F5800CDD04F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCC51E0B28210F5800CDD04F /* KrelloTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KrelloTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC51E0F28210F5800CDD04F /* KrelloTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrelloTests.swift; sourceTree = "<group>"; };
-		BCC51E312821174200CDD04F /* Something+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Something+Extension.swift"; sourceTree = "<group>"; };
 		BCC51E3328211AA500CDD04F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BCD8350C2823C5C6001273C8 /* UIVIew+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+Extension.swift"; sourceTree = "<group>"; };
 		BCD8350E2824FC35001273C8 /* TestingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
@@ -261,7 +262,6 @@
 		BCC51E2D2821115300CDD04F /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				BCC51E312821174200CDD04F /* Something+Extension.swift */,
 				BC2209892823AD9900159AC0 /* UIColor+Extension.swift */,
 				BC22098F2823AE1600159AC0 /* LayoutAnchor+Extension.swift */,
 				BCD8350C2823C5C6001273C8 /* UIVIew+Extension.swift */,
@@ -519,7 +519,6 @@
 				BC22098D2823ADB200159AC0 /* UIStackView+Extension.swift in Sources */,
 				BC22098A2823AD9900159AC0 /* UIColor+Extension.swift in Sources */,
 				BC0B745D28225BDD007AE2B6 /* Preview.swift in Sources */,
-				BCC51E322821174200CDD04F /* Something+Extension.swift in Sources */,
 				B76D570B2824EE21009EEAEC /* AuthenticationInfo.swift in Sources */,
 				BCD83531282B9F9B001273C8 /* TaskTableViewCell.swift in Sources */,
 				BCD83527282A0C7E001273C8 /* BoardListViewController.swift in Sources */,
@@ -550,6 +549,7 @@
 				B76D570D2824F88C009EEAEC /* AuthenticationManagerIntegrationTest.swift in Sources */,
 				BCD8353B282BB1E2001273C8 /* TaskStackView.swift in Sources */,
 				BC22098228239D7000159AC0 /* LoginViewController.swift in Sources */,
+				BCD8353E282C048A001273C8 /* BoardViewController.swift in Sources */,
 				BC0B746528236A35007AE2B6 /* KrelloTests.swift in Sources */,
 				6FD292C12824E7A000A0ED7E /* LoginViewTest.swift in Sources */,
 				BCD83535282BB166001273C8 /* TaskTableViewDataSource.swift in Sources */,
@@ -558,6 +558,7 @@
 				BC2209912823AE1600159AC0 /* LayoutAnchor+Extension.swift in Sources */,
 				BCD83538282BB170001273C8 /* TaskTableViewDelegate.swift in Sources */,
 				BCD83529282A1799001273C8 /* BoardCollectionViewCell.swift in Sources */,
+				BCD8353C282C047D001273C8 /* FlowLayoutMaker.swift in Sources */,
 				B76D570F2826E1F4009EEAEC /* AuthenticationTest.swift in Sources */,
 				BCD8350F2824FC35001273C8 /* TestingAppDelegate.swift in Sources */,
 				BC2209852823A86000159AC0 /* DefaultView.swift in Sources */,
@@ -568,6 +569,7 @@
 				6FD292C22824E98B00A0ED7E /* Preview.swift in Sources */,
 				B76D57062824DBA8009EEAEC /* Preview.swift in Sources */,
 				BC22098E2823ADB200159AC0 /* UIStackView+Extension.swift in Sources */,
+				BCD8353D282C0484001273C8 /* PagingIndicatorReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
