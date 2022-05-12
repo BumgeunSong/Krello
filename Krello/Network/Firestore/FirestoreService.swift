@@ -19,17 +19,17 @@ struct ServerUser: Identifiable, Codable {
 struct BoardTask: Identifiable, Codable, Hashable {
     let id: String
     let title: String
-    let status: TaskStatus
+    let status: Status
     let contents: String
     let rowPosition: Int
     let createdAt: Date
-}
 
-enum TaskStatus: String, Codable {
-    case todo = "Todo"
-    case inprogress = "Inprogress"
-    case done = "Done"
-    case none = "None"
+    enum Status: String, Codable {
+        case todo = "Todo"
+        case inprogress = "Inprogress"
+        case done = "Done"
+        case none = "None"
+    }
 }
 
 struct ServerBoard: Identifiable, Codable {
@@ -43,14 +43,14 @@ struct ServerLog: Identifiable, Codable {
     @DocumentID var id: String?
     let taskTitle: String
     let createdAt: Date
-    let action: LogAction
-}
+    let action: Action
 
-enum LogAction: String, Codable {
-    case move = "Move"
-    case add = "Add"
-    case delete = "Delete"
-    case update = "Update"
+    enum Action: String, Codable {
+        case move = "Move"
+        case add = "Add"
+        case delete = "Delete"
+        case update = "Update"
+    }
 }
 
 enum FirestoreServiceError: Error {
