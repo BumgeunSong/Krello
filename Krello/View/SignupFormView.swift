@@ -8,7 +8,7 @@
 import UIKit
 
 class SignupFormView: DefaultView {
-    var didTapSignupButton: ((_ email: String, _ password: String) -> Void)?
+    var didTapSignupButton: ((_ email: String, _ password: String, _ userName: String) -> Void)?
     var didTapCloseButton: (() -> Void)?
     var validateRegexFields: ((SignupTextField) -> (ValidationMessage?))?
     var validateEmptyFields: ((SignupTextField) -> (ValidationMessage?))?
@@ -226,8 +226,8 @@ extension SignupFormView {
     }
 
     @objc func didTapSignUp() {
-        guard let email = emailTextField.text, let password = passwordTextField.text else {return}
-        didTapSignupButton?(email, password)
+        guard let email = emailTextField.text, let password = passwordTextField.text, let userName = userNameTextField.text else {return}
+        didTapSignupButton?(email, password, userName)
     }
 
     @objc private func dismissKeyboard() {

@@ -9,8 +9,10 @@ import UIKit
 
 class SignupViewController: UIViewController {
 
-    let signupView = SignupFormView()
-    let validator = Validator()
+    private let signupView = SignupFormView()
+    private let validator = Validator()
+    private let authenticationManager = AuthenticationManager()
+    private var alert: UIAlertController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +48,20 @@ class SignupViewController: UIViewController {
     }
 
     private func processSignup() {
-        signupView.didTapSignupButton = { email, password in
-            print("\(email):\(password)")
+        signupView.didTapSignupButton = { [weak self] email, password, userName in
+            guard let self = self else {return}
+            print("\(email):\(password):\(userName)")
+            let userInfo = AuthenticationInfo(email: email, password: password)
+            self.authenticationManager.signUp(info: userInfo) { result in
+                switch result {
+                case .success(let user):
+                    //TODO: Alert 띄우기
+                    print(user)
+                case .failure(let error):
+                    //TODO: 서버와 연결이 끊기면 Alert 띄우기 
+                    print(error)
+                }
+            }
         }
     }
 
