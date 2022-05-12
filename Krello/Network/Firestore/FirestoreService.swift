@@ -39,7 +39,7 @@ struct ServerBoard: Identifiable, Codable {
     let tasks: [BoardTask]?
 }
 
-struct ServerLog: Identifiable, Codable {
+struct ActivityLog: Identifiable, Codable {
     @DocumentID var id: String?
     let taskTitle: String
     let createdAt: Date
@@ -128,7 +128,7 @@ final class FirestoreService {
         }
     }
 
-    func fetchLogs(boardUid: String, _ completion: @escaping(Result<[ServerLog], FirestoreServiceError>) -> Void) {
+    func fetchLogs(boardUid: String, _ completion: @escaping(Result<[ActivityLog], FirestoreServiceError>) -> Void) {
         let db = Firestore.firestore()
         let boardLogsRef = db.collection("boards").document(boardUid).collection("logs")
 
@@ -141,9 +141,9 @@ final class FirestoreService {
                 completion(.failure(.emptyData))
                 return
             }
-            var result = [ServerLog]()
+            var result = [ActivityLog]()
             for document in documents {
-                guard let decodeModel = try? document.data(as: ServerLog.self) else {
+                guard let decodeModel = try? document.data(as: ActivityLog.self) else {
                     continue
                 }
                 result.append(decodeModel)
