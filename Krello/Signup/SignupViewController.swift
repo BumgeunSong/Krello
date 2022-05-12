@@ -55,10 +55,10 @@ class SignupViewController: UIViewController {
             self.authenticationManager.signUp(info: userInfo) { result in
                 switch result {
                 case .success(let user):
-                    //TODO: Alert 띄우기
+                    // TODO: Alert 띄우기
                     print(user)
                 case .failure(let error):
-                    //TODO: 서버와 연결이 끊기면 Alert 띄우기 
+                    // TODO: 서버와 연결이 끊기면 Alert 띄우기 
                     print(error)
                 }
             }
