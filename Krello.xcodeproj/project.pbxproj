@@ -32,9 +32,9 @@
 		B73E7171282D7152007B4654 /* TaskTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73E716C282D7152007B4654 /* TaskTableViewDataSource.swift */; };
 		B73E7172282D7152007B4654 /* TaskStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73E716E282D7152007B4654 /* TaskStackView.swift */; };
 		B73E7173282D7152007B4654 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73E716F282D7152007B4654 /* TaskTableViewCell.swift */; };
-		B74C022D282B862A00C3602D /* SignupFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C022C282B862A00C3602D /* SignupFormView.swift */; };
-		B74C022F282B99D600C3602D /* ValidationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C022E282B99D600C3602D /* ValidationLabel.swift */; };
-		B74C0231282BEC1800C3602D /* SignupTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0230282BEC1800C3602D /* SignupTextField.swift */; };
+		B73E717C282D7BE4007B4654 /* SignupFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73E7179282D7BE4007B4654 /* SignupFormView.swift */; };
+		B73E717D282D7BE4007B4654 /* SignupTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73E717A282D7BE4007B4654 /* SignupTextField.swift */; };
+		B73E717E282D7BE4007B4654 /* ValidationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73E717B282D7BE4007B4654 /* ValidationLabel.swift */; };
 		B76D57042823F694009EEAEC /* ValidatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D57032823F694009EEAEC /* ValidatorTest.swift */; };
 		B76D570D2824F88C009EEAEC /* AuthenticationManagerIntegrationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D570C2824F88C009EEAEC /* AuthenticationManagerIntegrationTest.swift */; };
 		B76D570F2826E1F4009EEAEC /* AuthenticationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D570E2826E1F4009EEAEC /* AuthenticationTest.swift */; };
@@ -93,9 +93,9 @@
 		B73E716C282D7152007B4654 /* TaskTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewDataSource.swift; sourceTree = "<group>"; };
 		B73E716E282D7152007B4654 /* TaskStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskStackView.swift; sourceTree = "<group>"; };
 		B73E716F282D7152007B4654 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
-		B74C022C282B862A00C3602D /* SignupFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupFormView.swift; sourceTree = "<group>"; };
-		B74C022E282B99D600C3602D /* ValidationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationLabel.swift; sourceTree = "<group>"; };
-		B74C0230282BEC1800C3602D /* SignupTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupTextField.swift; sourceTree = "<group>"; };
+		B73E7179282D7BE4007B4654 /* SignupFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupFormView.swift; sourceTree = "<group>"; };
+		B73E717A282D7BE4007B4654 /* SignupTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupTextField.swift; sourceTree = "<group>"; };
+		B73E717B282D7BE4007B4654 /* ValidationLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationLabel.swift; sourceTree = "<group>"; };
 		B76D57032823F694009EEAEC /* ValidatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorTest.swift; sourceTree = "<group>"; };
 		B76D570C2824F88C009EEAEC /* AuthenticationManagerIntegrationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManagerIntegrationTest.swift; sourceTree = "<group>"; };
 		B76D570E2826E1F4009EEAEC /* AuthenticationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTest.swift; sourceTree = "<group>"; };
@@ -106,7 +106,6 @@
 		BCC51DF828210F5700CDD04F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCC51DFA28210F5700CDD04F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BCC51E0128210F5800CDD04F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BCC51E0428210F5800CDD04F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCC51E0628210F5800CDD04F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCC51E0B28210F5800CDD04F /* KrelloTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KrelloTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC51E0F28210F5800CDD04F /* KrelloTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrelloTests.swift; sourceTree = "<group>"; };
@@ -219,7 +218,6 @@
 			isa = PBXGroup;
 			children = (
 				B73E7159282D7130007B4654 /* LoginView.swift */,
-				B73E715A282D7130007B4654 /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -227,7 +225,8 @@
 		B73E7163282D7146007B4654 /* Signup */ = {
 			isa = PBXGroup;
 			children = (
-				B73E7164282D7146007B4654 /* SignupViewController.swift */,
+				B73E7177282D7BDD007B4654 /* Controller */,
+				B73E7178282D7BE4007B4654 /* View */,
 				B73E7165282D7146007B4654 /* Model */,
 			);
 			path = Signup;
@@ -268,6 +267,24 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B73E7177282D7BDD007B4654 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B73E7164282D7146007B4654 /* SignupViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B73E7178282D7BE4007B4654 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B73E7179282D7BE4007B4654 /* SignupFormView.swift */,
+				B73E717A282D7BE4007B4654 /* SignupTextField.swift */,
+				B73E717B282D7BE4007B4654 /* ValidationLabel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BCC51DEC28210F5700CDD04F = {
 			isa = PBXGroup;
 			children = (
@@ -296,7 +313,6 @@
 				B73E7150282D7130007B4654 /* Login */,
 				B73E7141282D710F007B4654 /* BoardCRUD */,
 				BCC51E2D2821115300CDD04F /* Common */,
-				BCC51E2A2821113900CDD04F /* View */,
 				BCC51E292821113900CDD04F /* Supporting */,
 			);
 			path = Krello;
@@ -324,19 +340,9 @@
 				BCC51E0128210F5800CDD04F /* Assets.xcassets */,
 				BCC51E0628210F5800CDD04F /* Info.plist */,
 				BCC51E3328211AA500CDD04F /* GoogleService-Info.plist */,
+				B73E715A282D7130007B4654 /* LaunchScreen.storyboard */,
 			);
 			path = Supporting;
-			sourceTree = "<group>";
-		};
-		BCC51E2A2821113900CDD04F /* View */ = {
-			isa = PBXGroup;
-			children = (
-				B74C022C282B862A00C3602D /* SignupFormView.swift */,
-				B74C0230282BEC1800C3602D /* SignupTextField.swift */,
-				B74C022E282B99D600C3602D /* ValidationLabel.swift */,
-				BCC51E0328210F5800CDD04F /* LaunchScreen.storyboard */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		BCC51E2D2821115300CDD04F /* Common */ = {
@@ -582,6 +588,8 @@
 				BCC51DF928210F5700CDD04F /* AppDelegate.swift in Sources */,
 				B73E714C282D710F007B4654 /* BoardLayoutMaker.swift in Sources */,
 				BC22098D2823ADB200159AC0 /* UIStackView+Extension.swift in Sources */,
+				B73E717D282D7BE4007B4654 /* SignupTextField.swift in Sources */,
+				B73E717C282D7BE4007B4654 /* SignupFormView.swift in Sources */,
 				BC22098A2823AD9900159AC0 /* UIColor+Extension.swift in Sources */,
 				B73E7138282D6E98007B4654 /* DefaultView.swift in Sources */,
 				BCD835112824FC98001273C8 /* main.swift in Sources */,
@@ -597,13 +605,11 @@
 				B73E7161282D7130007B4654 /* LoginView.swift in Sources */,
 				B73E714E282D710F007B4654 /* PagingIndicatorReusableView.swift in Sources */,
 				B73E715E282D7130007B4654 /* AuthenticationManager.swift in Sources */,
-				B74C0231282BEC1800C3602D /* SignupTextField.swift in Sources */,
 				B73E714B282D710F007B4654 /* BoardListViewController.swift in Sources */,
-				B74C022D282B862A00C3602D /* SignupFormView.swift in Sources */,
-				B74C022F282B99D600C3602D /* ValidationLabel.swift in Sources */,
 				B73E714D282D710F007B4654 /* BoardView.swift in Sources */,
 				BCD8350D2823C5C6001273C8 /* UIVIew+Extension.swift in Sources */,
 				B73E7170282D7152007B4654 /* TaskTableViewDelegate.swift in Sources */,
+				B73E717E282D7BE4007B4654 /* ValidationLabel.swift in Sources */,
 				B73E7167282D7146007B4654 /* SignupViewController.swift in Sources */,
 				B73E715D282D7130007B4654 /* UserInfo.swift in Sources */,
 				B73E714A282D710F007B4654 /* BoardViewController.swift in Sources */,
@@ -642,14 +648,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				B73E715B282D7130007B4654 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		BCC51E0328210F5800CDD04F /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BCC51E0428210F5800CDD04F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

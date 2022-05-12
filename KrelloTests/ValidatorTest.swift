@@ -30,12 +30,7 @@ class ValidatorTest: XCTestCase {
         let pass = sut.isValidFormat(testEmail, for: .email)
 
         // Then
-        switch pass {
-        case .success(let bool):
-            XCTAssertTrue(bool)
-        case .failure:
-            XCTFail("Email SuccessValidation Failed")
-        }
+        XCTAssertEqual(ValidationMessage.validated(.email).description, pass.description)
     }
 
     func test_FailureValidation_OnEmail() throws {
@@ -46,12 +41,7 @@ class ValidatorTest: XCTestCase {
         let fail = sut.isValidFormat(testEmail, for: .email)
 
         // Then
-        switch fail {
-        case .failure(let value):
-            XCTAssertEqual(ValidationFailure.invalidFormat(.email).description, value.description)
-        case .success:
-            XCTFail("Email FailureValidation Failed")
-        }
+        XCTAssertEqual(ValidationMessage.invalidFormat(.email).description, fail.description)
     }
 
     func test_SuccessValidation_OnPassword() throws {
@@ -62,60 +52,43 @@ class ValidatorTest: XCTestCase {
         let pass = sut.isValidFormat(testPassword, for: .password)
 
         // Then
-        switch pass {
-        case .success(let bool):
-            XCTAssertTrue(bool)
-        case .failure:
-            XCTFail("Password SuccessValidation Failed")
-        }
+        XCTAssertEqual(ValidationMessage.validated(.password).description, pass.description)
     }
 
     func test_FailureValidation_OnPassword() throws {
         // Given
-        let testEmail = "123123"
+        let testPassword = "123123"
 
         // When
-        let fail = sut.isValidFormat(testEmail, for: .password)
+        let fail = sut.isValidFormat(testPassword, for: .password)
 
         // Then
-        switch fail {
-        case .failure(let value):
-            XCTAssertEqual(ValidationFailure.invalidFormat(.password).description, value.description)
-        case .success:
-            XCTFail("Password FailureValidation Failed")
-        }
+        XCTAssertEqual(ValidationMessage.invalidFormat(.password).description, fail.description)
+
     }
 
     func test_SuccessValidation_OnUserName() throws {
         // Given
-        let testEmail = "김태경"
+        let testUserName = "김태경"
 
         // When
-        let pass = sut.isValidFormat(testEmail, for: .userName)
+        let pass = sut.isValidFormat(testUserName, for: .userName)
 
         // Then
-        switch pass {
-        case .success(let bool):
-            XCTAssertTrue(bool)
-        case .failure:
-            XCTFail("UserName SuccessValidation Failed")
-        }
+        XCTAssertEqual(ValidationMessage.validated(.userName).description, pass.description)
+
     }
 
     func test_FailureValidation_OnUserName() throws {
         // Given
-        let testEmail = "김"
+        let testUserName = "김"
 
         // When
-        let fail = sut.isValidFormat(testEmail, for: .userName)
+        let fail = sut.isValidFormat(testUserName, for: .userName)
 
         // Then
-        switch fail {
-        case .failure(let value):
-            XCTAssertEqual(ValidationFailure.invalidFormat(.userName).description, value.description)
-        case .success:
-            XCTFail("UserName FailureValidation Failed")
-        }
+        XCTAssertEqual(ValidationMessage.invalidFormat(.userName).description, fail.description)
+
     }
 
     func test_SuccessValidation_PasswordConfirmation() throws {
@@ -126,12 +99,8 @@ class ValidatorTest: XCTestCase {
         // When
         let pass = sut.isMatched(password: password, confirmPassword: confirmPassword)
         // Then
-        switch pass {
-        case .success(let bool):
-            XCTAssertTrue(bool)
-        case .failure:
-            XCTFail("PasswordConfirmation SuccessValidation Failed")
-        }
+        XCTAssertEqual(ValidationMessage.passwordMatched.description, pass.description)
+
     }
 
     func test_FailureValidation_PasswordConfirmation() throws {
@@ -143,12 +112,8 @@ class ValidatorTest: XCTestCase {
         let fail = sut.isMatched(password: password, confirmPassword: confirmPassword)
 
         // Then
-        switch fail {
-        case .failure(let value):
-            XCTAssertEqual(ValidationFailure.passwordNotMatched.description, value.description)
-        case .success:
-            XCTFail("PasswordConfirmation FailureValidation Failed")
-        }
+        XCTAssertEqual(ValidationMessage.passwordNotMatched.description, fail.description)
+
     }
 
     func test_FailureValidation_PasswordConfirmation_ForEmptyCase() throws {
@@ -160,12 +125,8 @@ class ValidatorTest: XCTestCase {
         let fail = sut.isMatched(password: password, confirmPassword: confirmPassword)
 
         // Then
-        switch fail {
-        case .failure(let value):
-            XCTAssertEqual(ValidationFailure.passwordEmpty.description, value.description)
-        case .success:
-            XCTFail("PasswordConfirmation FailureValidation Failed")
-        }
+        XCTAssertEqual(ValidationMessage.itemEmpty.description, fail.description)
+
     }
 
     func test_FailureValidation_PasswordConfirmation_ForEmptySpaceCase() throws {
@@ -177,12 +138,7 @@ class ValidatorTest: XCTestCase {
         let fail = sut.isMatched(password: password, confirmPassword: confirmPassword)
 
         // Then
-        switch fail {
-        case .failure(let value):
-            XCTAssertEqual(ValidationFailure.passwordEmpty.description, value.description)
-        case .success:
-            XCTFail("PasswordConfirmation FailureValidation Failed")
-        }
+        XCTAssertEqual(ValidationMessage.passwordMatched.description, fail.description)
     }
 
 }
