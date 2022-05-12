@@ -10,7 +10,8 @@ import UIKit
 class SignupFormView: DefaultView {
     var didTapSignupButton: ((_ email: String, _ password: String) -> Void)?
     var didTapCloseButton: (() -> Void)?
-    var validateFields: ((SignupTextField) -> (ValidationMessage?))?
+    var validateRegexFields: ((SignupTextField) -> (ValidationMessage?))?
+    var validateEmptyFields: ((SignupTextField) -> (ValidationMessage?))?
     var validatePasswordConfirmation: ((String, SignupTextField) -> (ValidationMessage?))?
 
     override init(frame: CGRect) {
@@ -91,10 +92,14 @@ class SignupFormView: DefaultView {
         closeButton.addTarget(self, action: #selector(didTapClose), for: .touchUpInside)
         signupButton.addTarget(self, action: #selector(didTapSignUp), for: .touchUpInside)
 
+        emailTextField.addTarget(self, action: #selector(textFieldDidFinishChange), for: .editingDidEnd)
+        passwordTextField.addTarget(self, action: #selector(textFieldDidFinishChange), for: .editingDidEnd)
+        userNameTextField.addTarget(self, action: #selector(textFieldDidFinishChange), for: .editingDidEnd)
+        passwordConfirmTextField.addTarget(self, action: #selector(passwordConfimrationTextFieldDidChange), for: .editingDidEnd)
+
         emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         userNameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        passwordConfirmTextField.addTarget(self, action: #selector(passwordConfimrationTextFieldDidChange), for: .editingChanged)
     }
 
     private func setupKeyboardActions() {
@@ -176,7 +181,7 @@ class SignupFormView: DefaultView {
     // MARK: signUpButton
     let signupButton: UIButton = {
         let button = UIButton(type: .roundedRect)
-        button.setTitle("회원 가입", for: .normal)
+        button.setTitle("가입하기", for: .normal)
         button.setTitleColor(UIColor.krelloBlackOpaque, for: .normal)
         button.backgroundColor = .opaqueSeparator.withAlphaComponent(0.1)
         button.layer.cornerRadius = 10
@@ -229,35 +234,29 @@ extension SignupFormView {
         self.endEditing(true)
     }
 
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        guard let signupTextField = textField as? SignupTextField else {return}
-
-        guard let validationMessage = validateFields?(signupTextField), let currentStackView = textField.superview as? UIStackView else {return}
-
-        let label = currentStackView.arrangedSubviews.last as? ValidationLabel
-
-        if validationMessage.resultType == .pass {
-            label?.setValidatedLabel(message: validationMessage.description)
-            signupTextField.configureValidation(status: true)
-        } else {
-            label?.setInvalidatedLabel(message: validationMessage.description)
-            signupTextField.configureValidation(status: false)
-        }
-        configureSignupButton()
+    @objc func textFieldDidFinishChange(_ textField: SignupTextField) {
+        guard let validationMessage = validateEmptyFields?(textField) else {return}
+        updateValidationStatus(on: textField, with: validationMessage)
     }
 
-    @objc func passwordConfimrationTextFieldDidChange(_ textField: UITextField) {
-        guard let passwordConfirmationTextField = textField as? SignupTextField else {
-            return
-        }
-        guard  let password = passwordTextField.text, let validationMessage = validatePasswordConfirmation?(password, passwordConfirmationTextField) else {return}
+    @objc func textFieldDidChange(_ textField: SignupTextField) {
+        guard let validationMessage = validateRegexFields?(textField) else {return}
+        updateValidationStatus(on: textField, with: validationMessage)
+    }
 
-        if validationMessage.resultType == .pass {
-            passwordConfirmValidationLabel.setValidatedLabel(message: validationMessage.description)
-            passwordConfirmationTextField.configureValidation(status: true)
+    @objc func passwordConfimrationTextFieldDidChange(_ textField: SignupTextField) {
+        guard  let password = passwordTextField.text, let validationMessage = validatePasswordConfirmation?(password, textField) else {return}
+        updateValidationStatus(on: textField, with: validationMessage)
+    }
+
+    private func updateValidationStatus(on textField: SignupTextField, with message: ValidationMessage) {
+        guard let currentStackView = textField.superview as? UIStackView, let label = currentStackView.arrangedSubviews.last as? ValidationLabel else {return}
+        if message.resultType == .pass {
+            label.setValidatedLabel(message: message.description)
+            textField.configureValidation(status: true)
         } else {
-            passwordConfirmValidationLabel.setInvalidatedLabel(message: validationMessage.description)
-            passwordConfirmationTextField.configureValidation(status: false)
+            label.setInvalidatedLabel(message: message.description)
+            textField.configureValidation(status: false)
         }
         configureSignupButton()
     }

@@ -25,7 +25,14 @@ struct Validator {
         }
     }
 
+    func validateEmpty(_ input: String) -> ValidationMessage? {
+        guard !input.isEmpty else {return .itemEmpty}
+        return nil
+    }
+
     func isValidFormat(_ input: String, for item: SignupField) -> ValidationMessage {
+        guard !input.isEmpty else {return .itemEmpty}
+
         if validate(input, regex: item.regex) {
             return .validated(item)
         } else {
@@ -37,11 +44,11 @@ struct Validator {
         NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: input)
     }
 
-    func isMatched(password: String, confirmPassword: String) -> ValidationMessage {
+    func isMatched(password: String, confirmPassword: String?) -> ValidationMessage {
+        guard let confirmPassword = confirmPassword, !confirmPassword.isEmpty else {return .itemEmpty}
         let trimmedPassword = password.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedConfirmPassword = confirmPassword.trimmingCharacters(in: .whitespacesAndNewlines)
-
-        guard !trimmedPassword.isEmpty && !trimmedConfirmPassword.isEmpty else { return .passwordEmpty}
+//        guard !trimmedPassword.isEmpty && !trimmedConfirmPassword.isEmpty else {return .itemEmpty}
 
         if trimmedPassword == trimmedConfirmPassword {
             return .passwordMatched
@@ -61,6 +68,7 @@ enum ValidationMessage {
     case passwordNotMatched
     case passwordMatched
     case passwordEmpty
+    case itemEmpty
     case validated(_ item: Validator.SignupField)
 }
 
@@ -77,6 +85,8 @@ extension ValidationMessage: CustomStringConvertible {
             return "사용가능한 \(item.rawValue) 입니다"
         case .passwordMatched:
             return "입력하신 비밀번호와 일치합니다"
+        case.itemEmpty:
+            return "필수 정보입니다"
         }
     }
 
@@ -92,6 +102,9 @@ extension ValidationMessage: CustomStringConvertible {
             return .fail
         case .validated:
             return .pass
+        case .itemEmpty:
+            return .fail
         }
+
     }
 }

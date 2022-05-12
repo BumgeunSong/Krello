@@ -15,6 +15,7 @@ class SignupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = signupView
+        processFieldEmptyValidtion()
         processRegexValidation()
         processPasswordConfirmation()
         processSignup()
@@ -23,8 +24,15 @@ class SignupViewController: UIViewController {
         }
     }
 
+    private func processFieldEmptyValidtion() {
+        signupView.validateEmptyFields = {[weak self] textField in
+        guard let text = textField.text, let self = self else {return nil}
+        return  self.validator.validateEmpty(text)
+        }
+    }
+
     private func processRegexValidation () {
-        signupView.validateFields = { [weak self] textField in
+        signupView.validateRegexFields = { [weak self] textField in
             guard let item = textField.item, let text = textField.text, let self = self else {return nil}
             return self.validator.isValidFormat(text, for: item)
         }
@@ -32,10 +40,9 @@ class SignupViewController: UIViewController {
 
     private func processPasswordConfirmation() {
         signupView.validatePasswordConfirmation = { [weak self] password, passwordConfirmationTextField in
-            guard let text = passwordConfirmationTextField.text, let self = self else {return .passwordEmpty}
-            let result = self.validator.isMatched(password: password, confirmPassword: text)
-            return result
-        }
+            guard let self = self else {return nil}
+            let result = self.validator.isMatched(password: password, confirmPassword: passwordConfirmationTextField.text)
+            return result}
     }
 
     private func processSignup() {
