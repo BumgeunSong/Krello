@@ -70,6 +70,8 @@ extension BoardListViewController: UITableViewDataSource {
 extension BoardListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Present Board!")
+        let board = BoardViewController()
+        navigationController?.pushViewController(board, animated: true)
     }
 }
 
