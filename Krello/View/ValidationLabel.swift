@@ -26,14 +26,14 @@ class ValidationLabel: UILabel {
         self.adjustsFontSizeToFitWidth = true
     }
 
-    private func setInvalidatedLabel(message: String) {
+    func setInvalidatedLabel(message: String) {
         self.text = message
-        self.backgroundColor = .krelloRed
+        self.textColor = .systemRed
     }
 
-    private func setValidatedLabel(message: String) {
+    func setValidatedLabel(message: String) {
         self.text = message
-        self.backgroundColor = .krelloGray
+        self.textColor = .krelloGray
     }
 
 }

@@ -9,12 +9,39 @@ import UIKit
 
 class SignupViewController: UIViewController {
 
-    let loginView = SignupFormView()
+    let signupView = SignupFormView()
+    let validator = Validator()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = loginView
-        // Do any additional setup after loading the view.
+        view = signupView
+        processRegexValidation()
+        processPasswordConfirmation()
+        processSignup()
+        signupView.didTapCloseButton = { [weak self] in
+            self?.dismiss(animated: true)
+        }
+    }
+
+    private func processRegexValidation () {
+        signupView.validateFields = { [weak self] textField in
+            guard let item = textField.item, let text = textField.text, let self = self else {return nil}
+            return self.validator.isValidFormat(text, for: item)
+        }
+    }
+
+    private func processPasswordConfirmation() {
+        signupView.validatePasswordConfirmation = { [weak self] password, passwordConfirmationTextField in
+            guard let text = passwordConfirmationTextField.text, let self = self else {return .passwordEmpty}
+            let result = self.validator.isMatched(password: password, confirmPassword: text)
+            return result
+        }
+    }
+
+    private func processSignup() {
+        signupView.didTapSignupButton = { email, password in
+            print("\(email):\(password)")
+        }
     }
 
 }

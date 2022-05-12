@@ -21,11 +21,9 @@ class LoginViewController: UIViewController {
             self?.present(navigationViewController, animated: true)
         }
 
-        loginView.didTapSignupButton = {
+        loginView.didTapSignupButton = { [weak self] in
             let destinationVC = SignupViewController()
-            let navigationViewController = UINavigationController(rootViewController: destinationVC)
-//            navigationViewController.modalPresentationStyle = .fullScreen
-            self.present(navigationViewController, animated: true)
+            self?.present(destinationVC, animated: true)
         }
     }
 }

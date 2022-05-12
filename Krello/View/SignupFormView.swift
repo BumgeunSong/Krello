@@ -8,7 +8,10 @@
 import UIKit
 
 class SignupFormView: DefaultView {
-    var didTapSignupButton: (() -> Void)?
+    var didTapSignupButton: ((_ email: String, _ password: String) -> Void)?
+    var didTapCloseButton: (() -> Void)?
+    var validateFields: ((SignupTextField) -> (ValidationMessage?))?
+    var validatePasswordConfirmation: ((String, SignupTextField) -> (ValidationMessage?))?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -16,6 +19,16 @@ class SignupFormView: DefaultView {
         configureHeader()
         configureFieldStackView()
         configureContainerStackView()
+        configureActions()
+        setupKeyboardActions()
+        setTextFieldDelegate()
+    }
+
+    private func setTextFieldDelegate() {
+        emailTextField.delegate = self
+        passwordConfirmTextField.delegate = self
+        passwordTextField.delegate = self
+        userNameTextField.delegate = self
     }
 
     private func configureHeader() {
@@ -50,16 +63,16 @@ class SignupFormView: DefaultView {
         passwordFieldStackView.addArrangedSubviews([passwordTextField, passwordValidationLabel])
         passwordConfirmFieldStackView.addArrangedSubviews([passwordConfirmTextField, passwordConfirmValidationLabel])
         userNameFieldStackView.addArrangedSubviews([ userNameTextField, userNameValidationLabel])
-
     }
+
     private func configureContainerStackView() {
-        let containerStackView = makeStackView(20)
+        let containerStackView = makeStackView(10)
         containerStackView.addArrangedSubviews([emailFieldStackView, passwordFieldStackView, passwordConfirmFieldStackView, userNameFieldStackView, signupButton])
         containerStackView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(containerStackView)
 
         NSLayoutConstraint.activate([
-            containerStackView.topAnchor.constraint(equalTo: signupHeader.bottomAnchor, constant: 20),
+            containerStackView.topAnchor.constraint(equalTo: signupHeader.bottomAnchor, constant: 30),
             containerStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             containerStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
         ])
@@ -71,6 +84,21 @@ class SignupFormView: DefaultView {
         stackView.spacing = spacing
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
+    }
+
+    // MARK: Actions
+    private func configureActions() {
+        closeButton.addTarget(self, action: #selector(didTapClose), for: .touchUpInside)
+        signupButton.addTarget(self, action: #selector(didTapSignUp), for: .touchUpInside)
+
+        emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        userNameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        passwordConfirmTextField.addTarget(self, action: #selector(passwordConfimrationTextFieldDidChange), for: .editingChanged)
+    }
+
+    private func setupKeyboardActions() {
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
     }
 
     // MARK: Header
@@ -85,7 +113,6 @@ class SignupFormView: DefaultView {
         let button = UIButton()
         button.setImage(UIImage(systemName: "multiply"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
         return button
     }()
 
@@ -93,83 +120,55 @@ class SignupFormView: DefaultView {
         let label = UILabel()
         label.text = "Sign Up"
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 25, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     // MARK: TextFields
-    let emailTextField: UITextField = {
-        let textField = PaddedTextField()
-        textField.placeholder = "Email address"
-        textField.backgroundColor = .white
-        textField.font = UIFont.systemFont(ofSize: 18, weight: .regular)
-        textField.setLeftPaddingPoints(8)
-        textField.returnKeyType = .done
-        textField.autocorrectionType = .no
-        textField.keyboardType = .emailAddress
+    let emailTextField: SignupTextField = {
+        let textField = SignupTextField(placeHolder: "Email address", item: .email)
         return textField
     }()
 
-    let passwordTextField: UITextField = {
-        let textField = PaddedTextField()
-        textField.backgroundColor = .white
-        textField.placeholder = "Password"
-        textField.font = UIFont.systemFont(ofSize: 18, weight: .regular)
-        textField.setLeftPaddingPoints(8)
-        textField.returnKeyType = .done
-        textField.keyboardType = .alphabet
-        textField.autocorrectionType = .no
+    let passwordTextField: SignupTextField = {
+        let textField = SignupTextField(placeHolder: "Password", item: .password)
         textField.isSecureTextEntry = true
         return textField
     }()
 
-    let passwordConfirmTextField: UITextField = {
-        let textField = PaddedTextField()
-        textField.backgroundColor = .white
-        textField.placeholder = "Confirm password"
-        textField.font = UIFont.systemFont(ofSize: 18, weight: .regular)
-        textField.setLeftPaddingPoints(8)
-        textField.returnKeyType = .done
-        textField.keyboardType = .alphabet
-        textField.autocorrectionType = .no
+    let passwordConfirmTextField: SignupTextField = {
+        let textField = SignupTextField(placeHolder: "Confirm password", item: nil)
         textField.isSecureTextEntry = true
         return textField
     }()
 
-    let userNameTextField: UITextField = {
-        let textField = PaddedTextField()
-        textField.backgroundColor = .white
-        textField.placeholder = "Name"
-        textField.font = UIFont.systemFont(ofSize: 18, weight: .regular)
-        textField.setLeftPaddingPoints(8)
-        textField.returnKeyType = .done
-        textField.autocorrectionType = .no
-        textField.isSecureTextEntry = true
+    let userNameTextField: SignupTextField = {
+        let textField = SignupTextField(placeHolder: "Name", item: .userName)
         return textField
     }()
 
     // MARK: InvalidMessage Labels
-    lazy var emailValidationLabel: ValidationLabel = {
-        let label = ValidationLabel(text: "")
+    let emailValidationLabel: ValidationLabel = {
+        let label = ValidationLabel(text: "empty")
         label.textColor = .clear
         return label
     }()
 
-    lazy var passwordValidationLabel: ValidationLabel = {
-        let label = ValidationLabel(text: "")
+    let passwordValidationLabel: ValidationLabel = {
+        let label = ValidationLabel(text: "empty")
         label.textColor = .clear
         return label
     }()
 
-    lazy var passwordConfirmValidationLabel: ValidationLabel = {
-        let label = ValidationLabel(text: "")
+    let passwordConfirmValidationLabel: ValidationLabel = {
+        let label = ValidationLabel(text: "empty")
         label.textColor = .clear
         return label
     }()
 
-    lazy var userNameValidationLabel: ValidationLabel = {
-        let label = ValidationLabel(text: "")
+    let userNameValidationLabel: ValidationLabel = {
+        let label = ValidationLabel(text: "empty")
         label.textColor = .clear
         return label
     }()
@@ -177,10 +176,11 @@ class SignupFormView: DefaultView {
     // MARK: signUpButton
     let signupButton: UIButton = {
         let button = UIButton(type: .roundedRect)
-        button.backgroundColor = .krelloGreen
         button.setTitle("회원 가입", for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
+        button.setTitleColor(UIColor.krelloBlackOpaque, for: .normal)
+        button.backgroundColor = .opaqueSeparator.withAlphaComponent(0.1)
         button.layer.cornerRadius = 10
+        button.isEnabled = false
         return button
     }()
 
@@ -216,7 +216,71 @@ class SignupFormView: DefaultView {
 }
 
 extension SignupFormView {
-    @objc func didTapCloseButton() {
+    @objc func didTapClose() {
+        didTapCloseButton?()
+    }
 
+    @objc func didTapSignUp() {
+        guard let email = emailTextField.text, let password = passwordTextField.text else {return}
+        didTapSignupButton?(email, password)
+    }
+
+    @objc private func dismissKeyboard() {
+        self.endEditing(true)
+    }
+
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        guard let signupTextField = textField as? SignupTextField else {return}
+
+        guard let validationMessage = validateFields?(signupTextField), let currentStackView = textField.superview as? UIStackView else {return}
+
+        let label = currentStackView.arrangedSubviews.last as? ValidationLabel
+
+        if validationMessage.resultType == .pass {
+            label?.setValidatedLabel(message: validationMessage.description)
+            signupTextField.configureValidation(status: true)
+        } else {
+            label?.setInvalidatedLabel(message: validationMessage.description)
+            signupTextField.configureValidation(status: false)
+        }
+        configureSignupButton()
+    }
+
+    @objc func passwordConfimrationTextFieldDidChange(_ textField: UITextField) {
+        guard let passwordConfirmationTextField = textField as? SignupTextField else {
+            return
+        }
+        guard  let password = passwordTextField.text, let validationMessage = validatePasswordConfirmation?(password, passwordConfirmationTextField) else {return}
+
+        if validationMessage.resultType == .pass {
+            passwordConfirmValidationLabel.setValidatedLabel(message: validationMessage.description)
+            passwordConfirmationTextField.configureValidation(status: true)
+        } else {
+            passwordConfirmValidationLabel.setInvalidatedLabel(message: validationMessage.description)
+            passwordConfirmationTextField.configureValidation(status: false)
+        }
+        configureSignupButton()
+    }
+
+    private func configureSignupButton() {
+        let invalidatedTextFields = [emailTextField, passwordTextField, passwordConfirmTextField, userNameTextField].filter({$0.isValidated == false})
+
+        if invalidatedTextFields.isEmpty {
+            signupButton.isEnabled = true
+            signupButton.setTitleColor(UIColor.krelloBlue, for: .normal)
+            signupButton.backgroundColor = .krelloGreen
+        } else {
+            signupButton.isEnabled = false
+            signupButton.setTitleColor(UIColor.krelloBlackOpaque, for: .normal)
+            signupButton.backgroundColor = .opaqueSeparator.withAlphaComponent(0.1)
+        }
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension SignupFormView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

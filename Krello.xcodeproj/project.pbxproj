@@ -19,6 +19,7 @@
 		B74C022B282B860800C3602D /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C022A282B860800C3602D /* SignupViewController.swift */; };
 		B74C022D282B862A00C3602D /* SignupFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C022C282B862A00C3602D /* SignupFormView.swift */; };
 		B74C022F282B99D600C3602D /* ValidationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C022E282B99D600C3602D /* ValidationLabel.swift */; };
+		B74C0231282BEC1800C3602D /* SignupTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0230282BEC1800C3602D /* SignupTextField.swift */; };
 		B76D57042823F694009EEAEC /* ValidatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D57032823F694009EEAEC /* ValidatorTest.swift */; };
 		B76D57062824DBA8009EEAEC /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0B745C28225BDD007AE2B6 /* Preview.swift */; };
 		B76D57092824ED2F009EEAEC /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D57082824ED2F009EEAEC /* AuthenticationManager.swift */; };
@@ -81,6 +82,7 @@
 		B74C022A282B860800C3602D /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		B74C022C282B862A00C3602D /* SignupFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupFormView.swift; sourceTree = "<group>"; };
 		B74C022E282B99D600C3602D /* ValidationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationLabel.swift; sourceTree = "<group>"; };
+		B74C0230282BEC1800C3602D /* SignupTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupTextField.swift; sourceTree = "<group>"; };
 		B76D57032823F694009EEAEC /* ValidatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorTest.swift; sourceTree = "<group>"; };
 		B76D57082824ED2F009EEAEC /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		B76D570A2824EE21009EEAEC /* AuthenticationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInfo.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			children = (
 				BCD83524282A0C75001273C8 /* BoardCollectionViewCell.swift */,
 				B74C022C282B862A00C3602D /* SignupFormView.swift */,
+				B74C0230282BEC1800C3602D /* SignupTextField.swift */,
 				B74C022E282B99D600C3602D /* ValidationLabel.swift */,
 				BCC51E0328210F5800CDD04F /* LaunchScreen.storyboard */,
 			);
@@ -517,6 +520,7 @@
 				BC2209872823A87700159AC0 /* LoginView.swift in Sources */,
 				B74C0227282A294700C3602D /* BoardViewController.swift in Sources */,
 				B74C0226282A294700C3602D /* PagingIndicatorReusableView.swift in Sources */,
+				B74C0231282BEC1800C3602D /* SignupTextField.swift in Sources */,
 				B74C022D282B862A00C3602D /* SignupFormView.swift in Sources */,
 				BC2209842823A86000159AC0 /* DefaultView.swift in Sources */,
 				B74C022F282B99D600C3602D /* ValidationLabel.swift in Sources */,
