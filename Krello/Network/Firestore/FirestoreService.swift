@@ -10,13 +10,15 @@ import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+typealias UID = String
+
 struct ServerUser: Identifiable, Codable {
     @DocumentID var id: String? // 회원가입할때 생성된 uid
     let name: String
     let email: String
 }
 
-struct BoardTask: Identifiable, Codable, Hashable {
+struct Task: Identifiable, Codable, Hashable {
     let id: String
     let title: String
     let status: Status
@@ -32,11 +34,11 @@ struct BoardTask: Identifiable, Codable, Hashable {
     }
 }
 
-struct ServerBoard: Identifiable, Codable {
+struct Board: Identifiable, Codable {
     @DocumentID var id: String?
     let ownerUid: String
     let title: String
-    let tasks: [BoardTask]?
+    let tasks: [Task]?
 }
 
 struct ActivityLog: Identifiable, Codable {
@@ -108,7 +110,7 @@ final class FirestoreService {
         }
     }
 
-    func fetchBoards(userUid: String, _ completion: @escaping (Result<[ServerBoard], FirestoreServiceError>) -> Void) {
+    func fetchBoards(userUid: String, _ completion: @escaping (Result<[Board], FirestoreServiceError>) -> Void) {
         let db = Firestore.firestore()
         let boardRef = db.collection("boards").whereField("ownerUid", isEqualTo: userUid)
 
@@ -117,9 +119,9 @@ final class FirestoreService {
                 completion(.failure(.error(error: error)))
                 return
             }
-            var result = [ServerBoard]()
+            var result = [Board]()
             for document in querySnapshot!.documents {
-                guard let model = try? document.data(as: ServerBoard.self) else {
+                guard let model = try? document.data(as: Board.self) else {
                     continue
                 }
                 result.append(model)

@@ -9,16 +9,21 @@ import Foundation
 
 final class BoardManager {
     private let service = FirestoreService()
-    private let userUid: String = "P3OuBRgwk2gZojfq8dmgkicz2fA2"
+    private let userUID: UID
+    private var boards = [Board]()
 
-    func load(_ completion: @escaping ([String]) -> Void) {
-        service.fetchBoards(userUid: userUid) { result in
+    init(userUID: UID) {
+        self.userUID = userUID
+    }
+
+    func loadInitialData(_ completion: @escaping (Bool?) -> Void) {
+        service.fetchBoards(userUid: self.userUID) { result in
             switch result {
             case .success(let boards):
-                let boardTitles = boards.map { $0.title }
-                completion(boardTitles)
+                let viewModels = boards
+                self.boards = viewModels
+                completion(true)
             case .failure(let error):
-                // TODO: - Error handle
                 print(error)
             }
         }
