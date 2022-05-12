@@ -31,8 +31,7 @@ class SignupTextField: PaddedTextField {
         self.setAllPaddingPoints(8)
         self.backgroundColor = .white
         self.font = UIFont.systemFont(ofSize: 18, weight: .regular)
-        self.returnKeyType = .done
-        self.keyboardType = .alphabet
+        self.textContentType = .oneTimeCode
         self.autocorrectionType = .no
     }
 

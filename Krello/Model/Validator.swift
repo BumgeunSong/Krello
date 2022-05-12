@@ -23,6 +23,16 @@ struct Validator {
                 return "[가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z]{2,20}"
             }
         }
+        var regexDescription: String {
+            switch self {
+            case .email:
+                return "example@example.com"
+            case .password:
+                return "대소문자(특수문자포함 가능)8 ~ 20글자"
+            case .userName:
+                return "한글 또는 영어 2~20 글자"
+            }
+        }
     }
 
     func validateEmpty(_ input: String) -> ValidationMessage? {
@@ -76,7 +86,7 @@ extension ValidationMessage: CustomStringConvertible {
     var description: String {
         switch self {
         case .invalidFormat(let item):
-            return "\(item.rawValue) 형식이 맞지 않습니다"
+            return "\(item.regexDescription) 형식으로 작성해주세요"
         case .passwordNotMatched:
             return "입력하신 비밀번호와 일치하지 않습니다"
         case .passwordEmpty:
