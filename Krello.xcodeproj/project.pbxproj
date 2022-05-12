@@ -13,7 +13,7 @@
 		9CFD1B2C1F608EA9228C54AB /* Pods_KrelloTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992A62047D85C6E5349BC267 /* Pods_KrelloTests.framework */; };
 		B74502322823944000172502 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74502312823944000172502 /* Validator.swift */; };
 		B74C02192828D90400C3602D /* AuthenticationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C02182828D90400C3602D /* AuthenticationEngine.swift */; };
-		B74C0225282A294700C3602D /* FlowLayoutMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0222282A294700C3602D /* FlowLayoutMaker.swift */; };
+		B74C0225282A294700C3602D /* BoardLayoutMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0222282A294700C3602D /* BoardLayoutMaker.swift */; };
 		B74C0226282A294700C3602D /* PagingIndicatorReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0223282A294700C3602D /* PagingIndicatorReusableView.swift */; };
 		B74C0227282A294700C3602D /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0224282A294700C3602D /* BoardViewController.swift */; };
 		B76D57042823F694009EEAEC /* ValidatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D57032823F694009EEAEC /* ValidatorTest.swift */; };
@@ -39,7 +39,6 @@
 		BC2209912823AE1600159AC0 /* LayoutAnchor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC22098F2823AE1600159AC0 /* LayoutAnchor+Extension.swift */; };
 		BCC51DF928210F5700CDD04F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DF828210F5700CDD04F /* AppDelegate.swift */; };
 		BCC51DFB28210F5700CDD04F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DFA28210F5700CDD04F /* SceneDelegate.swift */; };
-		BCC51DFD28210F5700CDD04F /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DFC28210F5700CDD04F /* RootViewController.swift */; };
 		BCC51E0228210F5800CDD04F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E0128210F5800CDD04F /* Assets.xcassets */; };
 		BCC51E0528210F5800CDD04F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E0328210F5800CDD04F /* LaunchScreen.storyboard */; };
 		BCC51E3428211AA500CDD04F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E3328211AA500CDD04F /* GoogleService-Info.plist */; };
@@ -62,7 +61,7 @@
 		BCD83538282BB170001273C8 /* TaskTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83536282BB170001273C8 /* TaskTableViewDelegate.swift */; };
 		BCD8353A282BB1E2001273C8 /* TaskStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83539282BB1E2001273C8 /* TaskStackView.swift */; };
 		BCD8353B282BB1E2001273C8 /* TaskStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83539282BB1E2001273C8 /* TaskStackView.swift */; };
-		BCD8353C282C047D001273C8 /* FlowLayoutMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0222282A294700C3602D /* FlowLayoutMaker.swift */; };
+		BCD8353C282C047D001273C8 /* BoardLayoutMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0222282A294700C3602D /* BoardLayoutMaker.swift */; };
 		BCD8353D282C0484001273C8 /* PagingIndicatorReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0223282A294700C3602D /* PagingIndicatorReusableView.swift */; };
 		BCD8353E282C048A001273C8 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0224282A294700C3602D /* BoardViewController.swift */; };
 /* End PBXBuildFile section */
@@ -84,9 +83,9 @@
 		992A62047D85C6E5349BC267 /* Pods_KrelloTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KrelloTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D344D63B79E92BEEC611E7 /* Pods-KrelloTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KrelloTests.release.xcconfig"; path = "Target Support Files/Pods-KrelloTests/Pods-KrelloTests.release.xcconfig"; sourceTree = "<group>"; };
 		AAB53DB7ADEBD0FCFCF20435 /* Pods-Krello.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Krello.debug.xcconfig"; path = "Target Support Files/Pods-Krello/Pods-Krello.debug.xcconfig"; sourceTree = "<group>"; };
-		B74502312823944000172502 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Validator.swift; path = Krello/Model/Validator.swift; sourceTree = SOURCE_ROOT; };
+		B74502312823944000172502 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Validator.swift; path = Krello/Signup/Model/Validator.swift; sourceTree = SOURCE_ROOT; };
 		B74C02182828D90400C3602D /* AuthenticationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationEngine.swift; sourceTree = "<group>"; };
-		B74C0222282A294700C3602D /* FlowLayoutMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowLayoutMaker.swift; sourceTree = "<group>"; };
+		B74C0222282A294700C3602D /* BoardLayoutMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardLayoutMaker.swift; sourceTree = "<group>"; };
 		B74C0223282A294700C3602D /* PagingIndicatorReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingIndicatorReusableView.swift; sourceTree = "<group>"; };
 		B74C0224282A294700C3602D /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		B76D57032823F694009EEAEC /* ValidatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorTest.swift; sourceTree = "<group>"; };
@@ -105,7 +104,6 @@
 		BCC51DF528210F5700CDD04F /* Krello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Krello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC51DF828210F5700CDD04F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCC51DFA28210F5700CDD04F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BCC51DFC28210F5700CDD04F /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		BCC51E0128210F5800CDD04F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCC51E0428210F5800CDD04F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCC51E0628210F5800CDD04F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -166,21 +164,9 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B7450233282394AB00172502 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B74502312823944000172502 /* Validator.swift */,
-				B76D570A2824EE21009EEAEC /* AuthenticationInfo.swift */,
-				B76D57102826EC78009EEAEC /* UserInfo.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		B76D57072824ECC2009EEAEC /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B76D57082824ED2F009EEAEC /* AuthenticationManager.swift */,
-				B74C02182828D90400C3602D /* AuthenticationEngine.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -208,12 +194,13 @@
 		BCC51DF728210F5700CDD04F /* Krello */ = {
 			isa = PBXGroup;
 			children = (
-				B76D57072824ECC2009EEAEC /* Network */,
-				BCC51E2E2821115C00CDD04F /* Controller */,
+				BCDB11F3282CE9D500A90202 /* Login */,
+				BCDB11F2282CE9CE00A90202 /* Signup */,
+				BCDB11F1282CE9BF00A90202 /* TaskCRUD */,
+				BCDB11F4282CEA1200A90202 /* LogCRUD */,
+				BCDB11F0282CE98B00A90202 /* BoardCRUD */,
 				BCC51E2D2821115300CDD04F /* Common */,
-				BCC51E2A2821113900CDD04F /* View */,
 				BCC51E292821113900CDD04F /* Supporting */,
-				B7450233282394AB00172502 /* Model */,
 			);
 			path = Krello;
 			sourceTree = "<group>";
@@ -240,28 +227,16 @@
 				BCC51E0128210F5800CDD04F /* Assets.xcassets */,
 				BCC51E0628210F5800CDD04F /* Info.plist */,
 				BCC51E3328211AA500CDD04F /* GoogleService-Info.plist */,
-				BC0B745C28225BDD007AE2B6 /* Preview.swift */,
 			);
 			path = Supporting;
-			sourceTree = "<group>";
-		};
-		BCC51E2A2821113900CDD04F /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BC2209832823A86000159AC0 /* DefaultView.swift */,
-				BC2209862823A87700159AC0 /* LoginView.swift */,
-				BCD83524282A0C75001273C8 /* BoardCollectionViewCell.swift */,
-				BCD83539282BB1E2001273C8 /* TaskStackView.swift */,
-				BCD83530282B9F9B001273C8 /* TaskTableViewCell.swift */,
-				BCD8352A282B8652001273C8 /* BoardView.swift */,
-				BCC51E0328210F5800CDD04F /* LaunchScreen.storyboard */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		BCC51E2D2821115300CDD04F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B76D57072824ECC2009EEAEC /* Network */,
+				BC0B745C28225BDD007AE2B6 /* Preview.swift */,
+				BC2209832823A86000159AC0 /* DefaultView.swift */,
 				BC2209892823AD9900159AC0 /* UIColor+Extension.swift */,
 				BC22098F2823AE1600159AC0 /* LayoutAnchor+Extension.swift */,
 				BCD8350C2823C5C6001273C8 /* UIVIew+Extension.swift */,
@@ -271,17 +246,151 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		BCC51E2E2821115C00CDD04F /* Controller */ = {
+		BCDB11F0282CE98B00A90202 /* BoardCRUD */ = {
 			isa = PBXGroup;
 			children = (
-				BCC51DFC28210F5700CDD04F /* RootViewController.swift */,
+				BCDB11FA282CEAAB00A90202 /* View */,
+				BCDB11F9282CEAA800A90202 /* Model */,
+				BCDB11F8282CEAA200A90202 /* Controller */,
+			);
+			path = BoardCRUD;
+			sourceTree = "<group>";
+		};
+		BCDB11F1282CE9BF00A90202 /* TaskCRUD */ = {
+			isa = PBXGroup;
+			children = (
+				BCDB11FD282CED7F00A90202 /* Model */,
+				BCDB11FC282CED7900A90202 /* Controller */,
+				BCDB11FB282CEB3900A90202 /* View */,
+			);
+			path = TaskCRUD;
+			sourceTree = "<group>";
+		};
+		BCDB11F2282CE9CE00A90202 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				BCDB1200282CEDDD00A90202 /* Controller */,
+				BCDB11FF282CEDD900A90202 /* View */,
+				BCDB11FE282CEDD300A90202 /* Model */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		BCDB11F3282CE9D500A90202 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BCDB11F7282CEA3800A90202 /* Model */,
+				BCDB11F5282CEA2F00A90202 /* Controller */,
+				BCDB11F6282CEA3600A90202 /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		BCDB11F4282CEA1200A90202 /* LogCRUD */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LogCRUD;
+			sourceTree = "<group>";
+		};
+		BCDB11F5282CEA2F00A90202 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BC22098028239D7000159AC0 /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BCDB11F6282CEA3600A90202 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BCC51E0328210F5800CDD04F /* LaunchScreen.storyboard */,
+				BC2209862823A87700159AC0 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BCDB11F7282CEA3800A90202 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B76D570A2824EE21009EEAEC /* AuthenticationInfo.swift */,
+				B76D57082824ED2F009EEAEC /* AuthenticationManager.swift */,
+				B74C02182828D90400C3602D /* AuthenticationEngine.swift */,
+				B76D57102826EC78009EEAEC /* UserInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BCDB11F8282CEAA200A90202 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				B74C0224282A294700C3602D /* BoardViewController.swift */,
 				BCD83526282A0C7E001273C8 /* BoardListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BCDB11F9282CEAA800A90202 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BCDB11FA282CEAAB00A90202 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BCD8352A282B8652001273C8 /* BoardView.swift */,
+				B74C0222282A294700C3602D /* BoardLayoutMaker.swift */,
 				B74C0223282A294700C3602D /* PagingIndicatorReusableView.swift */,
+				BCD83524282A0C75001273C8 /* BoardCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BCDB11FB282CEB3900A90202 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BCD83539282BB1E2001273C8 /* TaskStackView.swift */,
+				BCD83530282B9F9B001273C8 /* TaskTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BCDB11FC282CED7900A90202 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				BCD83533282BB166001273C8 /* TaskTableViewDataSource.swift */,
 				BCD83536282BB170001273C8 /* TaskTableViewDelegate.swift */,
-				B74C0222282A294700C3602D /* FlowLayoutMaker.swift */,
-				BC22098028239D7000159AC0 /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BCDB11FD282CED7F00A90202 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BCDB11FE282CEDD300A90202 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B74502312823944000172502 /* Validator.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BCDB11FF282CEDD900A90202 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BCDB1200282CEDDD00A90202 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -512,7 +621,6 @@
 			files = (
 				BC22098128239D7000159AC0 /* LoginViewController.swift in Sources */,
 				BC2209902823AE1600159AC0 /* LayoutAnchor+Extension.swift in Sources */,
-				BCC51DFD28210F5700CDD04F /* RootViewController.swift in Sources */,
 				BCC51DF928210F5700CDD04F /* AppDelegate.swift in Sources */,
 				B76D57112826EC78009EEAEC /* UserInfo.swift in Sources */,
 				B74C02192828D90400C3602D /* AuthenticationEngine.swift in Sources */,
@@ -528,7 +636,7 @@
 				B74502322823944000172502 /* Validator.swift in Sources */,
 				BCD83525282A0C75001273C8 /* BoardCollectionViewCell.swift in Sources */,
 				B76D57092824ED2F009EEAEC /* AuthenticationManager.swift in Sources */,
-				B74C0225282A294700C3602D /* FlowLayoutMaker.swift in Sources */,
+				B74C0225282A294700C3602D /* BoardLayoutMaker.swift in Sources */,
 				BCC51DFB28210F5700CDD04F /* SceneDelegate.swift in Sources */,
 				BC2209872823A87700159AC0 /* LoginView.swift in Sources */,
 				B74C0227282A294700C3602D /* BoardViewController.swift in Sources */,
@@ -558,7 +666,7 @@
 				BC2209912823AE1600159AC0 /* LayoutAnchor+Extension.swift in Sources */,
 				BCD83538282BB170001273C8 /* TaskTableViewDelegate.swift in Sources */,
 				BCD83529282A1799001273C8 /* BoardCollectionViewCell.swift in Sources */,
-				BCD8353C282C047D001273C8 /* FlowLayoutMaker.swift in Sources */,
+				BCD8353C282C047D001273C8 /* BoardLayoutMaker.swift in Sources */,
 				B76D570F2826E1F4009EEAEC /* AuthenticationTest.swift in Sources */,
 				BCD8350F2824FC35001273C8 /* TestingAppDelegate.swift in Sources */,
 				BC2209852823A86000159AC0 /* DefaultView.swift in Sources */,

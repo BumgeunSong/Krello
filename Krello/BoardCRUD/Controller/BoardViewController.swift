@@ -31,6 +31,7 @@ class BoardViewController: UIViewController {
             NSAttributedString.Key.foregroundColor: UIColor.white,
             .font: UIFont.systemFont(ofSize: 18, weight: .bold)
         ]
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), style: .plain, target: nil, action: nil)
     }
 
     func configureSubviews() {

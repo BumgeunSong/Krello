@@ -13,7 +13,6 @@ extension UICollectionViewLayout {
         let group = BoardLayoutMaker.createGroup(item)
         let section = BoardLayoutMaker.createSection(group)
         let layout = UICollectionViewCompositionalLayout(section: section)
-
         return layout
     }
 }
