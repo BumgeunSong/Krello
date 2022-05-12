@@ -11,13 +11,13 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 struct ServerUser: Identifiable, Codable {
-    @DocumentID var id: String?
+    @DocumentID var id: String? // 회원가입할때 생성된 uid
     let name: String
-    let uid: String // 회원가입할때 생성된 uid
+    let email: String
 }
 
-struct BoardTask: Codable, Hashable {
-    let uid: String
+struct BoardTask: Identifiable, Codable, Hashable {
+    let id: String
     let title: String
     let status: TaskStatus
     let contents: String
@@ -36,7 +36,7 @@ struct ServerBoard: Identifiable, Codable {
     @DocumentID var id: String?
     let ownerUid: String
     let title: String
-    var tasks: [BoardTask]?
+    let tasks: [BoardTask]?
 }
 
 struct ServerLog: Identifiable, Codable {
@@ -61,9 +61,9 @@ enum FirestoreServiceError: Error {
 
 final class FirestoreService {
 
-    func fetchUser(email: String, _ completion: @escaping (Result<ServerUser, FirestoreServiceError>) -> Void) {
+    func fetchUser(uid: String, _ completion: @escaping (Result<ServerUser, FirestoreServiceError>) -> Void) {
         let db = Firestore.firestore()
-        let userRef = db.collection("users").document(email)
+        let userRef = db.collection("users").document(uid)
 
         userRef.getDocument { (documentSnapshot, error) in
             if let error = error {

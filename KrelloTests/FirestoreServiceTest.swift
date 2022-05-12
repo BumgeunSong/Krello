@@ -52,12 +52,12 @@ class FirestoreServiceTest: XCTestCase {
 
     func test_fetchUser_shouldResponseUserData() {
         let expectation = XCTestExpectation(description: #function)
-        sut.fetchUser(email: "bb@email.net") { result in
+        sut.fetchUser(uid: "cDKJVrbry6ZbExyDZgqse0fCKT12") { result in
             switch result {
             case .success(let datas):
                 XCTAssertNotNil(datas)
-            case .failure:
-                XCTFail("Failed fetch user")
+            case .failure(let error):
+                XCTFail("Failed fetch user: \(error)")
             }
             expectation.fulfill()
         }
