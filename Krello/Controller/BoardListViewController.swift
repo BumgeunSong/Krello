@@ -8,7 +8,7 @@
 import UIKit
 
 class BoardListViewController: UIViewController {
-    private let boardManager = BoardManager()
+    private let boardManager = BoardManager(userUID: "P3OuBRgwk2gZojfq8dmgkicz2fA2")
     private var dummy = [String]()
 
     let tableView: UITableView = {
@@ -36,10 +36,9 @@ class BoardListViewController: UIViewController {
     }
 
     private func loadViewData() {
-        boardManager.load { titles in
-            self.dummy = titles
-            self.tableView.reloadData()
-        }
+        // TODO: - 초기 데이터를 가져오지 못했을경우 에러처리.: Firebase store 에서 에러를 어떻게 주는지 알아보기.
+        boardManager.loadInitialData { _ in }
+        self.dummy = boardManager.loadBoardNames()
     }
 
     private func setupNavigation() {
