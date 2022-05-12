@@ -28,4 +28,12 @@ final class BoardManager {
             }
         }
     }
+
+    func loadBoardNames() -> [String] {
+        return self.boards.map { $0.title }
+    }
+
+    func loadBoard(of index: Int) -> Board {
+        return boards[index]
+    }
 }
