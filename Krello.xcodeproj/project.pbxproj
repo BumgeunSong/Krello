@@ -64,6 +64,10 @@
 		BCD8353C282C047D001273C8 /* BoardLayoutMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0222282A294700C3602D /* BoardLayoutMaker.swift */; };
 		BCD8353D282C0484001273C8 /* PagingIndicatorReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0223282A294700C3602D /* PagingIndicatorReusableView.swift */; };
 		BCD8353E282C048A001273C8 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0224282A294700C3602D /* BoardViewController.swift */; };
+		BCDB1202282CF32300A90202 /* TaskTableViewDragDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDB1201282CF32300A90202 /* TaskTableViewDragDelegate.swift */; };
+		BCDB1203282CF32300A90202 /* TaskTableViewDragDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDB1201282CF32300A90202 /* TaskTableViewDragDelegate.swift */; };
+		BCDB1205282CF32E00A90202 /* TaskTableViewDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDB1204282CF32E00A90202 /* TaskTableViewDropDelegate.swift */; };
+		BCDB1206282CF32E00A90202 /* TaskTableViewDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDB1204282CF32E00A90202 /* TaskTableViewDropDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +125,8 @@
 		BCD83533282BB166001273C8 /* TaskTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewDataSource.swift; sourceTree = "<group>"; };
 		BCD83536282BB170001273C8 /* TaskTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewDelegate.swift; sourceTree = "<group>"; };
 		BCD83539282BB1E2001273C8 /* TaskStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStackView.swift; sourceTree = "<group>"; };
+		BCDB1201282CF32300A90202 /* TaskTableViewDragDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewDragDelegate.swift; sourceTree = "<group>"; };
+		BCDB1204282CF32E00A90202 /* TaskTableViewDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewDropDelegate.swift; sourceTree = "<group>"; };
 		D15D9EBA901D0B5B1CA0FD61 /* Pods_Krello.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Krello.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -362,6 +368,8 @@
 			children = (
 				BCD83533282BB166001273C8 /* TaskTableViewDataSource.swift */,
 				BCD83536282BB170001273C8 /* TaskTableViewDelegate.swift */,
+				BCDB1201282CF32300A90202 /* TaskTableViewDragDelegate.swift */,
+				BCDB1204282CF32E00A90202 /* TaskTableViewDropDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -632,6 +640,7 @@
 				BCD83527282A0C7E001273C8 /* BoardListViewController.swift in Sources */,
 				BCD835112824FC98001273C8 /* main.swift in Sources */,
 				BCD8352E282B9540001273C8 /* PaddedLabel.swift in Sources */,
+				BCDB1202282CF32300A90202 /* TaskTableViewDragDelegate.swift in Sources */,
 				BCD8353A282BB1E2001273C8 /* TaskStackView.swift in Sources */,
 				B74502322823944000172502 /* Validator.swift in Sources */,
 				BCD83525282A0C75001273C8 /* BoardCollectionViewCell.swift in Sources */,
@@ -640,6 +649,7 @@
 				BCC51DFB28210F5700CDD04F /* SceneDelegate.swift in Sources */,
 				BC2209872823A87700159AC0 /* LoginView.swift in Sources */,
 				B74C0227282A294700C3602D /* BoardViewController.swift in Sources */,
+				BCDB1205282CF32E00A90202 /* TaskTableViewDropDelegate.swift in Sources */,
 				B74C0226282A294700C3602D /* PagingIndicatorReusableView.swift in Sources */,
 				BCD83537282BB170001273C8 /* TaskTableViewDelegate.swift in Sources */,
 				BCD8352B282B8652001273C8 /* BoardView.swift in Sources */,
@@ -660,6 +670,8 @@
 				BCD8353E282C048A001273C8 /* BoardViewController.swift in Sources */,
 				BC0B746528236A35007AE2B6 /* KrelloTests.swift in Sources */,
 				6FD292C12824E7A000A0ED7E /* LoginViewTest.swift in Sources */,
+				BCDB1206282CF32E00A90202 /* TaskTableViewDropDelegate.swift in Sources */,
+				BCDB1203282CF32300A90202 /* TaskTableViewDragDelegate.swift in Sources */,
 				BCD83535282BB166001273C8 /* TaskTableViewDataSource.swift in Sources */,
 				BC2209882823A87700159AC0 /* LoginView.swift in Sources */,
 				BCD8352F282B9540001273C8 /* PaddedLabel.swift in Sources */,

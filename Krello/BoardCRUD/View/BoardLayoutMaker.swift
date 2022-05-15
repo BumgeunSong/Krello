@@ -28,7 +28,9 @@ enum BoardLayoutMaker {
     }
 
     static func createGroup(_ item: NSCollectionLayoutItem) -> NSCollectionLayoutGroup {
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(0.9))
+
+        // TODO: Cell의 높이는 Cell 안의 콘텐츠(TableView)에 따라서 동적으로 결정되도록 만들어야 함.
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.75), heightDimension: .fractionalHeight(0.9))
 
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
 
@@ -53,7 +55,6 @@ enum BoardLayoutMaker {
 
         section.visibleItemsInvalidationHandler = { _, contentOffset, environment in
             let currentPage = Int(max(0, round(contentOffset.x / environment.container.contentSize.width)))
-            print(currentPage)
         }
         section.boundarySupplementaryItems = [footer]
         section.orthogonalScrollingBehavior = .groupPagingCentered
