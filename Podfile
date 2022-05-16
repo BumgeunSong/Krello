@@ -1,5 +1,5 @@
 
-platform :ios, '10.0'
+platform :ios, '11.0'
 
 target 'Krello' do
   use_frameworks!
@@ -10,6 +10,7 @@ target 'Krello' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift', '9.0.0'
 
   target 'KrelloTests' do
     inherit! :search_paths
@@ -19,7 +20,6 @@ target 'Krello' do
     pod 'Firebase/Core'
     pod 'Firebase/Auth'
     pod 'Firebase/Firestore'
-
   end
 
 end
