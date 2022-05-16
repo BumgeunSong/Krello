@@ -40,7 +40,7 @@ extension UITextField {
 
 class LoginView: DefaultView {
     var didTapSignupButton: (() -> Void)?
-    var didTapLoginButton: (() -> Void)?
+    var didTapLoginButton: ((_ email: String, _ password: String) -> Void)?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -60,7 +60,8 @@ class LoginView: DefaultView {
     }
 
     @objc private func touchUpLoginButton() {
-        didTapLoginButton?()
+        guard let email = emailTextField.text, let password = passwordTextField.text else {return}
+        didTapLoginButton?(email, password)
     }
 
     @objc private func dismissKeyboard() {

@@ -8,71 +8,53 @@
 
 /* Begin PBXBuildFile section */
 		2489037CC5378EEE0CE8730A /* Pods_Krello.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D15D9EBA901D0B5B1CA0FD61 /* Pods_Krello.framework */; };
-		6F60F18C282C19DA00E7A85B /* (null) in Sources */ = {isa = PBXBuildFile; };
-		6F991BF928323B6800F4F772 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		6F991BFB28323C7200F4F772 /* BoardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F991BFA28323BDE00F4F772 /* BoardManager.swift */; };
 		6F991C002832435900F4F772 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F991BFF2832435900F4F772 /* FirestoreService.swift */; };
 		6FAA53FC28324F0F0060362A /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA53FB28324F0F0060362A /* SignupViewController.swift */; };
 		6FAA540028324F260060362A /* ValidationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA53FD28324F250060362A /* ValidationLabel.swift */; };
 		6FAA540128324F260060362A /* SignupTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA53FE28324F260060362A /* SignupTextField.swift */; };
 		6FAA540228324F260060362A /* SignupFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA53FF28324F260060362A /* SignupFormView.swift */; };
-		6FB31533282A435D00E37BFD /* FirestoreServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB31532282A435D00E37BFD /* FirestoreServiceTest.swift */; };
-		6FD292C12824E7A000A0ED7E /* LoginViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD292C02824E79F00A0ED7E /* LoginViewTest.swift */; };
-		6FD292C22824E98B00A0ED7E /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0B745C28225BDD007AE2B6 /* Preview.swift */; };
 		9CFD1B2C1F608EA9228C54AB /* Pods_KrelloTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992A62047D85C6E5349BC267 /* Pods_KrelloTests.framework */; };
+		B73E718328328AC6007B4654 /* AuthenticationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D570E2826E1F4009EEAEC /* AuthenticationTest.swift */; };
+		B73E718428328AC6007B4654 /* AuthenticationManagerIntegrationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D570C2824F88C009EEAEC /* AuthenticationManagerIntegrationTest.swift */; };
+		B73E718528328AC6007B4654 /* ValidatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D57032823F694009EEAEC /* ValidatorTest.swift */; };
+		B73E718628328AC6007B4654 /* KrelloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51E0F28210F5800CDD04F /* KrelloTests.swift */; };
+		B73E718728328AC6007B4654 /* LoginViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD292C02824E79F00A0ED7E /* LoginViewTest.swift */; };
+		B73E718828328AC6007B4654 /* FirestoreServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB31532282A435D00E37BFD /* FirestoreServiceTest.swift */; };
+		B73E718928328AD9007B4654 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2209892823AD9900159AC0 /* UIColor+Extension.swift */; };
+		B73E718A28328AD9007B4654 /* LayoutAnchor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC22098F2823AE1600159AC0 /* LayoutAnchor+Extension.swift */; };
+		B73E718B28328AD9007B4654 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC22098C2823ADB200159AC0 /* UIStackView+Extension.swift */; };
+		B73E718C28328AE5007B4654 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8350E2824FC35001273C8 /* TestingAppDelegate.swift */; };
 		B74502322823944000172502 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74502312823944000172502 /* Validator.swift */; };
 		B74C02192828D90400C3602D /* AuthenticationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C02182828D90400C3602D /* AuthenticationEngine.swift */; };
 		B74C0225282A294700C3602D /* BoardLayoutMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0222282A294700C3602D /* BoardLayoutMaker.swift */; };
 		B74C0226282A294700C3602D /* PagingIndicatorReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0223282A294700C3602D /* PagingIndicatorReusableView.swift */; };
 		B74C0227282A294700C3602D /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0224282A294700C3602D /* BoardViewController.swift */; };
-		B76D57042823F694009EEAEC /* ValidatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D57032823F694009EEAEC /* ValidatorTest.swift */; };
-		B76D57062824DBA8009EEAEC /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0B745C28225BDD007AE2B6 /* Preview.swift */; };
 		B76D57092824ED2F009EEAEC /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D57082824ED2F009EEAEC /* AuthenticationManager.swift */; };
 		B76D570B2824EE21009EEAEC /* AuthenticationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D570A2824EE21009EEAEC /* AuthenticationInfo.swift */; };
-		B76D570D2824F88C009EEAEC /* AuthenticationManagerIntegrationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D570C2824F88C009EEAEC /* AuthenticationManagerIntegrationTest.swift */; };
-		B76D570F2826E1F4009EEAEC /* AuthenticationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D570E2826E1F4009EEAEC /* AuthenticationTest.swift */; };
 		B76D57112826EC78009EEAEC /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D57102826EC78009EEAEC /* UserInfo.swift */; };
 		BC0B745D28225BDD007AE2B6 /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0B745C28225BDD007AE2B6 /* Preview.swift */; };
-		BC0B746528236A35007AE2B6 /* KrelloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51E0F28210F5800CDD04F /* KrelloTests.swift */; };
 		BC22098128239D7000159AC0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC22098028239D7000159AC0 /* LoginViewController.swift */; };
-		BC22098228239D7000159AC0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC22098028239D7000159AC0 /* LoginViewController.swift */; };
 		BC2209842823A86000159AC0 /* DefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2209832823A86000159AC0 /* DefaultView.swift */; };
-		BC2209852823A86000159AC0 /* DefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2209832823A86000159AC0 /* DefaultView.swift */; };
 		BC2209872823A87700159AC0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2209862823A87700159AC0 /* LoginView.swift */; };
-		BC2209882823A87700159AC0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2209862823A87700159AC0 /* LoginView.swift */; };
 		BC22098A2823AD9900159AC0 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2209892823AD9900159AC0 /* UIColor+Extension.swift */; };
-		BC22098B2823AD9900159AC0 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2209892823AD9900159AC0 /* UIColor+Extension.swift */; };
 		BC22098D2823ADB200159AC0 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC22098C2823ADB200159AC0 /* UIStackView+Extension.swift */; };
-		BC22098E2823ADB200159AC0 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC22098C2823ADB200159AC0 /* UIStackView+Extension.swift */; };
 		BC2209902823AE1600159AC0 /* LayoutAnchor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC22098F2823AE1600159AC0 /* LayoutAnchor+Extension.swift */; };
-		BC2209912823AE1600159AC0 /* LayoutAnchor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC22098F2823AE1600159AC0 /* LayoutAnchor+Extension.swift */; };
 		BCC51DF928210F5700CDD04F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DF828210F5700CDD04F /* AppDelegate.swift */; };
 		BCC51DFB28210F5700CDD04F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DFA28210F5700CDD04F /* SceneDelegate.swift */; };
 		BCC51E0228210F5800CDD04F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E0128210F5800CDD04F /* Assets.xcassets */; };
 		BCC51E0528210F5800CDD04F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E0328210F5800CDD04F /* LaunchScreen.storyboard */; };
 		BCC51E3428211AA500CDD04F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E3328211AA500CDD04F /* GoogleService-Info.plist */; };
 		BCD8350D2823C5C6001273C8 /* UIVIew+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8350C2823C5C6001273C8 /* UIVIew+Extension.swift */; };
-		BCD8350F2824FC35001273C8 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8350E2824FC35001273C8 /* TestingAppDelegate.swift */; };
 		BCD835112824FC98001273C8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD835102824FC98001273C8 /* main.swift */; };
 		BCD83525282A0C75001273C8 /* BoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83524282A0C75001273C8 /* BoardCollectionViewCell.swift */; };
 		BCD83527282A0C7E001273C8 /* BoardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83526282A0C7E001273C8 /* BoardListViewController.swift */; };
-		BCD83528282A1796001273C8 /* BoardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83526282A0C7E001273C8 /* BoardListViewController.swift */; };
-		BCD83529282A1799001273C8 /* BoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83524282A0C75001273C8 /* BoardCollectionViewCell.swift */; };
 		BCD8352B282B8652001273C8 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8352A282B8652001273C8 /* BoardView.swift */; };
-		BCD8352C282B8652001273C8 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8352A282B8652001273C8 /* BoardView.swift */; };
 		BCD8352E282B9540001273C8 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8352D282B9540001273C8 /* PaddedLabel.swift */; };
-		BCD8352F282B9540001273C8 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8352D282B9540001273C8 /* PaddedLabel.swift */; };
 		BCD83531282B9F9B001273C8 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83530282B9F9B001273C8 /* TaskTableViewCell.swift */; };
-		BCD83532282B9F9B001273C8 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83530282B9F9B001273C8 /* TaskTableViewCell.swift */; };
 		BCD83534282BB166001273C8 /* TaskTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83533282BB166001273C8 /* TaskTableViewDataSource.swift */; };
-		BCD83535282BB166001273C8 /* TaskTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83533282BB166001273C8 /* TaskTableViewDataSource.swift */; };
 		BCD83537282BB170001273C8 /* TaskTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83536282BB170001273C8 /* TaskTableViewDelegate.swift */; };
-		BCD83538282BB170001273C8 /* TaskTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83536282BB170001273C8 /* TaskTableViewDelegate.swift */; };
 		BCD8353A282BB1E2001273C8 /* TaskStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83539282BB1E2001273C8 /* TaskStackView.swift */; };
-		BCD8353B282BB1E2001273C8 /* TaskStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83539282BB1E2001273C8 /* TaskStackView.swift */; };
-		BCD8353C282C047D001273C8 /* BoardLayoutMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0222282A294700C3602D /* BoardLayoutMaker.swift */; };
-		BCD8353D282C0484001273C8 /* PagingIndicatorReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0223282A294700C3602D /* PagingIndicatorReusableView.swift */; };
-		BCD8353E282C048A001273C8 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0224282A294700C3602D /* BoardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -678,8 +660,6 @@
 				BCD8353A282BB1E2001273C8 /* TaskStackView.swift in Sources */,
 				B74502322823944000172502 /* Validator.swift in Sources */,
 				BCD83525282A0C75001273C8 /* BoardCollectionViewCell.swift in Sources */,
-				6F60F18C282C19DA00E7A85B /* (null) in Sources */,
-				6F991BF928323B6800F4F772 /* (null) in Sources */,
 				B76D57092824ED2F009EEAEC /* AuthenticationManager.swift in Sources */,
 				B74C0225282A294700C3602D /* BoardLayoutMaker.swift in Sources */,
 				BCC51DFB28210F5700CDD04F /* SceneDelegate.swift in Sources */,
@@ -700,32 +680,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B76D57042823F694009EEAEC /* ValidatorTest.swift in Sources */,
-				B76D570D2824F88C009EEAEC /* AuthenticationManagerIntegrationTest.swift in Sources */,
-				BCD8353B282BB1E2001273C8 /* TaskStackView.swift in Sources */,
-				BC22098228239D7000159AC0 /* LoginViewController.swift in Sources */,
-				BCD8353E282C048A001273C8 /* BoardViewController.swift in Sources */,
-				BC0B746528236A35007AE2B6 /* KrelloTests.swift in Sources */,
-				6FB31533282A435D00E37BFD /* FirestoreServiceTest.swift in Sources */,
-				6FD292C12824E7A000A0ED7E /* LoginViewTest.swift in Sources */,
-				BCD83535282BB166001273C8 /* TaskTableViewDataSource.swift in Sources */,
-				BC2209882823A87700159AC0 /* LoginView.swift in Sources */,
-				BCD8352F282B9540001273C8 /* PaddedLabel.swift in Sources */,
-				BC2209912823AE1600159AC0 /* LayoutAnchor+Extension.swift in Sources */,
-				BCD83538282BB170001273C8 /* TaskTableViewDelegate.swift in Sources */,
-				BCD83529282A1799001273C8 /* BoardCollectionViewCell.swift in Sources */,
-				BCD8353C282C047D001273C8 /* BoardLayoutMaker.swift in Sources */,
-				B76D570F2826E1F4009EEAEC /* AuthenticationTest.swift in Sources */,
-				BCD8350F2824FC35001273C8 /* TestingAppDelegate.swift in Sources */,
-				BC2209852823A86000159AC0 /* DefaultView.swift in Sources */,
-				BC22098B2823AD9900159AC0 /* UIColor+Extension.swift in Sources */,
-				BCD83528282A1796001273C8 /* BoardListViewController.swift in Sources */,
-				BCD8352C282B8652001273C8 /* BoardView.swift in Sources */,
-				BCD83532282B9F9B001273C8 /* TaskTableViewCell.swift in Sources */,
-				6FD292C22824E98B00A0ED7E /* Preview.swift in Sources */,
-				B76D57062824DBA8009EEAEC /* Preview.swift in Sources */,
-				BC22098E2823ADB200159AC0 /* UIStackView+Extension.swift in Sources */,
-				BCD8353D282C0484001273C8 /* PagingIndicatorReusableView.swift in Sources */,
+				B73E718C28328AE5007B4654 /* TestingAppDelegate.swift in Sources */,
+				B73E718928328AD9007B4654 /* UIColor+Extension.swift in Sources */,
+				B73E718A28328AD9007B4654 /* LayoutAnchor+Extension.swift in Sources */,
+				B73E718B28328AD9007B4654 /* UIStackView+Extension.swift in Sources */,
+				B73E718328328AC6007B4654 /* AuthenticationTest.swift in Sources */,
+				B73E718428328AC6007B4654 /* AuthenticationManagerIntegrationTest.swift in Sources */,
+				B73E718528328AC6007B4654 /* ValidatorTest.swift in Sources */,
+				B73E718628328AC6007B4654 /* KrelloTests.swift in Sources */,
+				B73E718728328AC6007B4654 /* LoginViewTest.swift in Sources */,
+				B73E718828328AC6007B4654 /* FirestoreServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

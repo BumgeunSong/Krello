@@ -9,23 +9,36 @@ import UIKit
 
 class LoginViewController: UIViewController {
     let loginView = LoginView()
+    let authenticationManager =  AuthenticationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view = loginView
+        processLogin()
+        processSignUp()
+    }
 
-        loginView.didTapLoginButton = { [weak self] in
-            let destinationVC = BoardListViewController()
-            let navigationViewController = UINavigationController(rootViewController: destinationVC)
-            navigationViewController.modalPresentationStyle = .fullScreen
-            self?.present(navigationViewController, animated: true)
+    private func processLogin() {
+        loginView.didTapLoginButton = { [weak self] email, password in
+
+            let userInfo = AuthenticationInfo(email: email, password: password)
+
+            self?.authenticationManager.login(info: userInfo) { [weak self] _ in
+                let destinationVC = BoardListViewController()
+                let navigationViewController = UINavigationController(rootViewController: destinationVC)
+                navigationViewController.modalPresentationStyle = .fullScreen
+                self?.present(navigationViewController, animated: true)
+            }
         }
+    }
 
+    private func processSignUp() {
         loginView.didTapSignupButton = { [weak self] in
             let destinationVC = SignupViewController()
             self?.present(destinationVC, animated: true)
         }
     }
+
 }
 
 // Add this to see preview
