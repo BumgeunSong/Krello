@@ -23,11 +23,17 @@ class LoginViewController: UIViewController {
 
             let userInfo = AuthenticationInfo(email: email, password: password)
 
-            self?.authenticationManager.login(info: userInfo) { [weak self] _ in
-                let destinationVC = BoardListViewController()
-                let navigationViewController = UINavigationController(rootViewController: destinationVC)
-                navigationViewController.modalPresentationStyle = .fullScreen
-                self?.present(navigationViewController, animated: true)
+            self?.authenticationManager.login(info: userInfo) { [weak self] authResult in
+                switch authResult {
+                case .success(let user):
+                    let destinationVC = BoardListViewController(boardManager: BoardManager(userUID: user.uid))
+                    let navigationViewController = UINavigationController(rootViewController: destinationVC)
+                    navigationViewController.modalPresentationStyle = .fullScreen
+                    self?.present(navigationViewController, animated: true)
+
+                case .failure(let error):
+                    print(error)
+                }
             }
         }
     }
