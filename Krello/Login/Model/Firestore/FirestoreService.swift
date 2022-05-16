@@ -63,6 +63,21 @@ enum FirestoreServiceError: Error {
 
 final class FirestoreService {
 
+    func insertUser(uid: String, email: String, userName: String, _ completion: @escaping () -> Void) {
+        let db = Firestore.firestore()
+        let userRef = db.collection("users").document(uid)
+        userRef.setData([
+            "email": email,
+            "name": userName
+        ]) { err in
+            if let err = err {
+                print(err)
+            } else {
+                completion()
+            }
+        }
+    }
+
     func fetchUser(uid: String, _ completion: @escaping (Result<ServerUser, FirestoreServiceError>) -> Void) {
         let db = Firestore.firestore()
         let userRef = db.collection("users").document(uid)

@@ -12,14 +12,14 @@ class SignupViewController: UIViewController {
     private let signupView = SignupFormView()
     private let validator = Validator()
     private let authenticationManager = AuthenticationManager()
-    var emails: [String]?
+    private var emails: [String]?
+    private let firestoreService = FirestoreService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view = signupView
 
-        let firestoreService = FirestoreService()
-        firestoreService.fetchAllUsers { result in
+        self.firestoreService.fetchAllUsers { result in
             switch result {
             case .success(let users):
                 self.emails = users.map({$0.email})
@@ -28,7 +28,7 @@ class SignupViewController: UIViewController {
                 print(errors)
             }
         }
-        
+
         processFieldEmptyValidation()
         processRegexValidation()
         processPasswordConfirmation()
@@ -76,8 +76,9 @@ class SignupViewController: UIViewController {
             self.authenticationManager.signUp(info: userInfo) { result in
                 switch result {
                 case .success(let user):
-                    print("success!")
-
+                    self.firestoreService.insertUser(uid: user.uid, email: email, userName: userName) {
+                        print("success!")
+                    }
                 case .failure(let error):
                     // TODO: 서버와 연결이 끊기면 Alert 띄우기
                     let alert = UIAlertController(title: "\(userName) 님 환영합니다!", message: nil, preferredStyle: .alert)
