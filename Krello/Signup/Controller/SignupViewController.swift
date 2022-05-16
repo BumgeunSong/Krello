@@ -12,10 +12,23 @@ class SignupViewController: UIViewController {
     private let signupView = SignupFormView()
     private let validator = Validator()
     private let authenticationManager = AuthenticationManager()
+    var emails: [String]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view = signupView
+
+        let firestoreService = FirestoreService()
+        firestoreService.fetchAllUsers { result in
+            switch result {
+            case .success(let users):
+                self.emails = users.map({$0.email})
+                self.processEmailDuplication()
+            case .failure(let errors):
+                print(errors)
+            }
+        }
+        
         processFieldEmptyValidation()
         processRegexValidation()
         processPasswordConfirmation()
@@ -23,6 +36,16 @@ class SignupViewController: UIViewController {
         signupView.didTapCloseButton = { [weak self] in
             self?.dismiss(animated: true)
         }
+    }
+
+    private func processEmailDuplication() {
+        guard let emails = emails else {return}
+        signupView.validateDuplicatedEmail = {[weak self] textField in
+            print(emails)
+            guard let text = textField.text, let self = self else {return nil}
+            return self.validator.validateDuplication(text, emailList: emails)
+        }
+
     }
 
     private func processFieldEmptyValidation() {

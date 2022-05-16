@@ -35,6 +35,15 @@ struct Validator {
         }
     }
 
+    func validateDuplication(_ input: String, emailList: [String]) -> ValidationDescriptive? {
+        for email in emailList {
+            if input == email {
+                return FailureMessage.duplicatedEmailAddress
+            }
+        }
+        return nil
+    }
+
     func validateEmpty(_ input: String) -> ValidationDescriptive? {
         guard !input.isEmpty else {return FailureMessage.itemEmpty}
         return nil
@@ -88,6 +97,8 @@ enum FailureMessage: ValidationDescriptive {
     case passwordNotMatched
     case passwordEmpty
     case itemEmpty
+    case duplicatedEmailAddress
+
     var status: Bool {false}
     var description: String {
         switch self {
@@ -99,6 +110,8 @@ enum FailureMessage: ValidationDescriptive {
             return "비밀번호 를 입력해주세요"
         case.itemEmpty:
             return "필수 정보입니다"
+        case .duplicatedEmailAddress:
+            return "중복된 이메일주소 입니다."
         }
 
     }

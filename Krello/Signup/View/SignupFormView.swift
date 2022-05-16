@@ -13,6 +13,7 @@ class SignupFormView: DefaultView {
     var validateRegexFields: ((SignupTextField) -> (ValidationDescriptive?))?
     var validateEmptyFields: ((SignupTextField) -> (ValidationDescriptive?))?
     var validatePasswordConfirmation: ((String, SignupTextField) -> (ValidationDescriptive?))?
+    var validateDuplicatedEmail: ((SignupTextField) -> (ValidationDescriptive?))?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -98,6 +99,8 @@ class SignupFormView: DefaultView {
         passwordConfirmTextField.addTarget(self, action: #selector(passwordConfimrationTextFieldDidChange), for: .editingDidEnd)
 
         emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+
         passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         userNameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
@@ -235,8 +238,15 @@ extension SignupFormView {
     }
 
     @objc func textFieldDidFinishChange(_ textField: SignupTextField) {
-        guard let validationMessage = validateEmptyFields?(textField) else {return}
+        guard let validationMessage = validateEmptyFields?(textField) else {
+            if textField == emailTextField {
+                guard let validationMessage = validateDuplicatedEmail?(textField) else {return}
+                updateValidationStatus(on: textField, with: validationMessage)
+            }
+
+            return}
         updateValidationStatus(on: textField, with: validationMessage)
+
     }
 
     @objc func textFieldDidChange(_ textField: SignupTextField) {
