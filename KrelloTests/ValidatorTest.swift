@@ -30,7 +30,7 @@ class ValidatorTest: XCTestCase {
         let pass = sut.isValidFormat(testEmail, for: .email)
 
         // Then
-        XCTAssertEqual(ValidationMessage.validated(.email).description, pass.description)
+        XCTAssertEqual(SuccessMessage.validated(.email).description, pass.description)
     }
 
     func test_FailureValidation_OnEmail() throws {
@@ -41,7 +41,7 @@ class ValidatorTest: XCTestCase {
         let fail = sut.isValidFormat(testEmail, for: .email)
 
         // Then
-        XCTAssertEqual(ValidationMessage.invalidFormat(.email).description, fail.description)
+        XCTAssertEqual(FailureMessage.invalidFormat(.email).description, fail.description)
     }
 
     func test_SuccessValidation_OnPassword() throws {
@@ -52,7 +52,7 @@ class ValidatorTest: XCTestCase {
         let pass = sut.isValidFormat(testPassword, for: .password)
 
         // Then
-        XCTAssertEqual(ValidationMessage.validated(.password).description, pass.description)
+        XCTAssertEqual(SuccessMessage.validated(.password).description, pass.description)
     }
 
     func test_FailureValidation_OnPassword() throws {
@@ -63,7 +63,7 @@ class ValidatorTest: XCTestCase {
         let fail = sut.isValidFormat(testPassword, for: .password)
 
         // Then
-        XCTAssertEqual(ValidationMessage.invalidFormat(.password).description, fail.description)
+        XCTAssertEqual(FailureMessage.invalidFormat(.password).description, fail.description)
 
     }
 
@@ -75,7 +75,7 @@ class ValidatorTest: XCTestCase {
         let pass = sut.isValidFormat(testUserName, for: .userName)
 
         // Then
-        XCTAssertEqual(ValidationMessage.validated(.userName).description, pass.description)
+        XCTAssertEqual(SuccessMessage.validated(.userName).description, pass.description)
 
     }
 
@@ -87,7 +87,7 @@ class ValidatorTest: XCTestCase {
         let fail = sut.isValidFormat(testUserName, for: .userName)
 
         // Then
-        XCTAssertEqual(ValidationMessage.invalidFormat(.userName).description, fail.description)
+        XCTAssertEqual(FailureMessage.invalidFormat(.userName).description, fail.description)
 
     }
 
@@ -99,7 +99,7 @@ class ValidatorTest: XCTestCase {
         // When
         let pass = sut.isMatched(password: password, confirmPassword: confirmPassword)
         // Then
-        XCTAssertEqual(ValidationMessage.passwordMatched.description, pass.description)
+        XCTAssertEqual(SuccessMessage.passwordMatched.description, pass.description)
 
     }
 
@@ -112,7 +112,7 @@ class ValidatorTest: XCTestCase {
         let fail = sut.isMatched(password: password, confirmPassword: confirmPassword)
 
         // Then
-        XCTAssertEqual(ValidationMessage.passwordNotMatched.description, fail.description)
+        XCTAssertEqual(FailureMessage.passwordNotMatched.description, fail.description)
 
     }
 
@@ -125,7 +125,7 @@ class ValidatorTest: XCTestCase {
         let fail = sut.isMatched(password: password, confirmPassword: confirmPassword)
 
         // Then
-        XCTAssertEqual(ValidationMessage.itemEmpty.description, fail.description)
+        XCTAssertEqual(FailureMessage.itemEmpty.description, fail.description)
 
     }
 
@@ -138,7 +138,7 @@ class ValidatorTest: XCTestCase {
         let fail = sut.isMatched(password: password, confirmPassword: confirmPassword)
 
         // Then
-        XCTAssertEqual(ValidationMessage.passwordMatched.description, fail.description)
+        XCTAssertEqual(SuccessMessage.passwordMatched.description, fail.description)
     }
 
 }
