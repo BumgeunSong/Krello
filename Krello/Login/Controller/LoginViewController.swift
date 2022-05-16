@@ -21,8 +21,9 @@ class LoginViewController: UIViewController {
             self?.present(navigationViewController, animated: true)
         }
 
-        loginView.didTapSignupButton = {
-            print("가입버튼 눌러버렸다")
+        loginView.didTapSignupButton = { [weak self] in
+            let destinationVC = SignupViewController()
+            self?.present(destinationVC, animated: true)
         }
     }
 }

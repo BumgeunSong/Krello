@@ -14,4 +14,5 @@ extension UIColor {
     static let krelloBlue = UIColor(named: "KrelloBlue")
     static let krelloOrange = UIColor(named: "KrelloOrange")
     static let krelloRed = UIColor(named: "KrelloRed")
+    static let krelloBlackOpaque = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
 }
