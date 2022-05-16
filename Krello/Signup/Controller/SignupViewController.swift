@@ -14,6 +14,7 @@ class SignupViewController: UIViewController {
     private let authenticationManager = AuthenticationManager()
     private var emails: [String]?
     private let firestoreService = FirestoreService()
+    var didSuccessSignup: ((String) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,10 +79,10 @@ class SignupViewController: UIViewController {
                 case .success(let user):
                     self.firestoreService.insertUser(uid: user.uid, email: email, userName: userName) {
                         print("success!")
-                        self.dismiss(animated: true) {
 
+                        self.dismiss(animated: true) {
+                            self.didSuccessSignup?(user.uid)
                         }
-//
                     }
                 case .failure(let error):
                     // TODO: 서버와 연결이 끊기면 Alert 띄우기

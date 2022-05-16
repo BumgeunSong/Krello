@@ -24,16 +24,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             rootViewController = navigationViewController
 
         } else {
-
             let loginVC = LoginViewController()
             rootViewController = loginVC
+
             loginVC.loginSuccess = {uid in
-                print(uid)
                 let childVC = BoardListViewController(boardManager: BoardManager(userUID: uid))
                 let navigationViewController = UINavigationController(rootViewController: childVC)
                 self.window?.rootViewController = navigationViewController
             }
 
+            loginVC.didSuccessSignup = {uid in
+                let childVC = BoardListViewController(boardManager: BoardManager(userUID: uid))
+                let navigationViewController = UINavigationController(rootViewController: childVC)
+                self.window?.rootViewController = navigationViewController
+            }
         }
 
         window = UIWindow(windowScene: windowScene) // SceneDelegate의 프로퍼티에 설정해줌

@@ -11,10 +11,12 @@ class LoginViewController: UIViewController {
     let loginView = LoginView()
     let authenticationManager =  AuthenticationManager()
     var loginSuccess: ((String) -> Void)?
+    var didSuccessSignup: ((String) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view = loginView
+
         processLogin()
         processSignUp()
     }
@@ -41,6 +43,9 @@ class LoginViewController: UIViewController {
         loginView.didTapSignupButton = { [weak self] in
             let destinationVC = SignupViewController()
             self?.present(destinationVC, animated: true)
+            destinationVC.didSuccessSignup = { uid in
+                self?.didSuccessSignup?(uid)
+            }
         }
     }
 
