@@ -27,6 +27,11 @@ class BoardListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupNavigation()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -40,7 +45,7 @@ class BoardListViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
 
-        setupNavigation()
+//        setupNavigation()
         loadViewData()
     }
 

@@ -78,10 +78,14 @@ class SignupViewController: UIViewController {
                 case .success(let user):
                     self.firestoreService.insertUser(uid: user.uid, email: email, userName: userName) {
                         print("success!")
+                        self.dismiss(animated: true) {
+
+                        }
+//
                     }
                 case .failure(let error):
                     // TODO: 서버와 연결이 끊기면 Alert 띄우기
-                    let alert = UIAlertController(title: "\(userName) 님 환영합니다!", message: nil, preferredStyle: .alert)
+                    let alert = UIAlertController(title: "\(error)", message: nil, preferredStyle: .alert)
                     let action = UIAlertAction(title: "확인", style: .default, handler: {_ in
                         self.dismiss(animated: true)
                     })

@@ -10,6 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
     let loginView = LoginView()
     let authenticationManager =  AuthenticationManager()
+    var loginSuccess: ((String) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +27,8 @@ class LoginViewController: UIViewController {
             self?.authenticationManager.login(info: userInfo) { [weak self] authResult in
                 switch authResult {
                 case .success(let user):
-                    let destinationVC = BoardListViewController(boardManager: BoardManager(userUID: user.uid))
-                    let navigationViewController = UINavigationController(rootViewController: destinationVC)
-                    navigationViewController.modalPresentationStyle = .fullScreen
-                    self?.present(navigationViewController, animated: true)
+
+                    self?.loginSuccess?(user.uid)
 
                 case .failure(let error):
                     print(error)
