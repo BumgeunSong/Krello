@@ -6,18 +6,17 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 class SignupViewController: UIViewController {
 
     private let signupView = SignupFormView()
     private let validator = Validator()
     private let authenticationManager = AuthenticationManager()
-    private var alert: UIAlertController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view = signupView
-        processFieldEmptyValidtion()
+        processFieldEmptyValidation()
         processRegexValidation()
         processPasswordConfirmation()
         processSignup()
@@ -26,7 +25,7 @@ class SignupViewController: UIViewController {
         }
     }
 
-    private func processFieldEmptyValidtion() {
+    private func processFieldEmptyValidation() {
         signupView.validateEmptyFields = {[weak self] textField in
         guard let text = textField.text, let self = self else {return nil}
         return  self.validator.validateEmpty(text)
@@ -50,16 +49,20 @@ class SignupViewController: UIViewController {
     private func processSignup() {
         signupView.didTapSignupButton = { [weak self] email, password, userName in
             guard let self = self else {return}
-            print("\(email):\(password):\(userName)")
             let userInfo = AuthenticationInfo(email: email, password: password)
             self.authenticationManager.signUp(info: userInfo) { result in
                 switch result {
                 case .success(let user):
-                    // TODO: Alert 띄우기
-                    print(user)
+                    print("success!")
+
                 case .failure(let error):
-                    // TODO: 서버와 연결이 끊기면 Alert 띄우기 
-                    print(error)
+                    // TODO: 서버와 연결이 끊기면 Alert 띄우기
+                    let alert = UIAlertController(title: "\(userName) 님 환영합니다!", message: nil, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .default, handler: {_ in
+                        self.dismiss(animated: true)
+                    })
+                    alert.addAction(action)
+                    self.present(alert, animated: true)
                 }
             }
         }

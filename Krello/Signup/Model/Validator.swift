@@ -35,18 +35,18 @@ struct Validator {
         }
     }
 
-    func validateEmpty(_ input: String) -> ValidationMessage? {
-        guard !input.isEmpty else {return .itemEmpty}
+    func validateEmpty(_ input: String) -> ValidationDescriptive? {
+        guard !input.isEmpty else {return FailureMessage.itemEmpty}
         return nil
     }
 
-    func isValidFormat(_ input: String, for item: SignupField) -> ValidationMessage {
-        guard !input.isEmpty else {return .itemEmpty}
+    func isValidFormat(_ input: String, for item: SignupField) -> ValidationDescriptive {
+        guard !input.isEmpty else {return FailureMessage.itemEmpty}
 
         if validate(input, regex: item.regex) {
-            return .validated(item)
+            return SuccessMessage.validated(item)
         } else {
-            return .invalidFormat(item)
+            return FailureMessage.invalidFormat(item)
         }
     }
 
@@ -54,35 +54,41 @@ struct Validator {
         NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: input)
     }
 
-    func isMatched(password: String, confirmPassword: String?) -> ValidationMessage {
-        guard let confirmPassword = confirmPassword, !confirmPassword.isEmpty else {return .itemEmpty}
+    func isMatched(password: String, confirmPassword: String?) -> ValidationDescriptive {
+        guard let confirmPassword = confirmPassword, !confirmPassword.isEmpty else {return FailureMessage.itemEmpty}
         let trimmedPassword = password.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedConfirmPassword = confirmPassword.trimmingCharacters(in: .whitespacesAndNewlines)
-//        guard !trimmedPassword.isEmpty && !trimmedConfirmPassword.isEmpty else {return .itemEmpty}
-
-        if trimmedPassword == trimmedConfirmPassword {
-            return .passwordMatched
-        } else {
-            return .passwordNotMatched
-        }
+        return trimmedPassword == trimmedConfirmPassword ? SuccessMessage.passwordMatched : FailureMessage.passwordNotMatched
     }
 
 }
-enum ValidationResult {
-    case pass
-    case fail
+
+protocol ValidationDescriptive {
+    var description: String {get}
+    var status: Bool {get}
 }
 
-enum ValidationMessage {
+enum SuccessMessage: ValidationDescriptive {
+    case validated(_ item: Validator.SignupField)
+    case passwordMatched
+    var status: Bool {true}
+    var description: String {
+        switch self {
+        case .validated(let item):
+            return "사용가능한 \(item.rawValue) 입니다"
+        case .passwordMatched:
+            return "입력하신 비밀번호와 일치합니다"
+        }
+    }
+}
+
+enum FailureMessage: ValidationDescriptive {
+
     case invalidFormat(_ item: Validator.SignupField)
     case passwordNotMatched
-    case passwordMatched
     case passwordEmpty
     case itemEmpty
-    case validated(_ item: Validator.SignupField)
-}
-
-extension ValidationMessage: CustomStringConvertible {
+    var status: Bool {false}
     var description: String {
         switch self {
         case .invalidFormat(let item):
@@ -91,29 +97,8 @@ extension ValidationMessage: CustomStringConvertible {
             return "입력하신 비밀번호와 일치하지 않습니다"
         case .passwordEmpty:
             return "비밀번호 를 입력해주세요"
-        case .validated(let item):
-            return "사용가능한 \(item.rawValue) 입니다"
-        case .passwordMatched:
-            return "입력하신 비밀번호와 일치합니다"
         case.itemEmpty:
             return "필수 정보입니다"
-        }
-    }
-
-    var resultType: ValidationResult {
-        switch self {
-        case .invalidFormat:
-            return .fail
-        case .passwordNotMatched:
-            return .fail
-        case .passwordMatched:
-            return .pass
-        case .passwordEmpty:
-            return .fail
-        case .validated:
-            return .pass
-        case .itemEmpty:
-            return .fail
         }
 
     }

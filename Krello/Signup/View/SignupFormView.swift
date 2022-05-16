@@ -10,9 +10,9 @@ import UIKit
 class SignupFormView: DefaultView {
     var didTapSignupButton: ((_ email: String, _ password: String, _ userName: String) -> Void)?
     var didTapCloseButton: (() -> Void)?
-    var validateRegexFields: ((SignupTextField) -> (ValidationMessage?))?
-    var validateEmptyFields: ((SignupTextField) -> (ValidationMessage?))?
-    var validatePasswordConfirmation: ((String, SignupTextField) -> (ValidationMessage?))?
+    var validateRegexFields: ((SignupTextField) -> (ValidationDescriptive?))?
+    var validateEmptyFields: ((SignupTextField) -> (ValidationDescriptive?))?
+    var validatePasswordConfirmation: ((String, SignupTextField) -> (ValidationDescriptive?))?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -116,7 +116,7 @@ class SignupFormView: DefaultView {
 
     let closeButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "multiply"), for: .normal)
+        button.setImage(UIImage(systemName: "xmark"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -249,15 +249,10 @@ extension SignupFormView {
         updateValidationStatus(on: textField, with: validationMessage)
     }
 
-    private func updateValidationStatus(on textField: SignupTextField, with message: ValidationMessage) {
+    private func updateValidationStatus(on textField: SignupTextField, with message: ValidationDescriptive) {
         guard let currentStackView = textField.superview as? UIStackView, let label = currentStackView.arrangedSubviews.last as? ValidationLabel else {return}
-        if message.resultType == .pass {
-            label.setValidatedLabel(message: message.description)
-            textField.configureValidation(status: true)
-        } else {
-            label.setInvalidatedLabel(message: message.description)
-            textField.configureValidation(status: false)
-        }
+        message.status ?  label.setValidatedLabel(message: message.description) : label.setInvalidatedLabel(message: message.description)
+        textField.configureValidation(status: message.status)
         configureSignupButton()
     }
 
