@@ -8,14 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		2489037CC5378EEE0CE8730A /* Pods_Krello.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D15D9EBA901D0B5B1CA0FD61 /* Pods_Krello.framework */; };
-		6F60F18C282C19DA00E7A85B /* BoardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F60F18B282C19DA00E7A85B /* BoardManager.swift */; };
-		6FB31531282A3C6300E37BFD /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB31530282A3C6300E37BFD /* FirestoreService.swift */; };
+		6F60F18C282C19DA00E7A85B /* (null) in Sources */ = {isa = PBXBuildFile; };
+		6F991BF928323B6800F4F772 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		6F991BFB28323C7200F4F772 /* BoardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F991BFA28323BDE00F4F772 /* BoardManager.swift */; };
+		6F991C002832435900F4F772 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F991BFF2832435900F4F772 /* FirestoreService.swift */; };
 		6FB31533282A435D00E37BFD /* FirestoreServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB31532282A435D00E37BFD /* FirestoreServiceTest.swift */; };
 		6FD292C12824E7A000A0ED7E /* LoginViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD292C02824E79F00A0ED7E /* LoginViewTest.swift */; };
 		6FD292C22824E98B00A0ED7E /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0B745C28225BDD007AE2B6 /* Preview.swift */; };
 		9CFD1B2C1F608EA9228C54AB /* Pods_KrelloTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992A62047D85C6E5349BC267 /* Pods_KrelloTests.framework */; };
 		B74502322823944000172502 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74502312823944000172502 /* Validator.swift */; };
 		B74C02192828D90400C3602D /* AuthenticationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C02182828D90400C3602D /* AuthenticationEngine.swift */; };
+		B74C0225282A294700C3602D /* BoardLayoutMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0222282A294700C3602D /* BoardLayoutMaker.swift */; };
+		B74C0226282A294700C3602D /* PagingIndicatorReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0223282A294700C3602D /* PagingIndicatorReusableView.swift */; };
+		B74C0227282A294700C3602D /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0224282A294700C3602D /* BoardViewController.swift */; };
 		B76D57042823F694009EEAEC /* ValidatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D57032823F694009EEAEC /* ValidatorTest.swift */; };
 		B76D57062824DBA8009EEAEC /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0B745C28225BDD007AE2B6 /* Preview.swift */; };
 		B76D57092824ED2F009EEAEC /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D57082824ED2F009EEAEC /* AuthenticationManager.swift */; };
@@ -39,10 +44,8 @@
 		BC2209912823AE1600159AC0 /* LayoutAnchor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC22098F2823AE1600159AC0 /* LayoutAnchor+Extension.swift */; };
 		BCC51DF928210F5700CDD04F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DF828210F5700CDD04F /* AppDelegate.swift */; };
 		BCC51DFB28210F5700CDD04F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DFA28210F5700CDD04F /* SceneDelegate.swift */; };
-		BCC51DFD28210F5700CDD04F /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51DFC28210F5700CDD04F /* RootViewController.swift */; };
 		BCC51E0228210F5800CDD04F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E0128210F5800CDD04F /* Assets.xcassets */; };
 		BCC51E0528210F5800CDD04F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E0328210F5800CDD04F /* LaunchScreen.storyboard */; };
-		BCC51E322821174200CDD04F /* Something+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC51E312821174200CDD04F /* Something+Extension.swift */; };
 		BCC51E3428211AA500CDD04F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCC51E3328211AA500CDD04F /* GoogleService-Info.plist */; };
 		BCD8350D2823C5C6001273C8 /* UIVIew+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8350C2823C5C6001273C8 /* UIVIew+Extension.swift */; };
 		BCD8350F2824FC35001273C8 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8350E2824FC35001273C8 /* TestingAppDelegate.swift */; };
@@ -51,6 +54,21 @@
 		BCD83527282A0C7E001273C8 /* BoardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83526282A0C7E001273C8 /* BoardListViewController.swift */; };
 		BCD83528282A1796001273C8 /* BoardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83526282A0C7E001273C8 /* BoardListViewController.swift */; };
 		BCD83529282A1799001273C8 /* BoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83524282A0C75001273C8 /* BoardCollectionViewCell.swift */; };
+		BCD8352B282B8652001273C8 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8352A282B8652001273C8 /* BoardView.swift */; };
+		BCD8352C282B8652001273C8 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8352A282B8652001273C8 /* BoardView.swift */; };
+		BCD8352E282B9540001273C8 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8352D282B9540001273C8 /* PaddedLabel.swift */; };
+		BCD8352F282B9540001273C8 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8352D282B9540001273C8 /* PaddedLabel.swift */; };
+		BCD83531282B9F9B001273C8 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83530282B9F9B001273C8 /* TaskTableViewCell.swift */; };
+		BCD83532282B9F9B001273C8 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83530282B9F9B001273C8 /* TaskTableViewCell.swift */; };
+		BCD83534282BB166001273C8 /* TaskTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83533282BB166001273C8 /* TaskTableViewDataSource.swift */; };
+		BCD83535282BB166001273C8 /* TaskTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83533282BB166001273C8 /* TaskTableViewDataSource.swift */; };
+		BCD83537282BB170001273C8 /* TaskTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83536282BB170001273C8 /* TaskTableViewDelegate.swift */; };
+		BCD83538282BB170001273C8 /* TaskTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83536282BB170001273C8 /* TaskTableViewDelegate.swift */; };
+		BCD8353A282BB1E2001273C8 /* TaskStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83539282BB1E2001273C8 /* TaskStackView.swift */; };
+		BCD8353B282BB1E2001273C8 /* TaskStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD83539282BB1E2001273C8 /* TaskStackView.swift */; };
+		BCD8353C282C047D001273C8 /* BoardLayoutMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0222282A294700C3602D /* BoardLayoutMaker.swift */; };
+		BCD8353D282C0484001273C8 /* PagingIndicatorReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0223282A294700C3602D /* PagingIndicatorReusableView.swift */; };
+		BCD8353E282C048A001273C8 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74C0224282A294700C3602D /* BoardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,16 +83,19 @@
 
 /* Begin PBXFileReference section */
 		01560B6CE738BCBD939EADB8 /* Pods-Krello.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Krello.release.xcconfig"; path = "Target Support Files/Pods-Krello/Pods-Krello.release.xcconfig"; sourceTree = "<group>"; };
-		6F60F18B282C19DA00E7A85B /* BoardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardManager.swift; sourceTree = "<group>"; };
-		6FB31530282A3C6300E37BFD /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		6F991BFA28323BDE00F4F772 /* BoardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardManager.swift; sourceTree = "<group>"; };
+		6F991BFF2832435900F4F772 /* FirestoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		6FB31532282A435D00E37BFD /* FirestoreServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServiceTest.swift; sourceTree = "<group>"; };
 		6FD292C02824E79F00A0ED7E /* LoginViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTest.swift; sourceTree = "<group>"; };
 		8302E3DED610EF1C02403E3E /* Pods-KrelloTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KrelloTests.debug.xcconfig"; path = "Target Support Files/Pods-KrelloTests/Pods-KrelloTests.debug.xcconfig"; sourceTree = "<group>"; };
 		992A62047D85C6E5349BC267 /* Pods_KrelloTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KrelloTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D344D63B79E92BEEC611E7 /* Pods-KrelloTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KrelloTests.release.xcconfig"; path = "Target Support Files/Pods-KrelloTests/Pods-KrelloTests.release.xcconfig"; sourceTree = "<group>"; };
 		AAB53DB7ADEBD0FCFCF20435 /* Pods-Krello.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Krello.debug.xcconfig"; path = "Target Support Files/Pods-Krello/Pods-Krello.debug.xcconfig"; sourceTree = "<group>"; };
-		B74502312823944000172502 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Validator.swift; path = Krello/Model/Validator.swift; sourceTree = SOURCE_ROOT; };
+		B74502312823944000172502 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Validator.swift; path = Krello/Signup/Model/Validator.swift; sourceTree = SOURCE_ROOT; };
 		B74C02182828D90400C3602D /* AuthenticationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationEngine.swift; sourceTree = "<group>"; };
+		B74C0222282A294700C3602D /* BoardLayoutMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardLayoutMaker.swift; sourceTree = "<group>"; };
+		B74C0223282A294700C3602D /* PagingIndicatorReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingIndicatorReusableView.swift; sourceTree = "<group>"; };
+		B74C0224282A294700C3602D /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		B76D57032823F694009EEAEC /* ValidatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorTest.swift; sourceTree = "<group>"; };
 		B76D57082824ED2F009EEAEC /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		B76D570A2824EE21009EEAEC /* AuthenticationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInfo.swift; sourceTree = "<group>"; };
@@ -91,19 +112,23 @@
 		BCC51DF528210F5700CDD04F /* Krello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Krello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC51DF828210F5700CDD04F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCC51DFA28210F5700CDD04F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BCC51DFC28210F5700CDD04F /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		BCC51E0128210F5800CDD04F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCC51E0428210F5800CDD04F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCC51E0628210F5800CDD04F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCC51E0B28210F5800CDD04F /* KrelloTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KrelloTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC51E0F28210F5800CDD04F /* KrelloTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrelloTests.swift; sourceTree = "<group>"; };
-		BCC51E312821174200CDD04F /* Something+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Something+Extension.swift"; sourceTree = "<group>"; };
 		BCC51E3328211AA500CDD04F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BCD8350C2823C5C6001273C8 /* UIVIew+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+Extension.swift"; sourceTree = "<group>"; };
 		BCD8350E2824FC35001273C8 /* TestingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
 		BCD835102824FC98001273C8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		BCD83524282A0C75001273C8 /* BoardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardCollectionViewCell.swift; sourceTree = "<group>"; };
 		BCD83526282A0C7E001273C8 /* BoardListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardListViewController.swift; sourceTree = "<group>"; };
+		BCD8352A282B8652001273C8 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		BCD8352D282B9540001273C8 /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
+		BCD83530282B9F9B001273C8 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		BCD83533282BB166001273C8 /* TaskTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewDataSource.swift; sourceTree = "<group>"; };
+		BCD83536282BB170001273C8 /* TaskTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewDelegate.swift; sourceTree = "<group>"; };
+		BCD83539282BB1E2001273C8 /* TaskStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStackView.swift; sourceTree = "<group>"; };
 		D15D9EBA901D0B5B1CA0FD61 /* Pods_Krello.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Krello.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -127,20 +152,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6F60F18A282C04F200E7A85B /* Firestore */ = {
+		6F991BF628323A5400F4F772 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				6FB31530282A3C6300E37BFD /* FirestoreService.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		6F991BF728323B4F00F4F772 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6F991BFA28323BDE00F4F772 /* BoardManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6F991BFE2832432A00F4F772 /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+				6F991BFF2832435900F4F772 /* FirestoreService.swift */,
 			);
 			path = Firestore;
 			sourceTree = "<group>";
 		};
-		6F60F18D282C200600E7A85B /* ViewModel */ = {
+		6F991C082832453700F4F772 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6F60F18B282C19DA00E7A85B /* BoardManager.swift */,
 			);
-			path = ViewModel;
+			path = View;
+			sourceTree = "<group>";
+		};
+		6F991C092832454900F4F772 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6F991C0A2832455900F4F772 /* LogCRUD */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LogCRUD;
 			sourceTree = "<group>";
 		};
 		95AEF5F2C33780BBA0D4AB52 /* Pods */ = {
@@ -163,22 +216,9 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B7450233282394AB00172502 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B74502312823944000172502 /* Validator.swift */,
-				B76D570A2824EE21009EEAEC /* AuthenticationInfo.swift */,
-				B76D57102826EC78009EEAEC /* UserInfo.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		B76D57072824ECC2009EEAEC /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				6F60F18A282C04F200E7A85B /* Firestore */,
-				B76D57082824ED2F009EEAEC /* AuthenticationManager.swift */,
-				B74C02182828D90400C3602D /* AuthenticationEngine.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -191,6 +231,7 @@
 				BCC51DF628210F5700CDD04F /* Products */,
 				95AEF5F2C33780BBA0D4AB52 /* Pods */,
 				A012AC1263AFC72DBEDABB58 /* Frameworks */,
+				6F991BF628323A5400F4F772 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -206,13 +247,13 @@
 		BCC51DF728210F5700CDD04F /* Krello */ = {
 			isa = PBXGroup;
 			children = (
-				B76D57072824ECC2009EEAEC /* Network */,
-				BCC51E2E2821115C00CDD04F /* Controller */,
+				BCDB11F3282CE9D500A90202 /* Login */,
+				BCDB11F2282CE9CE00A90202 /* Signup */,
+				BCDB11F1282CE9BF00A90202 /* TaskCRUD */,
+				BCDB11F0282CE98B00A90202 /* BoardCRUD */,
+				6F991C0A2832455900F4F772 /* LogCRUD */,
 				BCC51E2D2821115300CDD04F /* Common */,
-				BCC51E2A2821113900CDD04F /* View */,
 				BCC51E292821113900CDD04F /* Supporting */,
-				B7450233282394AB00172502 /* Model */,
-				6F60F18D282C200600E7A85B /* ViewModel */,
 			);
 			path = Krello;
 			sourceTree = "<group>";
@@ -240,40 +281,143 @@
 				BCC51E0128210F5800CDD04F /* Assets.xcassets */,
 				BCC51E0628210F5800CDD04F /* Info.plist */,
 				BCC51E3328211AA500CDD04F /* GoogleService-Info.plist */,
-				BC0B745C28225BDD007AE2B6 /* Preview.swift */,
 			);
 			path = Supporting;
-			sourceTree = "<group>";
-		};
-		BCC51E2A2821113900CDD04F /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BCD83524282A0C75001273C8 /* BoardCollectionViewCell.swift */,
-				BCC51E0328210F5800CDD04F /* LaunchScreen.storyboard */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		BCC51E2D2821115300CDD04F /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				BCC51E312821174200CDD04F /* Something+Extension.swift */,
+				B76D57072824ECC2009EEAEC /* Network */,
+				BC0B745C28225BDD007AE2B6 /* Preview.swift */,
+				BC2209832823A86000159AC0 /* DefaultView.swift */,
 				BC2209892823AD9900159AC0 /* UIColor+Extension.swift */,
 				BC22098F2823AE1600159AC0 /* LayoutAnchor+Extension.swift */,
 				BCD8350C2823C5C6001273C8 /* UIVIew+Extension.swift */,
 				BC22098C2823ADB200159AC0 /* UIStackView+Extension.swift */,
+				BCD8352D282B9540001273C8 /* PaddedLabel.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
 		};
-		BCC51E2E2821115C00CDD04F /* Controller */ = {
+		BCDB11F0282CE98B00A90202 /* BoardCRUD */ = {
 			isa = PBXGroup;
 			children = (
-				BCC51DFC28210F5700CDD04F /* RootViewController.swift */,
+				6F991BF728323B4F00F4F772 /* Model */,
+				BCDB11FA282CEAAB00A90202 /* View */,
+				BCDB11F8282CEAA200A90202 /* Controller */,
+			);
+			path = BoardCRUD;
+			sourceTree = "<group>";
+		};
+		BCDB11F1282CE9BF00A90202 /* TaskCRUD */ = {
+			isa = PBXGroup;
+			children = (
+				6F991C092832454900F4F772 /* Model */,
+				BCDB11FC282CED7900A90202 /* Controller */,
+				BCDB11FB282CEB3900A90202 /* View */,
+			);
+			path = TaskCRUD;
+			sourceTree = "<group>";
+		};
+		BCDB11F2282CE9CE00A90202 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				6F991C082832453700F4F772 /* View */,
+				BCDB1200282CEDDD00A90202 /* Controller */,
+				BCDB11FE282CEDD300A90202 /* Model */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		BCDB11F3282CE9D500A90202 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BCDB11F7282CEA3800A90202 /* Model */,
+				BCDB11F5282CEA2F00A90202 /* Controller */,
+				BCDB11F6282CEA3600A90202 /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		BCDB11F5282CEA2F00A90202 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				BC22098028239D7000159AC0 /* LoginViewController.swift */,
-				BC2209832823A86000159AC0 /* DefaultView.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BCDB11F6282CEA3600A90202 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BCC51E0328210F5800CDD04F /* LaunchScreen.storyboard */,
 				BC2209862823A87700159AC0 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BCDB11F7282CEA3800A90202 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6F991BFE2832432A00F4F772 /* Firestore */,
+				B76D570A2824EE21009EEAEC /* AuthenticationInfo.swift */,
+				B76D57082824ED2F009EEAEC /* AuthenticationManager.swift */,
+				B74C02182828D90400C3602D /* AuthenticationEngine.swift */,
+				B76D57102826EC78009EEAEC /* UserInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BCDB11F8282CEAA200A90202 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B74C0224282A294700C3602D /* BoardViewController.swift */,
 				BCD83526282A0C7E001273C8 /* BoardListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BCDB11FA282CEAAB00A90202 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BCD8352A282B8652001273C8 /* BoardView.swift */,
+				B74C0222282A294700C3602D /* BoardLayoutMaker.swift */,
+				B74C0223282A294700C3602D /* PagingIndicatorReusableView.swift */,
+				BCD83524282A0C75001273C8 /* BoardCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BCDB11FB282CEB3900A90202 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BCD83539282BB1E2001273C8 /* TaskStackView.swift */,
+				BCD83530282B9F9B001273C8 /* TaskTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BCDB11FC282CED7900A90202 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BCD83533282BB166001273C8 /* TaskTableViewDataSource.swift */,
+				BCD83536282BB170001273C8 /* TaskTableViewDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BCDB11FE282CEDD300A90202 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B74502312823944000172502 /* Validator.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BCDB1200282CEDDD00A90202 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -504,25 +648,34 @@
 			files = (
 				BC22098128239D7000159AC0 /* LoginViewController.swift in Sources */,
 				BC2209902823AE1600159AC0 /* LayoutAnchor+Extension.swift in Sources */,
-				BCC51DFD28210F5700CDD04F /* RootViewController.swift in Sources */,
 				BCC51DF928210F5700CDD04F /* AppDelegate.swift in Sources */,
 				B76D57112826EC78009EEAEC /* UserInfo.swift in Sources */,
 				B74C02192828D90400C3602D /* AuthenticationEngine.swift in Sources */,
 				BC22098D2823ADB200159AC0 /* UIStackView+Extension.swift in Sources */,
 				BC22098A2823AD9900159AC0 /* UIColor+Extension.swift in Sources */,
 				BC0B745D28225BDD007AE2B6 /* Preview.swift in Sources */,
-				6FB31531282A3C6300E37BFD /* FirestoreService.swift in Sources */,
-				BCC51E322821174200CDD04F /* Something+Extension.swift in Sources */,
 				B76D570B2824EE21009EEAEC /* AuthenticationInfo.swift in Sources */,
+				BCD83531282B9F9B001273C8 /* TaskTableViewCell.swift in Sources */,
 				BCD83527282A0C7E001273C8 /* BoardListViewController.swift in Sources */,
 				BCD835112824FC98001273C8 /* main.swift in Sources */,
+				6F991C002832435900F4F772 /* FirestoreService.swift in Sources */,
+				6F991BFB28323C7200F4F772 /* BoardManager.swift in Sources */,
+				BCD8352E282B9540001273C8 /* PaddedLabel.swift in Sources */,
+				BCD8353A282BB1E2001273C8 /* TaskStackView.swift in Sources */,
 				B74502322823944000172502 /* Validator.swift in Sources */,
 				BCD83525282A0C75001273C8 /* BoardCollectionViewCell.swift in Sources */,
-				6F60F18C282C19DA00E7A85B /* BoardManager.swift in Sources */,
+				6F60F18C282C19DA00E7A85B /* (null) in Sources */,
+				6F991BF928323B6800F4F772 /* (null) in Sources */,
 				B76D57092824ED2F009EEAEC /* AuthenticationManager.swift in Sources */,
+				B74C0225282A294700C3602D /* BoardLayoutMaker.swift in Sources */,
 				BCC51DFB28210F5700CDD04F /* SceneDelegate.swift in Sources */,
 				BC2209872823A87700159AC0 /* LoginView.swift in Sources */,
+				B74C0227282A294700C3602D /* BoardViewController.swift in Sources */,
+				B74C0226282A294700C3602D /* PagingIndicatorReusableView.swift in Sources */,
+				BCD83537282BB170001273C8 /* TaskTableViewDelegate.swift in Sources */,
+				BCD8352B282B8652001273C8 /* BoardView.swift in Sources */,
 				BC2209842823A86000159AC0 /* DefaultView.swift in Sources */,
+				BCD83534282BB166001273C8 /* TaskTableViewDataSource.swift in Sources */,
 				BCD8350D2823C5C6001273C8 /* UIVIew+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,21 +686,30 @@
 			files = (
 				B76D57042823F694009EEAEC /* ValidatorTest.swift in Sources */,
 				B76D570D2824F88C009EEAEC /* AuthenticationManagerIntegrationTest.swift in Sources */,
+				BCD8353B282BB1E2001273C8 /* TaskStackView.swift in Sources */,
 				BC22098228239D7000159AC0 /* LoginViewController.swift in Sources */,
+				BCD8353E282C048A001273C8 /* BoardViewController.swift in Sources */,
 				BC0B746528236A35007AE2B6 /* KrelloTests.swift in Sources */,
 				6FB31533282A435D00E37BFD /* FirestoreServiceTest.swift in Sources */,
 				6FD292C12824E7A000A0ED7E /* LoginViewTest.swift in Sources */,
+				BCD83535282BB166001273C8 /* TaskTableViewDataSource.swift in Sources */,
 				BC2209882823A87700159AC0 /* LoginView.swift in Sources */,
+				BCD8352F282B9540001273C8 /* PaddedLabel.swift in Sources */,
 				BC2209912823AE1600159AC0 /* LayoutAnchor+Extension.swift in Sources */,
+				BCD83538282BB170001273C8 /* TaskTableViewDelegate.swift in Sources */,
 				BCD83529282A1799001273C8 /* BoardCollectionViewCell.swift in Sources */,
+				BCD8353C282C047D001273C8 /* BoardLayoutMaker.swift in Sources */,
 				B76D570F2826E1F4009EEAEC /* AuthenticationTest.swift in Sources */,
 				BCD8350F2824FC35001273C8 /* TestingAppDelegate.swift in Sources */,
 				BC2209852823A86000159AC0 /* DefaultView.swift in Sources */,
 				BC22098B2823AD9900159AC0 /* UIColor+Extension.swift in Sources */,
 				BCD83528282A1796001273C8 /* BoardListViewController.swift in Sources */,
+				BCD8352C282B8652001273C8 /* BoardView.swift in Sources */,
+				BCD83532282B9F9B001273C8 /* TaskTableViewCell.swift in Sources */,
 				6FD292C22824E98B00A0ED7E /* Preview.swift in Sources */,
 				B76D57062824DBA8009EEAEC /* Preview.swift in Sources */,
 				BC22098E2823ADB200159AC0 /* UIStackView+Extension.swift in Sources */,
+				BCD8353D282C0484001273C8 /* PagingIndicatorReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
