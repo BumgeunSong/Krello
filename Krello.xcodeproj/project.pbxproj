@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		2489037CC5378EEE0CE8730A /* Pods_Krello.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D15D9EBA901D0B5B1CA0FD61 /* Pods_Krello.framework */; };
+		6F60F18C282C19DA00E7A85B /* (null) in Sources */ = {isa = PBXBuildFile; };
+		6F991BF928323B6800F4F772 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		6F991BFB28323C7200F4F772 /* BoardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F991BFA28323BDE00F4F772 /* BoardManager.swift */; };
+		6F991C002832435900F4F772 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F991BFF2832435900F4F772 /* FirestoreService.swift */; };
+		6FAA53FC28324F0F0060362A /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA53FB28324F0F0060362A /* SignupViewController.swift */; };
+		6FAA540028324F260060362A /* ValidationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA53FD28324F250060362A /* ValidationLabel.swift */; };
+		6FAA540128324F260060362A /* SignupTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA53FE28324F260060362A /* SignupTextField.swift */; };
+		6FAA540228324F260060362A /* SignupFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA53FF28324F260060362A /* SignupFormView.swift */; };
+		6FB31533282A435D00E37BFD /* FirestoreServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB31532282A435D00E37BFD /* FirestoreServiceTest.swift */; };
 		6FD292C12824E7A000A0ED7E /* LoginViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD292C02824E79F00A0ED7E /* LoginViewTest.swift */; };
 		6FD292C22824E98B00A0ED7E /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0B745C28225BDD007AE2B6 /* Preview.swift */; };
 		9CFD1B2C1F608EA9228C54AB /* Pods_KrelloTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992A62047D85C6E5349BC267 /* Pods_KrelloTests.framework */; };
@@ -82,6 +91,13 @@
 
 /* Begin PBXFileReference section */
 		01560B6CE738BCBD939EADB8 /* Pods-Krello.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Krello.release.xcconfig"; path = "Target Support Files/Pods-Krello/Pods-Krello.release.xcconfig"; sourceTree = "<group>"; };
+		6F991BFA28323BDE00F4F772 /* BoardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardManager.swift; sourceTree = "<group>"; };
+		6F991BFF2832435900F4F772 /* FirestoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		6FAA53FB28324F0F0060362A /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		6FAA53FD28324F250060362A /* ValidationLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationLabel.swift; sourceTree = "<group>"; };
+		6FAA53FE28324F260060362A /* SignupTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupTextField.swift; sourceTree = "<group>"; };
+		6FAA53FF28324F260060362A /* SignupFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupFormView.swift; sourceTree = "<group>"; };
+		6FB31532282A435D00E37BFD /* FirestoreServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServiceTest.swift; sourceTree = "<group>"; };
 		6FD292C02824E79F00A0ED7E /* LoginViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTest.swift; sourceTree = "<group>"; };
 		8302E3DED610EF1C02403E3E /* Pods-KrelloTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KrelloTests.debug.xcconfig"; path = "Target Support Files/Pods-KrelloTests/Pods-KrelloTests.debug.xcconfig"; sourceTree = "<group>"; };
 		992A62047D85C6E5349BC267 /* Pods_KrelloTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KrelloTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +166,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F991BF628323A5400F4F772 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		6F991BF728323B4F00F4F772 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6F991BFA28323BDE00F4F772 /* BoardManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6F991BFE2832432A00F4F772 /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+				6F991BFF2832435900F4F772 /* FirestoreService.swift */,
+			);
+			path = Firestore;
+			sourceTree = "<group>";
+		};
+		6F991C082832453700F4F772 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6FAA53FF28324F260060362A /* SignupFormView.swift */,
+				6FAA53FE28324F260060362A /* SignupTextField.swift */,
+				6FAA53FD28324F250060362A /* ValidationLabel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6F991C092832454900F4F772 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6F991C0A2832455900F4F772 /* LogCRUD */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LogCRUD;
+			sourceTree = "<group>";
+		};
 		95AEF5F2C33780BBA0D4AB52 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +248,7 @@
 				BCC51DF628210F5700CDD04F /* Products */,
 				95AEF5F2C33780BBA0D4AB52 /* Pods */,
 				A012AC1263AFC72DBEDABB58 /* Frameworks */,
+				6F991BF628323A5400F4F772 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -203,8 +267,8 @@
 				BCDB11F3282CE9D500A90202 /* Login */,
 				BCDB11F2282CE9CE00A90202 /* Signup */,
 				BCDB11F1282CE9BF00A90202 /* TaskCRUD */,
-				BCDB11F4282CEA1200A90202 /* LogCRUD */,
 				BCDB11F0282CE98B00A90202 /* BoardCRUD */,
+				6F991C0A2832455900F4F772 /* LogCRUD */,
 				BCC51E2D2821115300CDD04F /* Common */,
 				BCC51E292821113900CDD04F /* Supporting */,
 			);
@@ -219,6 +283,7 @@
 				B76D57032823F694009EEAEC /* ValidatorTest.swift */,
 				BCC51E0F28210F5800CDD04F /* KrelloTests.swift */,
 				6FD292C02824E79F00A0ED7E /* LoginViewTest.swift */,
+				6FB31532282A435D00E37BFD /* FirestoreServiceTest.swift */,
 			);
 			path = KrelloTests;
 			sourceTree = "<group>";
@@ -226,6 +291,7 @@
 		BCC51E292821113900CDD04F /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				BCC51E0328210F5800CDD04F /* LaunchScreen.storyboard */,
 				BCC51DF828210F5700CDD04F /* AppDelegate.swift */,
 				BCD835102824FC98001273C8 /* main.swift */,
 				BCD8350E2824FC35001273C8 /* TestingAppDelegate.swift */,
@@ -255,8 +321,8 @@
 		BCDB11F0282CE98B00A90202 /* BoardCRUD */ = {
 			isa = PBXGroup;
 			children = (
+				6F991BF728323B4F00F4F772 /* Model */,
 				BCDB11FA282CEAAB00A90202 /* View */,
-				BCDB11F9282CEAA800A90202 /* Model */,
 				BCDB11F8282CEAA200A90202 /* Controller */,
 			);
 			path = BoardCRUD;
@@ -265,7 +331,7 @@
 		BCDB11F1282CE9BF00A90202 /* TaskCRUD */ = {
 			isa = PBXGroup;
 			children = (
-				BCDB11FD282CED7F00A90202 /* Model */,
+				6F991C092832454900F4F772 /* Model */,
 				BCDB11FC282CED7900A90202 /* Controller */,
 				BCDB11FB282CEB3900A90202 /* View */,
 			);
@@ -275,8 +341,8 @@
 		BCDB11F2282CE9CE00A90202 /* Signup */ = {
 			isa = PBXGroup;
 			children = (
+				6F991C082832453700F4F772 /* View */,
 				BCDB1200282CEDDD00A90202 /* Controller */,
-				BCDB11FF282CEDD900A90202 /* View */,
 				BCDB11FE282CEDD300A90202 /* Model */,
 			);
 			path = Signup;
@@ -292,13 +358,6 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		BCDB11F4282CEA1200A90202 /* LogCRUD */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = LogCRUD;
-			sourceTree = "<group>";
-		};
 		BCDB11F5282CEA2F00A90202 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,7 +369,6 @@
 		BCDB11F6282CEA3600A90202 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BCC51E0328210F5800CDD04F /* LaunchScreen.storyboard */,
 				BC2209862823A87700159AC0 /* LoginView.swift */,
 			);
 			path = View;
@@ -319,6 +377,7 @@
 		BCDB11F7282CEA3800A90202 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6F991BFE2832432A00F4F772 /* Firestore */,
 				B76D570A2824EE21009EEAEC /* AuthenticationInfo.swift */,
 				B76D57082824ED2F009EEAEC /* AuthenticationManager.swift */,
 				B74C02182828D90400C3602D /* AuthenticationEngine.swift */,
@@ -334,13 +393,6 @@
 				BCD83526282A0C7E001273C8 /* BoardListViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		BCDB11F9282CEAA800A90202 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		BCDB11FA282CEAAB00A90202 /* View */ = {
@@ -374,13 +426,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		BCDB11FD282CED7F00A90202 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		BCDB11FE282CEDD300A90202 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,16 +434,10 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		BCDB11FF282CEDD900A90202 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		BCDB1200282CEDDD00A90202 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6FAA53FB28324F0F0060362A /* SignupViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -634,26 +673,34 @@
 				B74C02192828D90400C3602D /* AuthenticationEngine.swift in Sources */,
 				BC22098D2823ADB200159AC0 /* UIStackView+Extension.swift in Sources */,
 				BC22098A2823AD9900159AC0 /* UIColor+Extension.swift in Sources */,
+				6FAA540028324F260060362A /* ValidationLabel.swift in Sources */,
 				BC0B745D28225BDD007AE2B6 /* Preview.swift in Sources */,
 				B76D570B2824EE21009EEAEC /* AuthenticationInfo.swift in Sources */,
 				BCD83531282B9F9B001273C8 /* TaskTableViewCell.swift in Sources */,
+				6FAA53FC28324F0F0060362A /* SignupViewController.swift in Sources */,
 				BCD83527282A0C7E001273C8 /* BoardListViewController.swift in Sources */,
 				BCD835112824FC98001273C8 /* main.swift in Sources */,
+				6F991C002832435900F4F772 /* FirestoreService.swift in Sources */,
+				6F991BFB28323C7200F4F772 /* BoardManager.swift in Sources */,
 				BCD8352E282B9540001273C8 /* PaddedLabel.swift in Sources */,
 				BCDB1202282CF32300A90202 /* TaskTableViewDragDelegate.swift in Sources */,
 				BCD8353A282BB1E2001273C8 /* TaskStackView.swift in Sources */,
 				B74502322823944000172502 /* Validator.swift in Sources */,
 				BCD83525282A0C75001273C8 /* BoardCollectionViewCell.swift in Sources */,
+				6F60F18C282C19DA00E7A85B /* (null) in Sources */,
+				6F991BF928323B6800F4F772 /* (null) in Sources */,
 				B76D57092824ED2F009EEAEC /* AuthenticationManager.swift in Sources */,
 				B74C0225282A294700C3602D /* BoardLayoutMaker.swift in Sources */,
 				BCC51DFB28210F5700CDD04F /* SceneDelegate.swift in Sources */,
 				BC2209872823A87700159AC0 /* LoginView.swift in Sources */,
 				B74C0227282A294700C3602D /* BoardViewController.swift in Sources */,
 				BCDB1205282CF32E00A90202 /* TaskTableViewDropDelegate.swift in Sources */,
+				6FAA540228324F260060362A /* SignupFormView.swift in Sources */,
 				B74C0226282A294700C3602D /* PagingIndicatorReusableView.swift in Sources */,
 				BCD83537282BB170001273C8 /* TaskTableViewDelegate.swift in Sources */,
 				BCD8352B282B8652001273C8 /* BoardView.swift in Sources */,
 				BC2209842823A86000159AC0 /* DefaultView.swift in Sources */,
+				6FAA540128324F260060362A /* SignupTextField.swift in Sources */,
 				BCD83534282BB166001273C8 /* TaskTableViewDataSource.swift in Sources */,
 				BCD8350D2823C5C6001273C8 /* UIVIew+Extension.swift in Sources */,
 			);
@@ -669,6 +716,7 @@
 				BC22098228239D7000159AC0 /* LoginViewController.swift in Sources */,
 				BCD8353E282C048A001273C8 /* BoardViewController.swift in Sources */,
 				BC0B746528236A35007AE2B6 /* KrelloTests.swift in Sources */,
+				6FB31533282A435D00E37BFD /* FirestoreServiceTest.swift in Sources */,
 				6FD292C12824E7A000A0ED7E /* LoginViewTest.swift in Sources */,
 				BCDB1206282CF32E00A90202 /* TaskTableViewDropDelegate.swift in Sources */,
 				BCDB1203282CF32300A90202 /* TaskTableViewDragDelegate.swift in Sources */,

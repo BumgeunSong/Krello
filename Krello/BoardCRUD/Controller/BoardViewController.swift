@@ -38,8 +38,6 @@ class BoardViewController: UIViewController {
         let boardView = BoardView()
         boardView.setDelegate(self)
         boardView.setDataSource(self)
-        boardView.setLayout(.krelloBoardLayout)
-
         self.boardView = boardView
         self.view = boardView
     }
