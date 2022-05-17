@@ -22,4 +22,5 @@ extension BoardCollectionViewCell: UITableViewDelegate {
         view.heightAnchor.constraint(equalToConstant: 5).isActive = true
         return view
     }
+
 }
