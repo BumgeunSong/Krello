@@ -35,12 +35,12 @@ struct Validator {
         }
     }
 
-    func validateDuplication(_ input: String, emailList: [String]) -> ValidationDescriptive? {
-        for email in emailList {
-            if input == email {
-                return FailureMessage.duplicatedEmailAddress
-            }
+    func validateDuplication(_ input: String, emailList: Set<String>) -> ValidationDescriptive? {
+
+        if emailList.contains(input) {
+            return FailureMessage.duplicatedEmailAddress
         }
+
         return nil
     }
 

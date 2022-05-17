@@ -12,7 +12,7 @@ class SignupViewController: UIViewController {
     private let signupView = SignupFormView()
     private let validator = Validator()
     private let authenticationManager = AuthenticationManager()
-    private var emails: [String]?
+    private var emails: Set<String>?
     private let firestoreService = FirestoreService()
     var didSuccessSignup: ((String) -> Void)?
 
@@ -23,7 +23,7 @@ class SignupViewController: UIViewController {
         self.firestoreService.fetchAllUsers { result in
             switch result {
             case .success(let users):
-                self.emails = users.map({$0.email})
+                self.emails = Set(users.map { $0.email })
                 self.processEmailDuplication()
             case .failure(let errors):
                 print(errors)

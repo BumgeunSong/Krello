@@ -10,7 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
     let loginView = LoginView()
     let authenticationManager =  AuthenticationManager()
-    var loginSuccess: ((String) -> Void)?
+    var didSuccessLogin: ((String) -> Void)?
     var didSuccessSignup: ((String) -> Void)?
 
     override func viewDidLoad() {
@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
                 switch authResult {
                 case .success(let user):
 
-                    self?.loginSuccess?(user.uid)
+                    self?.didSuccessLogin?(user.uid)
 
                 case .failure(let error):
                     print(error)

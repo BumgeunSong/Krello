@@ -11,6 +11,9 @@ final class BoardManager {
     private let service = FirestoreService()
     private let userUID: UID
     private var boards = [Board]()
+    var boardTitles: [String] {
+        return boards.map { $0.title }
+    }
 
     init(userUID: UID) {
         self.userUID = userUID
@@ -27,10 +30,6 @@ final class BoardManager {
                 print(error)
             }
         }
-    }
-
-    func loadBoardNames() -> [String] {
-        return self.boards.map { $0.title }
     }
 
     func loadBoard(of index: Int) -> Board {

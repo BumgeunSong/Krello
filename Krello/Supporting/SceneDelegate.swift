@@ -7,6 +7,20 @@
 
 import UIKit
 
+struct Default {
+
+    private static let key = "userIdentifier"
+
+    static func setUserIdentifier(uid: String) {
+        UserDefaults.standard.set(uid, forKey: key)
+    }
+
+    static func getUserIdentifer() -> String? {
+        return UserDefaults.standard.string(forKey: self.key) ?? nil
+    }
+
+}
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -18,25 +32,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         var rootViewController: UIViewController
 
-        if let user = UserDefaults.standard.string(forKey: "userIdentifier") {
-            let childVC = BoardListViewController(boardManager: BoardManager(userUID: user))
-            let navigationViewController = UINavigationController(rootViewController: childVC)
-            rootViewController = navigationViewController
-
+        if let userIdentifier = Default.getUserIdentifer() {
+            rootViewController = createBoardListViewController(uid: userIdentifier)
         } else {
             let loginVC = LoginViewController()
             rootViewController = loginVC
 
-            loginVC.loginSuccess = {uid in
-                let childVC = BoardListViewController(boardManager: BoardManager(userUID: uid))
-                let navigationViewController = UINavigationController(rootViewController: childVC)
-                self.window?.rootViewController = navigationViewController
+            loginVC.didSuccessLogin = {uid in
+                Default.setUserIdentifier(uid: uid)
+                self.window?.rootViewController = self.createBoardListViewController(uid: uid)
             }
 
             loginVC.didSuccessSignup = {uid in
-                let childVC = BoardListViewController(boardManager: BoardManager(userUID: uid))
-                let navigationViewController = UINavigationController(rootViewController: childVC)
-                self.window?.rootViewController = navigationViewController
+                self.window?.rootViewController = self.createBoardListViewController(uid: uid)
             }
         }
 
@@ -44,6 +52,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
          // 맨 처음 보여줄 ViewController
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
+    }
+
+    private func createBoardListViewController(uid: String) -> UIViewController {
+        let childVC = BoardListViewController(boardManager: BoardManager(userUID: uid))
+        return UINavigationController(rootViewController: childVC)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
