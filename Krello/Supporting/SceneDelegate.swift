@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let loginVC = LoginViewController()
             rootViewController = loginVC
 
-            loginVC.loginSuccess = {uid in
+            loginVC.didSuccessLogin = {uid in
                 let childVC = BoardListViewController(boardManager: BoardManager(userUID: uid))
                 let navigationViewController = UINavigationController(rootViewController: childVC)
                 self.window?.rootViewController = navigationViewController

@@ -8,7 +8,7 @@
 import Foundation
 
 struct Validator {
-    
+
     enum SignupField: String {
         case email = "이메일"
         case password = "비밀번호"
