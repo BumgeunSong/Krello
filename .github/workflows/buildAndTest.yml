@@ -1,11 +1,13 @@
-on: 
-  push: 
-   branches: 
+on:
+  push:
+    paths-ignore: -'KrelloTests/IntegrationTests/**'
+    branches:
       - feat-eddy
       - feat-kai
       - feat-rosa
   pull_request:
-    branches: 
+    paths-ignore: -'KrelloTests/IntegrationTests/**'
+    branches:
       - feat-eddy
       - feat-kai
       - feat-rosa

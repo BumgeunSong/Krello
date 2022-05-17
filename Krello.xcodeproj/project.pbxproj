@@ -209,6 +209,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B7250830283333E000AD7595 /* IntegrationTests */ = {
+			isa = PBXGroup;
+			children = (
+				B76D570C2824F88C009EEAEC /* AuthenticationManagerIntegrationTest.swift */,
+				6FB31532282A435D00E37BFD /* FirestoreServiceTest.swift */,
+			);
+			path = IntegrationTests;
+			sourceTree = "<group>";
+		};
 		B76D57072824ECC2009EEAEC /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,12 +263,11 @@
 		BCC51E0E28210F5800CDD04F /* KrelloTests */ = {
 			isa = PBXGroup;
 			children = (
+				B7250830283333E000AD7595 /* IntegrationTests */,
 				B76D570E2826E1F4009EEAEC /* AuthenticationTest.swift */,
-				B76D570C2824F88C009EEAEC /* AuthenticationManagerIntegrationTest.swift */,
 				B76D57032823F694009EEAEC /* ValidatorTest.swift */,
 				BCC51E0F28210F5800CDD04F /* KrelloTests.swift */,
 				6FD292C02824E79F00A0ED7E /* LoginViewTest.swift */,
-				6FB31532282A435D00E37BFD /* FirestoreServiceTest.swift */,
 			);
 			path = KrelloTests;
 			sourceTree = "<group>";

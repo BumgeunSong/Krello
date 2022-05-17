@@ -27,7 +27,7 @@ private class AuthenticationFailureEngineMock: AuthenticationEngine {
     }
 
 }
-   
+
 class AuthenticationTest: XCTestCase {
     var sut: AuthenticationManager!
 
