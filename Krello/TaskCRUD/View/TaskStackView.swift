@@ -10,18 +10,13 @@ import UIKit
 class TaskStackView: UIStackView {
 
     lazy var headerLabel: UILabel = {
-        let label = PaddedLabel()
-        label.leftPadding = 16
-        label.rightPadding = 16
-        label.topPadding = 4
-        label.bottomPadding = 4
-
+        let label = PaddedLabel(padding: .init(top: 4, left: 16, bottom: 4, right: 16))
         label.font = .boldSystemFont(ofSize: 18)
         return label
     }()
 
     lazy var headerView: UIStackView = {
-        let stackView = UIStackView()
+        let stackView = UIStackView(frame: CGRect(x: 0, y: 0, width: stackView.bounds.width, height: 50))
         stackView.backgroundColor = .krelloGray
         stackView.addArrangedSubview(headerLabel)
         return stackView
@@ -32,14 +27,19 @@ class TaskStackView: UIStackView {
         tableview.register(TaskTableViewCell.self, forCellReuseIdentifier: TaskTableViewCell.identifier)
 
         tableview.backgroundColor = .krelloGray
-
         tableview.delegate = tableViewDelegate
         tableview.dataSource = tableViewDataSource
+
+        tableview.dragInteractionEnabled = true
+        tableview.dropDelegate = tableViewDropDelegate
+        tableview.dragDelegate = tableViewDragDelegate
+        tableview.translatesAutoresizingMaskIntoConstraints = false
+
         return tableview
     }()
 
     lazy var footerView: UIStackView = {
-        let stackView = UIStackView()
+        let stackView = UIStackView(frame: CGRect(x: 0, y: 0, width: stackView.bounds.width, height: 50))
         stackView.backgroundColor = .krelloGray
 
         let button = UIButton()
@@ -53,17 +53,24 @@ class TaskStackView: UIStackView {
 
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
-
         return stackView
     }()
 
     var tableViewDelegate: UITableViewDelegate?
     var tableViewDataSource: UITableViewDataSource?
+    var tableViewDragDelegate: UITableViewDragDelegate?
+    var tableViewDropDelegate: UITableViewDropDelegate?
 
-    init(frame: CGRect, delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
+    init(frame: CGRect,
+         delegate: UITableViewDelegate,
+         dataSource: UITableViewDataSource,
+         dragDelegate: UITableViewDragDelegate,
+         dropDelegate: UITableViewDropDelegate) {
         super.init(frame: frame)
         self.tableViewDelegate = delegate
         self.tableViewDataSource = dataSource
+        self.tableViewDragDelegate = dragDelegate
+        self.tableViewDropDelegate = dropDelegate
 
         axis = .vertical
         distribution = .fill

@@ -11,7 +11,9 @@ class BoardCollectionViewCell: UICollectionViewCell {
 
     static let identifier = "BoardCollectionViewCell"
 
-    lazy var taskStackView = TaskStackView(frame: contentView.bounds, delegate: self, dataSource: self)
+    lazy var taskStackView = TaskStackView(frame: contentView.bounds,
+                                           delegate: self, dataSource: self,
+                                           dragDelegate: self, dropDelegate: self)
 
     // TODO: String은 임시 데이터 타입이므로 모델 생성시 교체.
     var tasks: [String]?
