@@ -16,9 +16,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene) // SceneDelegate의 프로퍼티에 설정해줌
-        let rootViewController = LoginViewController() // 맨 처음 보여줄 ViewController
+        var rootViewController: UIViewController
 
+        if let user = UserDefaults.standard.string(forKey: "userIdentifier") {
+            let childVC = BoardListViewController(boardManager: BoardManager(userUID: user))
+            let navigationViewController = UINavigationController(rootViewController: childVC)
+            rootViewController = navigationViewController
+
+        } else {
+            let loginVC = LoginViewController()
+            rootViewController = loginVC
+
+            loginVC.loginSuccess = {uid in
+                let childVC = BoardListViewController(boardManager: BoardManager(userUID: uid))
+                let navigationViewController = UINavigationController(rootViewController: childVC)
+                self.window?.rootViewController = navigationViewController
+            }
+
+            loginVC.didSuccessSignup = {uid in
+                let childVC = BoardListViewController(boardManager: BoardManager(userUID: uid))
+                let navigationViewController = UINavigationController(rootViewController: childVC)
+                self.window?.rootViewController = navigationViewController
+            }
+        }
+
+        window = UIWindow(windowScene: windowScene) // SceneDelegate의 프로퍼티에 설정해줌
+         // 맨 처음 보여줄 ViewController
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
     }

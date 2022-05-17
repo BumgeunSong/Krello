@@ -26,7 +26,7 @@ class LoginViewTest: XCTestCase {
     func test_loginButtonAction_touchUpInside() throws {
         // Given:
         let tapExpectation = expectation(description: #function)
-        sut.didTapLoginButton = {
+        sut.didTapLoginButton = { _, _ in
             tapExpectation.fulfill()
         }
 

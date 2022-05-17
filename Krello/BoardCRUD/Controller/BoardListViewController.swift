@@ -8,7 +8,7 @@
 import UIKit
 
 class BoardListViewController: UIViewController {
-    private let boardManager = BoardManager(userUID: "P3OuBRgwk2gZojfq8dmgkicz2fA2")
+    private let boardManager: BoardManager
     private var dummy = [String]()
 
     let tableView: UITableView = {
@@ -17,6 +17,20 @@ class BoardListViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "BoardListTableViewCell")
         return tableView
     }()
+
+    init(boardManager: BoardManager) {
+         self.boardManager = boardManager
+         super.init(nibName: nil, bundle: nil)
+     }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupNavigation()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +45,16 @@ class BoardListViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
 
-        setupNavigation()
+//        setupNavigation()
         loadViewData()
     }
 
     private func loadViewData() {
         // TODO: - 초기 데이터를 가져오지 못했을경우 에러처리.: Firebase store 에서 에러를 어떻게 주는지 알아보기.
-        boardManager.loadInitialData { _ in }
-        self.dummy = boardManager.loadBoardNames()
+        boardManager.loadInitialData { [self] _ in
+            self.dummy = self.boardManager.loadBoardNames()
+            self.tableView.reloadData()
+        }
     }
 
     private func setupNavigation() {
@@ -90,7 +106,7 @@ struct BoardListTableViewControllerPreviews: PreviewProvider {
     static var previews: some View {
         UIViewControllerPreview {
             // This is viewController you want to see.
-            let destinationVC = BoardListViewController()
+            let destinationVC = BoardListViewController(boardManager: BoardManager(userUID: "P3OuBRgwk2gZojfq8dmgkicz2fA2"))
             let navigationViewController = UINavigationController(rootViewController: destinationVC)
             return navigationViewController
         }

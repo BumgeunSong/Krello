@@ -54,6 +54,14 @@
                BlueprintName = "KrelloTests"
                ReferencedContainer = "container:Krello.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "AuthenticationManagerIntegrationTest">
+               </Test>
+               <Test
+                  Identifier = "FirestoreServiceTest">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

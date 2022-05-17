@@ -12,10 +12,24 @@ class SignupViewController: UIViewController {
     private let signupView = SignupFormView()
     private let validator = Validator()
     private let authenticationManager = AuthenticationManager()
+    private var emails: [String]?
+    private let firestoreService = FirestoreService()
+    var didSuccessSignup: ((String) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view = signupView
+
+        self.firestoreService.fetchAllUsers { result in
+            switch result {
+            case .success(let users):
+                self.emails = users.map({$0.email})
+                self.processEmailDuplication()
+            case .failure(let errors):
+                print(errors)
+            }
+        }
+
         processFieldEmptyValidation()
         processRegexValidation()
         processPasswordConfirmation()
@@ -23,6 +37,16 @@ class SignupViewController: UIViewController {
         signupView.didTapCloseButton = { [weak self] in
             self?.dismiss(animated: true)
         }
+    }
+
+    private func processEmailDuplication() {
+        guard let emails = emails else {return}
+        signupView.validateDuplicatedEmail = {[weak self] textField in
+            print(emails)
+            guard let text = textField.text, let self = self else {return nil}
+            return self.validator.validateDuplication(text, emailList: emails)
+        }
+
     }
 
     private func processFieldEmptyValidation() {
@@ -53,11 +77,16 @@ class SignupViewController: UIViewController {
             self.authenticationManager.signUp(info: userInfo) { result in
                 switch result {
                 case .success(let user):
-                    print("success!")
+                    self.firestoreService.insertUser(uid: user.uid, email: email, userName: userName) {
+                        print("success!")
 
+                        self.dismiss(animated: true) {
+                            self.didSuccessSignup?(user.uid)
+                        }
+                    }
                 case .failure(let error):
                     // TODO: 서버와 연결이 끊기면 Alert 띄우기
-                    let alert = UIAlertController(title: "\(userName) 님 환영합니다!", message: nil, preferredStyle: .alert)
+                    let alert = UIAlertController(title: "\(error)", message: nil, preferredStyle: .alert)
                     let action = UIAlertAction(title: "확인", style: .default, handler: {_ in
                         self.dismiss(animated: true)
                     })
