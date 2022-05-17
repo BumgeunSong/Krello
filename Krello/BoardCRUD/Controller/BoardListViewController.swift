@@ -45,14 +45,13 @@ class BoardListViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
 
-//        setupNavigation()
         loadViewData()
     }
 
     private func loadViewData() {
         // TODO: - 초기 데이터를 가져오지 못했을경우 에러처리.: Firebase store 에서 에러를 어떻게 주는지 알아보기.
         boardManager.loadInitialData { [self] _ in
-            self.dummy = self.boardManager.loadBoardNames()
+            self.dummy = self.boardManager.boardTitles
             self.tableView.reloadData()
         }
     }
