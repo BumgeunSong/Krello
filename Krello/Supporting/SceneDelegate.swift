@@ -7,6 +7,20 @@
 
 import UIKit
 
+struct Default {
+
+    private static let key = "userIdentifier"
+
+    static func setUserIdentifier(uid: String) {
+        UserDefaults.standard.set(uid, forKey: key)
+    }
+
+    static func getUserIdentifer() -> String? {
+        return UserDefaults.standard.string(forKey: self.key) ?? nil
+    }
+
+}
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -16,11 +30,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene) // SceneDelegate의 프로퍼티에 설정해줌
-        let rootViewController = RootViewController() // 맨 처음 보여줄 ViewController
+        var rootViewController: UIViewController
 
+        if let userIdentifier = Default.getUserIdentifer() {
+            rootViewController = createBoardListViewController(uid: userIdentifier)
+        } else {
+            let loginVC = LoginViewController()
+            rootViewController = loginVC
+
+            loginVC.didSuccessLogin = {uid in
+                Default.setUserIdentifier(uid: uid)
+                self.window?.rootViewController = self.createBoardListViewController(uid: uid)
+            }
+
+            loginVC.didSuccessSignup = {uid in
+                self.window?.rootViewController = self.createBoardListViewController(uid: uid)
+            }
+        }
+
+        window = UIWindow(windowScene: windowScene) // SceneDelegate의 프로퍼티에 설정해줌
+         // 맨 처음 보여줄 ViewController
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
+    }
+
+    private func createBoardListViewController(uid: String) -> UIViewController {
+        let childVC = BoardListViewController(boardManager: BoardManager(userUID: uid))
+        return UINavigationController(rootViewController: childVC)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
