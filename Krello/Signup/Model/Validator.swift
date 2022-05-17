@@ -8,7 +8,7 @@
 import Foundation
 
 struct Validator {
-
+    
     enum SignupField: String {
         case email = "이메일"
         case password = "비밀번호"
@@ -35,12 +35,12 @@ struct Validator {
         }
     }
 
-    func validateDuplication(_ input: String, emailList: [String]) -> ValidationDescriptive? {
-        for email in emailList {
-            if input == email {
-                return FailureMessage.duplicatedEmailAddress
-            }
+    func validateDuplication(_ input: String, emailList: Set<String>) -> ValidationDescriptive? {
+
+        if emailList.contains(input) {
+            return FailureMessage.duplicatedEmailAddress
         }
+
         return nil
     }
 
