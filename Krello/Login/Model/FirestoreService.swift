@@ -11,6 +11,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 import MobileCoreServices
 
+<<<<<<< HEAD
 typealias UID = String
 
 struct ServerUser: Identifiable, Codable {
@@ -98,6 +99,8 @@ struct ActivityLog: Identifiable, Codable {
     }
 }
 
+=======
+>>>>>>> 3de9d3f ([#49] Add: Make networking layer generic by FirestoreRequest protocol)
 enum FirestoreServiceError: Error {
     case notDecodeData
     case emptyData
@@ -106,22 +109,40 @@ enum FirestoreServiceError: Error {
 
 final class FirestoreService {
 
-    func insertUser(uid: String, email: String, userName: String, _ completion: @escaping () -> Void) {
-        let db = Firestore.firestore()
-        let userRef = db.collection("users").document(uid)
-        userRef.setData([
-            "email": email,
-            "name": userName
-        ]) { err in
+    func save<Request: FirestoreRequest>(_ request: Request, _ completion: (() -> Void)? = nil) {
+        let ref = request.docReference
+
+        ref.setData(request.docData) { err in
             if let err = err {
                 print(err)
             } else {
-                completion()
+                completion?()
             }
+        }
+
+    }
+
+    func get<Request: FirestoreRequest>(_ request: Request, _ completion: @escaping (Result<Request.Modeltype, FirestoreServiceError>) -> Void) {
+        let ref = request.docReference
+
+        ref.getDocument { (documentSnapshot, error) in
+            if let error = error {
+                completion(.failure(.error(error: error)))
+                return
+            }
+            guard let document = documentSnapshot, document.exists else {
+                completion(.failure(.emptyData))
+                return
+            }
+            guard let decodedModel = try? document.data(as: Request.Modeltype.self) else {
+                completion(.failure(.notDecodeData))
+                return
+            }
+            completion(.success(decodedModel))
         }
     }
 
-    func fetchUser(uid: String, _ completion: @escaping (Result<ServerUser, FirestoreServiceError>) -> Void) {
+    func fetchUser(uid: String, _ completion: @escaping (Result<User, FirestoreServiceError>) -> Void) {
         let db = Firestore.firestore()
         let userRef = db.collection("users").document(uid)
 
@@ -134,7 +155,7 @@ final class FirestoreService {
                 completion(.failure(.emptyData))
                 return
             }
-            guard let decodedModel = try? document.data(as: ServerUser.self) else {
+            guard let decodedModel = try? document.data(as: User.self) else {
                 completion(.failure(.notDecodeData))
                 return
             }
@@ -142,7 +163,7 @@ final class FirestoreService {
         }
     }
 
-    func fetchAllUsers(_ completion: @escaping (Result<[ServerUser], FirestoreServiceError>) -> Void) {
+    func fetchAllUsers(_ completion: @escaping (Result<[User], FirestoreServiceError>) -> Void) {
         let db = Firestore.firestore()
         let usersRef = db.collection("users")
 
@@ -157,9 +178,9 @@ final class FirestoreService {
                 return
             }
 
-            var results = [ServerUser]()
+            var results = [User]()
             for document in documents {
-                guard let decodeModel = try? document.data(as: ServerUser.self) else {
+                guard let decodeModel = try? document.data(as: User.self) else {
                     continue
                 }
                 results.append(decodeModel)

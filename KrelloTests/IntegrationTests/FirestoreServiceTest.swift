@@ -78,10 +78,4 @@ class FirestoreServiceTest: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
     }
 
-    func test_InsertUser() {
-        let expectation = XCTestExpectation(description: #function)
-        sut.insertUser(uid: "W9OGs36oWIgUgcAIGXDjnBzfjke2", email: "test@nav.er", userName: "김태경") {           expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 1.0)
-    }
 }
