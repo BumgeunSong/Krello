@@ -27,7 +27,7 @@ class TaskViewController: UIViewController {
                                            dragDelegate: self, dropDelegate: self)
     private var tasks: [Task]?
     private var status: String
-    private let taskService = TaskServiceMock()
+    private let taskService: TaskFetching = TaskServiceMock()
 
     init(status: String) {
         self.status = status

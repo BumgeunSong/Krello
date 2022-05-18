@@ -58,12 +58,7 @@ extension BoardViewController: UICollectionViewDataSource {
 
         let taskVC = TaskViewController(status: dummyStatus[indexPath.item])
         cell.contentView.addSubview(taskVC.view)
-        NSLayoutConstraint.activate([
-            taskVC.view.topAnchor.constraint(equalTo: cell.contentView.topAnchor),
-            taskVC.view.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor),
-            taskVC.view.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor),
-            taskVC.view.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor)
-        ])
+        cell.setConstraints(to: taskVC.view)
         self.addChild(taskVC)
         taskVC.didMove(toParent: self)
         return cell

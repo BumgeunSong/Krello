@@ -18,15 +18,18 @@ class BoardCollectionViewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-
-        configureShadow()
-        configureBackground()
-        configureCornerRadius()
+        configureDisplay()
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
         configureShadow()
+        configureCornerRadius()
+    }
+
+    private func configureDisplay() {
+        configureShadow()
+        configureBackground()
         configureCornerRadius()
     }
 
@@ -47,6 +50,15 @@ class BoardCollectionViewCell: UICollectionViewCell {
     private func configureCornerRadius() {
         contentView.layer.cornerRadius = 5
         contentView.clipsToBounds = true
+    }
+
+    func setConstraints(to view: UIView) {
+        NSLayoutConstraint.activate([
+            view.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+            view.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            view.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor)
+        ])
     }
 
     required init?(coder: NSCoder) {
