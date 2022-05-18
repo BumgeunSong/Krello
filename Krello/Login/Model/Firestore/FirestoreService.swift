@@ -41,8 +41,8 @@ class Task: NSObject, Identifiable, Codable, NSItemProviderReading, NSItemProvid
 
     static func object(withItemProviderData data: Data, typeIdentifier: String) throws -> Self {
         do {
-            let subject = try JSONDecoder().decode(Task.self, from: data)
-            return subject as! Self
+            let subject = try JSONDecoder().decode(Task.self, from: data) as! Self
+            return subject
         } catch {
             fatalError()
         }
