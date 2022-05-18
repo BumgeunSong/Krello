@@ -142,7 +142,7 @@ final class FirestoreService {
         }
     }
 
-    func fetchUser(uid: String, _ completion: @escaping (Result<User, FirestoreServiceError>) -> Void) {
+    func fetchUser(uid: String, _ completion: @escaping (Result<UserProfile, FirestoreServiceError>) -> Void) {
         let db = Firestore.firestore()
         let userRef = db.collection("users").document(uid)
 
@@ -155,7 +155,7 @@ final class FirestoreService {
                 completion(.failure(.emptyData))
                 return
             }
-            guard let decodedModel = try? document.data(as: User.self) else {
+            guard let decodedModel = try? document.data(as: UserProfile.self) else {
                 completion(.failure(.notDecodeData))
                 return
             }
@@ -163,7 +163,7 @@ final class FirestoreService {
         }
     }
 
-    func fetchAllUsers(_ completion: @escaping (Result<[User], FirestoreServiceError>) -> Void) {
+    func fetchAllUsers(_ completion: @escaping (Result<[UserProfile], FirestoreServiceError>) -> Void) {
         let db = Firestore.firestore()
         let usersRef = db.collection("users")
 
@@ -178,9 +178,9 @@ final class FirestoreService {
                 return
             }
 
-            var results = [User]()
+            var results = [UserProfile]()
             for document in documents {
-                guard let decodeModel = try? document.data(as: User.self) else {
+                guard let decodeModel = try? document.data(as: UserProfile.self) else {
                     continue
                 }
                 results.append(decodeModel)

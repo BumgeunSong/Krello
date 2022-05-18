@@ -23,7 +23,7 @@ extension FirestoreRequest {
 }
 
 struct UserRequest: FirestoreRequest {
-    typealias Modeltype = User
+    typealias Modeltype = UserProfile
 
     var uid: FireabaseAuthUID
     var email: String

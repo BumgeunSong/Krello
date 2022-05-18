@@ -11,7 +11,7 @@ import FirebaseFirestoreSwift
 typealias FirestoreUID = String
 typealias FireabaseAuthUID = String
 
-struct User: Identifiable, Codable {
+struct UserProfile: Identifiable, Codable {
     @DocumentID var id: FireabaseAuthUID? // 회원가입할때 생성된 uid
     let name: String
     let email: String
