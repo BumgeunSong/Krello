@@ -14,11 +14,11 @@ class BoardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavBar()
         configureSubviews()
+        configureDisplay()
     }
 
-    func configureNavBar() {
+    func configureDisplay() {
         navigationItem.title = boardName
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.white,

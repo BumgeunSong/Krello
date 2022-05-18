@@ -40,13 +40,13 @@ class TaskViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.translatesAutoresizingMaskIntoConstraints = false
         configureSubviews()
-        updateTable()
+        configureContraints()
+        configureDisplay()
     }
 
-    private func configureSubviews() {
-        self.view.addSubview(taskStackView)
+    private func configureContraints() {
+        self.view.translatesAutoresizingMaskIntoConstraints = false
         taskStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             taskStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -54,7 +54,14 @@ class TaskViewController: UIViewController {
             taskStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             taskStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8)
         ])
+    }
 
+    private func configureSubviews() {
+        self.view.addSubview(taskStackView)
+    }
+
+    private func configureDisplay() {
+        updateTable()
     }
 
     private func updateTable() {
