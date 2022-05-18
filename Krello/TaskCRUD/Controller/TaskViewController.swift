@@ -8,14 +8,14 @@
 import UIKit
 
 protocol TaskFetching {
-    func fetch(status: String) -> [Task]
+    func fetch(status: Task.Status) -> [Task]
 }
 
 class TaskServiceMock: TaskFetching {
-    func fetch(status: String) -> [Task] {
+    func fetch(status: Task.Status) -> [Task] {
         return [Task(id: "ASDS234t6xc", title: "테스트1", status: .todo, contents: "오늘은", rowPosition: 0, createdAt: Date()),
          Task(id: "ASDS234t6xc", title: "테스트2", status: .inprogress, contents: "오늘은 ", rowPosition: 1, createdAt: Date()),
-                Task(id: "ASDS234t6xc", title: "테스트3", status: .done, contents: "오늘은 ", rowPosition: 2, createdAt: Date())].filter({$0.status.rawValue == status})
+                Task(id: "ASDS234t6xc", title: "테스트3", status: .done, contents: "오늘은 ", rowPosition: 2, createdAt: Date())].filter({$0.status == status})
     }
 
 }
@@ -26,10 +26,10 @@ class TaskViewController: UIViewController {
                                            delegate: self, dataSource: self,
                                            dragDelegate: self, dropDelegate: self)
     private var tasks: [Task]?
-    private var status: String
+    private var status: Task.Status
     private let taskService: TaskFetching = TaskServiceMock()
 
-    init(status: String) {
+    init(status: Task.Status) {
         self.status = status
         super.init(nibName: nil, bundle: nil)
     }
@@ -58,9 +58,9 @@ class TaskViewController: UIViewController {
     }
 
     private func updateTable() {
+        tasks = taskService.fetch(status: self.status)
         DispatchQueue.main.async {
-            self.tasks = self.taskService.fetch(status: self.status)
-            self.taskStackView.headerLabel.text = self.status
+            self.taskStackView.headerLabel.text = self.status.rawValue
             self.taskStackView.taskTableView.reloadData()
         }
     }

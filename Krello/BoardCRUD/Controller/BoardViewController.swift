@@ -8,7 +8,7 @@
 import UIKit
 
 class BoardViewController: UIViewController {
-    let dummyStatus = ["Todo", "In progress", "Done"]
+    let dummyStatus: [Task.Status] = [.todo, .inprogress, .done]
     var boardName: String = "Dummy Board"
     var boardView: BoardView?
 
