@@ -16,6 +16,11 @@ class BoardCollectionViewCell: UICollectionViewCell {
         configureDisplay()
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.contentView.subviews.last?.removeFromSuperview()
+    }
+
     override func layoutSubviews() {
         super.layoutSubviews()
         configureShadow()
