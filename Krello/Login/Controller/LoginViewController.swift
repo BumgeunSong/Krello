@@ -37,6 +37,7 @@ class LoginViewController: UIViewController {
             self?.authenticationManager.login(info: userInfo) { [weak self] authResult in
                 switch authResult {
                 case .success(let user):
+                    UserStorage.setUserIdentifier(uid: user.uid)
                     self?.coordinator?.performTransition(to: .boardList(uid: user.uid), style: .root)
                 case .failure(let error):
                     print(error)
