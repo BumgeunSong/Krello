@@ -7,56 +7,18 @@
 
 import UIKit
 
-struct Default {
-
-    private static let key = "userIdentifier"
-
-    static func setUserIdentifier(uid: String) {
-        UserDefaults.standard.set(uid, forKey: key)
-    }
-
-    static func getUserIdentifer() -> String? {
-        return UserDefaults.standard.string(forKey: self.key) ?? nil
-    }
-
-}
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        var rootViewController: UIViewController
-
-        if let userIdentifier = Default.getUserIdentifer() {
-            rootViewController = createBoardListViewController(uid: userIdentifier)
-        } else {
-            let loginVC = LoginViewController()
-            rootViewController = loginVC
-
-            loginVC.didSuccessLogin = {uid in
-                Default.setUserIdentifier(uid: uid)
-                self.window?.rootViewController = self.createBoardListViewController(uid: uid)
-            }
-
-            loginVC.didSuccessSignup = {uid in
-                self.window?.rootViewController = self.createBoardListViewController(uid: uid)
-            }
-        }
-
-        window = UIWindow(windowScene: windowScene) // SceneDelegate의 프로퍼티에 설정해줌
-         // 맨 처음 보여줄 ViewController
-        window?.rootViewController = rootViewController
+        let coordinator = SceneCoordinator()
+        coordinator.start(userIdentifier: UserStorage.getUserIdentifer())
+        window = UIWindow(windowScene: windowScene)
+        window?.rootViewController = coordinator.getRootViewController()
         window?.makeKeyAndVisible()
-    }
-
-    private func createBoardListViewController(uid: String) -> UIViewController {
-        let childVC = BoardListViewController(boardManager: BoardManager(userUID: uid))
-        return UINavigationController(rootViewController: childVC)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

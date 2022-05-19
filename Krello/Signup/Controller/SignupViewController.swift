@@ -12,9 +12,18 @@ class SignupViewController: UIViewController {
     private let signupView = SignupFormView()
     private let validator = Validator()
     private let authenticationManager = AuthenticationManager()
-    private var emails: Set<String>?
     private let firestoreService = FirestoreService()
-    var didSuccessSignup: ((String) -> Void)?
+    private var emails: Set<String>?
+    private var coordinator: SceneCoordinator?
+
+    init(coordinator: SceneCoordinator?) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +44,7 @@ class SignupViewController: UIViewController {
         processPasswordConfirmation()
         processSignup()
         signupView.didTapCloseButton = { [weak self] in
-            self?.dismiss(animated: true)
+            self?.coordinator?.dismissPresented()
         }
     }
 
@@ -79,10 +88,10 @@ class SignupViewController: UIViewController {
                 case .success(let user):
                     let request = UserRequest(uid: user.uid, email: email, username: userName)
                     self.firestoreService.save(request)
-
-                    self.dismiss(animated: true) {
-                        self.didSuccessSignup?(user.uid)
-                    }
+                     // TODO: dismiss 도 coordinator 에서 하도록 변경할 것
+                     self.dismiss(animated: false) {
+                         self.coordinator?.performTransition(to: .boardList(uid: user.uid), style: .root)
+                     }
 
                 case .failure(let error):
                     // TODO: 서버와 연결이 끊기면 Alert 띄우기
@@ -107,7 +116,7 @@ struct SignupViewControllerPreviews: PreviewProvider {
     static var previews: some View {
         UIViewControllerPreview {
             // This is viewController you want to see.
-            return SignupViewController()
+            return SignupViewController(coordinator: nil)
         }
         .previewDevice("iPhone 12")
     }
