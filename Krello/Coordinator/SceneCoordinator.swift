@@ -18,7 +18,7 @@ class SceneCoordinator {
     }
 
     func start(userIdentifier: String?) {
-        if let userIdentifier = Default.getUserIdentifer() {
+        if let userIdentifier = userIdentifier {
             performTransition(to: .board(uid: userIdentifier), style: .root)
         } else {
             performTransition(to: .login, style: .root)
