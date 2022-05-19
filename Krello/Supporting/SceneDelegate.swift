@@ -20,41 +20,69 @@ struct Default {
 
 }
 
+enum SceneType {
+    case login
+    case signup
+    case board(uid: String)
+
+    func instance(with coordinator: ApplicationCoordinator) -> UIViewController {
+        switch self {
+        case .login:
+            let vc = LoginViewController()
+            vc.coordinator = coordinator
+            return vc
+        case .signup:
+            let vc = SignupViewController()
+            vc.coordinator = coordinator
+            return vc
+        case .board(let uid):
+            return BoardListViewController(boardManager: BoardManager(userUID: uid))
+        }
+    }
+}
+
+enum TransitionStyle {
+    case root
+    case push
+    case present
+}
 
 class ApplicationCoordinator {
-    private var navigationController = UINavigationController()
-    private let loginViewController = LoginViewController()
-    private let signupViewController = SignupViewController()
+    private var navigationController: UINavigationController
 
-    func start(userIdentifier: String? = Default.getUserIdentifer()) {
-        if let userIdentifier = Default.getUserIdentifer() {
-            let boardListViewController = BoardListViewController(boardManager: BoardManager(userUID: userIdentifier))
-            navigationController = UINavigationController(rootViewController: boardListViewController)
-
-        } else {
-            loginViewController.coordinator = self
-            signupViewController.coordinator = self
-            navigationController = UINavigationController(rootViewController: loginViewController)
-        }
+    init(navigationController: UINavigationController = UINavigationController()) {
+        self.navigationController = navigationController
     }
 
     func getRootViewController() -> UIViewController {
         return self.navigationController
     }
 
-    // 로그인 화면 -> 회원가입화면 열기
-    func presentSignup() {
-        self.navigationController.present(signupViewController, animated: false)
+    func start(userIdentifier: String?) {
+        if let userIdentifier = Default.getUserIdentifer() {
+            performTransition(to: .board(uid: userIdentifier), style: .root)
+        } else {
+            performTransition(to: .login, style: .root)
+        }
     }
 
-    // 로그인화면 -> (action:로그인) -> 보드화면
-    // 회원가입화면 -> (action:회원 가입)->(자동 로그인) -> 보드화면
-    func showBoard(uid: String) {
-        Default.setUserIdentifier(uid: uid)
+    func performTransition(to sceneType: SceneType, style: TransitionStyle) {
+        let instance = sceneType.instance(with: self)
 
-        let boardListViewController = BoardListViewController(boardManager: BoardManager(userUID: uid))
-        // TODO: push 가 아닌, child coordinator(새로운 navigator) 로 대체
-        self.navigationController.pushViewController(boardListViewController, animated: false)
+        switch style {
+        case .root:
+            self.navigationController.setViewControllers([instance], animated: false)
+        case .push:
+            self.navigationController.pushViewController(instance, animated: false)
+        case .present:
+            self.navigationController.present(instance, animated: false)
+        }
+    }
+
+    func dismissPresented() {
+        if let presented = self.navigationController.presentedViewController {
+            presented.dismiss(animated: false)
+        }
     }
 }
 
@@ -66,7 +94,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let coordinator = ApplicationCoordinator()
-        coordinator.start()
+        coordinator.start(userIdentifier: Default.getUserIdentifer())
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = coordinator.getRootViewController()
         window?.makeKeyAndVisible()

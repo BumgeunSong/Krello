@@ -36,7 +36,7 @@ class SignupViewController: UIViewController {
         processPasswordConfirmation()
         processSignup()
         signupView.didTapCloseButton = { [weak self] in
-            self?.dismiss(animated: true)
+            self?.coordinator?.dismissPresented()
         }
     }
 
@@ -81,8 +81,9 @@ class SignupViewController: UIViewController {
                     self.firestoreService.insertUser(uid: user.uid, email: email, userName: userName) {
                         print("success!")
 
-                        self.dismiss(animated: true) {
-                            self.coordinator?.showBoard(uid: user.uid)
+                        // TODO: dismiss 도 coordinator 에서 하도록 변경할 것
+                        self.dismiss(animated: false) {
+                            self.coordinator?.performTransition(to: .board(uid: user.uid), style: .root)
                         }
                     }
                 case .failure(let error):

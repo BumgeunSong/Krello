@@ -28,8 +28,7 @@ class LoginViewController: UIViewController {
             self?.authenticationManager.login(info: userInfo) { [weak self] authResult in
                 switch authResult {
                 case .success(let user):
-                    self?.coordinator?.showBoard(uid: user.uid)
-
+                    self?.coordinator?.performTransition(to: .board(uid: user.uid), style: .root)
                 case .failure(let error):
                     print(error)
                 }
@@ -39,7 +38,7 @@ class LoginViewController: UIViewController {
 
     private func processSignUp() {
         loginView.didTapSignupButton = { [weak self] in
-            self?.coordinator?.presentSignup()
+            self?.coordinator?.performTransition(to: .signup, style: .present)
         }
     }
 }
