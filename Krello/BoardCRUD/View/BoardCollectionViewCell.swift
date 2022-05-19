@@ -11,26 +11,25 @@ class BoardCollectionViewCell: UICollectionViewCell {
 
     static let identifier = "BoardCollectionViewCell"
 
-    lazy var taskStackView = TaskStackView(frame: contentView.bounds,
-                                           delegate: self, dataSource: self,
-                                           dragDelegate: self, dropDelegate: self)
-
-    // TODO: String은 임시 데이터 타입이므로 모델 생성시 교체.
-    var tasks: [String]?
-    var status: String?
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.contentView.subviews.last?.removeFromSuperview()
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-
-        configureShadow()
-        configureBackground()
-        configureCornerRadius()
-        createSubviews()
+        configureDisplay()
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
         configureShadow()
+        configureCornerRadius()
+    }
+
+    private func configureDisplay() {
+        configureShadow()
+        configureBackground()
         configureCornerRadius()
     }
 
@@ -53,25 +52,13 @@ class BoardCollectionViewCell: UICollectionViewCell {
         contentView.clipsToBounds = true
     }
 
-    private func createSubviews() {
-        contentView.addSubview(taskStackView)
-
-        taskStackView.translatesAutoresizingMaskIntoConstraints = false
+    func setConstraints(to view: UIView) {
         NSLayoutConstraint.activate([
-            taskStackView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 8),
-            taskStackView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            taskStackView.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -8),
-            taskStackView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -8)
+            view.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+            view.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            view.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor)
         ])
-
-    }
-
-    func configure(status: String, tasks: [String]) {
-        self.status = status
-        taskStackView.headerLabel.text = "\(status)"
-
-        self.tasks = tasks
-        taskStackView.taskTableView.reloadData()
     }
 
     required init?(coder: NSCoder) {

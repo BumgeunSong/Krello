@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import MobileCoreServices
 
 typealias UID = String
 
@@ -18,7 +19,39 @@ struct ServerUser: Identifiable, Codable {
     let email: String
 }
 
-struct Task: Identifiable, Codable, Hashable {
+enum DragAndDropError: Error {
+    case DropDecodingErrror
+}
+
+final class Task: NSObject, Identifiable, Codable, NSItemProviderReading, NSItemProviderWriting {
+    static var readableTypeIdentifiersForItemProvider: [String] {
+        return [String(kUTTypeData)]
+    }
+    static var writableTypeIdentifiersForItemProvider: [String] {
+        return [String(kUTTypeData)]
+    }
+
+    func loadData(withTypeIdentifier typeIdentifier: String, forItemProviderCompletionHandler completionHandler: @escaping (Data?, Error?) -> Void) -> Progress? {
+            let progress = Progress(totalUnitCount: 100)
+            do {
+                let data = try JSONEncoder().encode(self)
+                progress.completedUnitCount = 100
+                completionHandler(data, nil)
+            } catch {
+                completionHandler(nil, error)
+            }
+            return progress
+        }
+
+    static func object(withItemProviderData data: Data, typeIdentifier: String) throws -> Task {
+        do {
+            let subject = try JSONDecoder().decode(Task.self, from: data)
+            return subject
+        } catch {
+           throw DragAndDropError.DropDecodingErrror
+        }
+    }
+
     let id: String
     let title: String
     let status: Status
@@ -26,12 +59,22 @@ struct Task: Identifiable, Codable, Hashable {
     let rowPosition: Int
     let createdAt: Date
 
+    init(id: String, title: String, status: Status, contents: String, rowPosition: Int, createdAt: Date) {
+        self.id = id
+        self.title = title
+        self.contents = contents
+        self.status = status
+        self.rowPosition = rowPosition
+        self.createdAt = createdAt
+    }
+
     enum Status: String, Codable {
         case todo = "Todo"
-        case inprogress = "Inprogress"
+        case inprogress = "In progress"
         case done = "Done"
         case none = "None"
     }
+
 }
 
 struct Board: Identifiable, Codable {

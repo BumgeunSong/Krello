@@ -34,18 +34,29 @@ class BoardListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureSubviews()
+        configureContraints()
+        configureDisplay()
+    }
+
+    private func configureSubviews() {
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
+    }
 
+    private func configureContraints() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
+    }
 
+    private func configureDisplay() {
         loadViewData()
+        setupNavigation()
     }
 
     private func loadViewData() {
@@ -64,9 +75,7 @@ class BoardListViewController: UIViewController {
             NSAttributedString.Key.foregroundColor: UIColor.white,
             .font: UIFont.systemFont(ofSize: 24, weight: .bold)
         ]
-
         navigationController?.navigationBar.tintColor = .white
-
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
     }
