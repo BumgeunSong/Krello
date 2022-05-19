@@ -84,6 +84,16 @@ class TaskStackView: UIStackView {
         ])
     }
 
+    func setConstraints(to view: UIView) {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            self.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            self.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            self.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8)
+        ])
+
+    }
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -47,13 +47,7 @@ class TaskViewController: UIViewController {
 
     private func configureContraints() {
         self.view.translatesAutoresizingMaskIntoConstraints = false
-        taskStackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            taskStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            taskStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            taskStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            taskStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8)
-        ])
+        taskStackView.setConstraints(to: self.view)
     }
 
     private func configureSubviews() {

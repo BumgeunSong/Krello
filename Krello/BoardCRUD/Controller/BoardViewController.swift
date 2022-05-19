@@ -16,6 +16,7 @@ class BoardViewController: UIViewController {
         super.viewDidLoad()
         configureSubviews()
         configureDisplay()
+
     }
 
     func configureDisplay() {
@@ -33,6 +34,14 @@ class BoardViewController: UIViewController {
         boardView.setDataSource(self)
         self.boardView = boardView
         self.view = boardView
+        configureChildViewController()
+    }
+
+    private func configureChildViewController () {
+        dummyStatus.forEach({
+            let taskVC = TaskViewController(status: $0)
+            self.addChild(taskVC)
+        })
     }
 
     override func viewWillLayoutSubviews() {
@@ -56,11 +65,10 @@ extension BoardViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BoardCollectionViewCell.identifier, for: indexPath) as? BoardCollectionViewCell else {return UICollectionViewCell()}
 
-        let taskVC = TaskViewController(status: dummyStatus[indexPath.item])
-        cell.contentView.addSubview(taskVC.view)
-        cell.setConstraints(to: taskVC.view)
-        self.addChild(taskVC)
-        taskVC.didMove(toParent: self)
+        let childVC = self.children[indexPath.item]
+        cell.contentView.addSubview(childVC.view)
+        cell.setConstraints(to: childVC.view)
+        childVC.didMove(toParent: self)
         return cell
     }
 
