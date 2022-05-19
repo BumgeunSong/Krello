@@ -8,13 +8,9 @@ enum SceneType {
     func instance(with coordinator: SceneCoordinator) -> UIViewController {
         switch self {
         case .login:
-            let vc = LoginViewController()
-            vc.coordinator = coordinator
-            return vc
+            return LoginViewController(coordinator: coordinator)
         case .signup:
-            let vc = SignupViewController()
-            vc.coordinator = coordinator
-            return vc
+            return SignupViewController(coordinator: coordinator)
         case .board(let uid):
             return BoardListViewController(boardManager: BoardManager(userUID: uid))
         }

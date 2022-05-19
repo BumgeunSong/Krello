@@ -12,10 +12,18 @@ class SignupViewController: UIViewController {
     private let signupView = SignupFormView()
     private let validator = Validator()
     private let authenticationManager = AuthenticationManager()
-    private var emails: Set<String>?
     private let firestoreService = FirestoreService()
+    private var emails: Set<String>?
+    private var coordinator: SceneCoordinator?
 
-    var coordinator: SceneCoordinator?
+    init(coordinator: SceneCoordinator?) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,7 +115,7 @@ struct SignupViewControllerPreviews: PreviewProvider {
     static var previews: some View {
         UIViewControllerPreview {
             // This is viewController you want to see.
-            return SignupViewController()
+            return SignupViewController(coordinator: nil)
         }
         .previewDevice("iPhone 12")
     }

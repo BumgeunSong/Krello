@@ -8,9 +8,18 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-    let loginView = LoginView()
-    let authenticationManager =  AuthenticationManager()
-    var coordinator: SceneCoordinator?
+    private let loginView = LoginView()
+    private let authenticationManager =  AuthenticationManager()
+    private var coordinator: SceneCoordinator?
+
+    init(coordinator: SceneCoordinator?) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +59,7 @@ struct LoginViewControllerPreviews: PreviewProvider {
     static var previews: some View {
         UIViewControllerPreview {
             // This is viewController you want to see.
-            return LoginViewController()
+            return LoginViewController(coordinator: nil)
         }
         .previewDevice("iPhone 12")
     }
