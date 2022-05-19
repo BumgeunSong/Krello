@@ -7,19 +7,6 @@
 
 import UIKit
 
-struct Default {
-    private static let key = "userIdentifier"
-
-    static func setUserIdentifier(uid: String) {
-        UserDefaults.standard.set(uid, forKey: key)
-    }
-
-    static func getUserIdentifer() -> String? {
-        return UserDefaults.standard.string(forKey: self.key) ?? nil
-    }
-
-}
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -28,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let coordinator = SceneCoordinator()
-        coordinator.start(userIdentifier: Default.getUserIdentifer())
+        coordinator.start(userIdentifier: UserStorage.getUserIdentifer())
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = coordinator.getRootViewController()
         window?.makeKeyAndVisible()
