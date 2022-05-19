@@ -19,7 +19,11 @@ struct ServerUser: Identifiable, Codable {
     let email: String
 }
 
-class Task: NSObject, Identifiable, Codable, NSItemProviderReading, NSItemProviderWriting {
+enum DragAndDropError: Error {
+    case DropDecodingErrror
+}
+
+final class Task: NSObject, Identifiable, Codable, NSItemProviderReading, NSItemProviderWriting {
     static var readableTypeIdentifiersForItemProvider: [String] {
         return [String(kUTTypeData)]
     }
@@ -39,12 +43,12 @@ class Task: NSObject, Identifiable, Codable, NSItemProviderReading, NSItemProvid
             return progress
         }
 
-    static func object(withItemProviderData data: Data, typeIdentifier: String) throws -> Self {
+    static func object(withItemProviderData data: Data, typeIdentifier: String) throws -> Task {
         do {
-            let subject = try JSONDecoder().decode(Task.self, from: data) as! Self
+            let subject = try JSONDecoder().decode(Task.self, from: data)
             return subject
         } catch {
-            fatalError()
+           throw DragAndDropError.DropDecodingErrror
         }
     }
 
