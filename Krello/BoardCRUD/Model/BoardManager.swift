@@ -9,13 +9,13 @@ import Foundation
 
 final class BoardManager {
     private let service = FirestoreService()
-    private let userUID: UID
+    private let userUID: FirestoreUID
     private var boards = [Board]()
     var boardTitles: [String] {
         return boards.map { $0.title }
     }
 
-    init(userUID: UID) {
+    init(userUID: FirestoreUID) {
         self.userUID = userUID
     }
 
