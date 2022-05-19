@@ -14,7 +14,8 @@ class SignupViewController: UIViewController {
     private let authenticationManager = AuthenticationManager()
     private var emails: Set<String>?
     private let firestoreService = FirestoreService()
-    var didSuccessSignup: ((String) -> Void)?
+
+    var coordinator: ApplicationCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +82,7 @@ class SignupViewController: UIViewController {
                         print("success!")
 
                         self.dismiss(animated: true) {
-                            self.didSuccessSignup?(user.uid)
+                            self.coordinator?.showBoard(uid: user.uid)
                         }
                     }
                 case .failure(let error):

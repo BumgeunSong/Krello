@@ -10,8 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
     let loginView = LoginView()
     let authenticationManager =  AuthenticationManager()
-    var didSuccessLogin: ((String) -> Void)?
-    var didSuccessSignup: ((String) -> Void)?
+    var coordinator: ApplicationCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +28,7 @@ class LoginViewController: UIViewController {
             self?.authenticationManager.login(info: userInfo) { [weak self] authResult in
                 switch authResult {
                 case .success(let user):
-
-                    self?.didSuccessLogin?(user.uid)
+                    self?.coordinator?.showBoard(uid: user.uid)
 
                 case .failure(let error):
                     print(error)
@@ -41,14 +39,9 @@ class LoginViewController: UIViewController {
 
     private func processSignUp() {
         loginView.didTapSignupButton = { [weak self] in
-            let destinationVC = SignupViewController()
-            self?.present(destinationVC, animated: true)
-            destinationVC.didSuccessSignup = { uid in
-                self?.didSuccessSignup?(uid)
-            }
+            self?.coordinator?.presentSignup()
         }
     }
-
 }
 
 // Add this to see preview
