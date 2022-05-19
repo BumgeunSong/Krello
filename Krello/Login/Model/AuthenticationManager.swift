@@ -15,7 +15,7 @@ class AuthenticationManager {
         self.authenticationEngine = authenticationEngine
     }
 
-    func signUp(info: AuthenticationInfo, completion: @escaping (Result<User, AuthErrorCode>) -> Void) {
+    func signUp(info: AuthenticationInfo, completion: @escaping (Result<FirebaseAuth.User, AuthErrorCode>) -> Void) {
         authenticationEngine.registerUser(info: info) { result in
             switch result {
             case .success(let authResult):
@@ -28,7 +28,7 @@ class AuthenticationManager {
 
     }
 
-    func login(info: AuthenticationInfo, completion: @escaping (Result<User, AuthErrorCode>) -> Void) {
+    func login(info: AuthenticationInfo, completion: @escaping (Result<FirebaseAuth.User, AuthErrorCode>) -> Void) {
         authenticationEngine.login(info: info) { result in
             switch result {
             case .success(let authResult):

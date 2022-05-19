@@ -60,8 +60,8 @@ class SignupViewController: UIViewController {
 
     private func processFieldEmptyValidation() {
         signupView.validateEmptyFields = {[weak self] textField in
-        guard let text = textField.text, let self = self else {return nil}
-        return  self.validator.validateEmpty(text)
+            guard let text = textField.text, let self = self else {return nil}
+            return  self.validator.validateEmpty(text)
         }
     }
 
@@ -86,20 +86,21 @@ class SignupViewController: UIViewController {
             self.authenticationManager.signUp(info: userInfo) { result in
                 switch result {
                 case .success(let user):
-                    self.firestoreService.insertUser(uid: user.uid, email: email, userName: userName) {
-                        print("success!")
+                    let request = UserRequest(uid: user.uid, email: email, username: userName)
+                    self.firestoreService.save(request)
+                     // TODO: dismiss 도 coordinator 에서 하도록 변경할 것
+                     self.dismiss(animated: false) {
+                         self.coordinator?.performTransition(to: .boardList(uid: user.uid), style: .root)
+                     }
 
-                        // TODO: dismiss 도 coordinator 에서 하도록 변경할 것
-                        self.dismiss(animated: false) {
-                            self.coordinator?.performTransition(to: .boardList(uid: user.uid), style: .root)
-                        }
-                    }
                 case .failure(let error):
                     // TODO: 서버와 연결이 끊기면 Alert 띄우기
+
                     let alert = UIAlertController(title: "\(error)", message: nil, preferredStyle: .alert)
                     let action = UIAlertAction(title: "확인", style: .default, handler: {_ in
                         self.dismiss(animated: true)
                     })
+
                     alert.addAction(action)
                     self.present(alert, animated: true)
                 }

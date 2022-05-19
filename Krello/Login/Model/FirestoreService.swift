@@ -11,93 +11,6 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 import MobileCoreServices
 
-typealias UID = String
-
-struct ServerUser: Identifiable, Codable {
-    @DocumentID var id: String? // 회원가입할때 생성된 uid
-    let name: String
-    let email: String
-}
-
-enum DragAndDropError: Error {
-    case DropDecodingErrror
-}
-
-final class Task: NSObject, Identifiable, Codable, NSItemProviderReading, NSItemProviderWriting {
-    static var readableTypeIdentifiersForItemProvider: [String] {
-        return [String(kUTTypeData)]
-    }
-    static var writableTypeIdentifiersForItemProvider: [String] {
-        return [String(kUTTypeData)]
-    }
-
-    func loadData(withTypeIdentifier typeIdentifier: String, forItemProviderCompletionHandler completionHandler: @escaping (Data?, Error?) -> Void) -> Progress? {
-            let progress = Progress(totalUnitCount: 100)
-            do {
-                let data = try JSONEncoder().encode(self)
-                progress.completedUnitCount = 100
-                completionHandler(data, nil)
-            } catch {
-                completionHandler(nil, error)
-            }
-            return progress
-        }
-
-    static func object(withItemProviderData data: Data, typeIdentifier: String) throws -> Task {
-        do {
-            let subject = try JSONDecoder().decode(Task.self, from: data)
-            return subject
-        } catch {
-           throw DragAndDropError.DropDecodingErrror
-        }
-    }
-
-    let id: String
-    let title: String
-    let status: Status
-    let contents: String
-    let rowPosition: Int
-    let createdAt: Date
-
-    init(id: String, title: String, status: Status, contents: String, rowPosition: Int, createdAt: Date) {
-        self.id = id
-        self.title = title
-        self.contents = contents
-        self.status = status
-        self.rowPosition = rowPosition
-        self.createdAt = createdAt
-    }
-
-    enum Status: String, Codable {
-        case todo = "Todo"
-        case inprogress = "In progress"
-        case done = "Done"
-        case none = "None"
-    }
-
-}
-
-struct Board: Identifiable, Codable {
-    @DocumentID var id: String?
-    let ownerUid: String
-    let title: String
-    let tasks: [Task]?
-}
-
-struct ActivityLog: Identifiable, Codable {
-    @DocumentID var id: String?
-    let taskTitle: String
-    let createdAt: Date
-    let action: Action
-
-    enum Action: String, Codable {
-        case move = "Move"
-        case add = "Add"
-        case delete = "Delete"
-        case update = "Update"
-    }
-}
-
 enum FirestoreServiceError: Error {
     case notDecodeData
     case emptyData
@@ -106,22 +19,40 @@ enum FirestoreServiceError: Error {
 
 final class FirestoreService {
 
-    func insertUser(uid: String, email: String, userName: String, _ completion: @escaping () -> Void) {
-        let db = Firestore.firestore()
-        let userRef = db.collection("users").document(uid)
-        userRef.setData([
-            "email": email,
-            "name": userName
-        ]) { err in
+    func save<Request: FirestoreRequest>(_ request: Request, _ completion: (() -> Void)? = nil) {
+        let ref = request.docReference
+
+        ref.setData(request.docData) { err in
             if let err = err {
                 print(err)
             } else {
-                completion()
+                completion?()
             }
+        }
+
+    }
+
+    func get<Request: FirestoreRequest>(_ request: Request, _ completion: @escaping (Result<Request.Modeltype, FirestoreServiceError>) -> Void) {
+        let ref = request.docReference
+
+        ref.getDocument { (documentSnapshot, error) in
+            if let error = error {
+                completion(.failure(.error(error: error)))
+                return
+            }
+            guard let document = documentSnapshot, document.exists else {
+                completion(.failure(.emptyData))
+                return
+            }
+            guard let decodedModel = try? document.data(as: Request.Modeltype.self) else {
+                completion(.failure(.notDecodeData))
+                return
+            }
+            completion(.success(decodedModel))
         }
     }
 
-    func fetchUser(uid: String, _ completion: @escaping (Result<ServerUser, FirestoreServiceError>) -> Void) {
+    func fetchUser(uid: String, _ completion: @escaping (Result<UserProfile, FirestoreServiceError>) -> Void) {
         let db = Firestore.firestore()
         let userRef = db.collection("users").document(uid)
 
@@ -134,7 +65,7 @@ final class FirestoreService {
                 completion(.failure(.emptyData))
                 return
             }
-            guard let decodedModel = try? document.data(as: ServerUser.self) else {
+            guard let decodedModel = try? document.data(as: UserProfile.self) else {
                 completion(.failure(.notDecodeData))
                 return
             }
@@ -142,7 +73,7 @@ final class FirestoreService {
         }
     }
 
-    func fetchAllUsers(_ completion: @escaping (Result<[ServerUser], FirestoreServiceError>) -> Void) {
+    func fetchAllUsers(_ completion: @escaping (Result<[UserProfile], FirestoreServiceError>) -> Void) {
         let db = Firestore.firestore()
         let usersRef = db.collection("users")
 
@@ -157,9 +88,9 @@ final class FirestoreService {
                 return
             }
 
-            var results = [ServerUser]()
+            var results = [UserProfile]()
             for document in documents {
-                guard let decodeModel = try? document.data(as: ServerUser.self) else {
+                guard let decodeModel = try? document.data(as: UserProfile.self) else {
                     continue
                 }
                 results.append(decodeModel)
