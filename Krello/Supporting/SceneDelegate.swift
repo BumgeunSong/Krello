@@ -20,72 +20,6 @@ struct Default {
 
 }
 
-enum SceneType {
-    case login
-    case signup
-    case board(uid: String)
-
-    func instance(with coordinator: ApplicationCoordinator) -> UIViewController {
-        switch self {
-        case .login:
-            let vc = LoginViewController()
-            vc.coordinator = coordinator
-            return vc
-        case .signup:
-            let vc = SignupViewController()
-            vc.coordinator = coordinator
-            return vc
-        case .board(let uid):
-            return BoardListViewController(boardManager: BoardManager(userUID: uid))
-        }
-    }
-}
-
-enum TransitionStyle {
-    case root
-    case push
-    case present
-}
-
-class ApplicationCoordinator {
-    private var navigationController: UINavigationController
-
-    init(navigationController: UINavigationController = UINavigationController()) {
-        self.navigationController = navigationController
-    }
-
-    func getRootViewController() -> UIViewController {
-        return self.navigationController
-    }
-
-    func start(userIdentifier: String?) {
-        if let userIdentifier = Default.getUserIdentifer() {
-            performTransition(to: .board(uid: userIdentifier), style: .root)
-        } else {
-            performTransition(to: .login, style: .root)
-        }
-    }
-
-    func performTransition(to sceneType: SceneType, style: TransitionStyle) {
-        let instance = sceneType.instance(with: self)
-
-        switch style {
-        case .root:
-            self.navigationController.setViewControllers([instance], animated: false)
-        case .push:
-            self.navigationController.pushViewController(instance, animated: false)
-        case .present:
-            self.navigationController.present(instance, animated: false)
-        }
-    }
-
-    func dismissPresented() {
-        if let presented = self.navigationController.presentedViewController {
-            presented.dismiss(animated: false)
-        }
-    }
-}
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -93,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let coordinator = ApplicationCoordinator()
+        let coordinator = SceneCoordinator()
         coordinator.start(userIdentifier: Default.getUserIdentifer())
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = coordinator.getRootViewController()

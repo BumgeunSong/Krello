@@ -15,7 +15,7 @@ class SignupViewController: UIViewController {
     private var emails: Set<String>?
     private let firestoreService = FirestoreService()
 
-    var coordinator: ApplicationCoordinator?
+    var coordinator: SceneCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()

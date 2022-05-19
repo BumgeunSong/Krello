@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2489037CC5378EEE0CE8730A /* Pods_Krello.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D15D9EBA901D0B5B1CA0FD61 /* Pods_Krello.framework */; };
+		6F85080728368D110061828F /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F85080628368D110061828F /* SceneCoordinator.swift */; };
+		6F85080928368D5E0061828F /* SceneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F85080828368D5E0061828F /* SceneType.swift */; };
 		6F991BFB28323C7200F4F772 /* BoardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F991BFA28323BDE00F4F772 /* BoardManager.swift */; };
 		6F991C002832435900F4F772 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F991BFF2832435900F4F772 /* FirestoreService.swift */; };
 		6FAA53FC28324F0F0060362A /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA53FB28324F0F0060362A /* SignupViewController.swift */; };
@@ -68,6 +70,8 @@
 
 /* Begin PBXFileReference section */
 		01560B6CE738BCBD939EADB8 /* Pods-Krello.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Krello.release.xcconfig"; path = "Target Support Files/Pods-Krello/Pods-Krello.release.xcconfig"; sourceTree = "<group>"; };
+		6F85080628368D110061828F /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
+		6F85080828368D5E0061828F /* SceneType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneType.swift; sourceTree = "<group>"; };
 		6F991BFA28323BDE00F4F772 /* BoardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardManager.swift; sourceTree = "<group>"; };
 		6F991BFF2832435900F4F772 /* FirestoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		6FAA53FB28324F0F0060362A /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +144,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F85080528368CE30061828F /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				6F85080628368D110061828F /* SceneCoordinator.swift */,
+				6F85080828368D5E0061828F /* SceneType.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		6F991BF628323A5400F4F772 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +253,7 @@
 		BCC51DF728210F5700CDD04F /* Krello */ = {
 			isa = PBXGroup;
 			children = (
+				6F85080528368CE30061828F /* Coordinator */,
 				BCDB11F3282CE9D500A90202 /* Login */,
 				BCDB11F2282CE9CE00A90202 /* Signup */,
 				BCDB11F1282CE9BF00A90202 /* TaskCRUD */,
@@ -640,6 +654,7 @@
 				BC22098128239D7000159AC0 /* LoginViewController.swift in Sources */,
 				BC2209902823AE1600159AC0 /* LayoutAnchor+Extension.swift in Sources */,
 				BCC51DF928210F5700CDD04F /* AppDelegate.swift in Sources */,
+				6F85080728368D110061828F /* SceneCoordinator.swift in Sources */,
 				B76D57112826EC78009EEAEC /* UserInfo.swift in Sources */,
 				B74C02192828D90400C3602D /* AuthenticationEngine.swift in Sources */,
 				BC22098D2823ADB200159AC0 /* UIStackView+Extension.swift in Sources */,
@@ -648,6 +663,7 @@
 				BC0B745D28225BDD007AE2B6 /* Preview.swift in Sources */,
 				B76D570B2824EE21009EEAEC /* AuthenticationInfo.swift in Sources */,
 				BCD83531282B9F9B001273C8 /* TaskTableViewCell.swift in Sources */,
+				6F85080928368D5E0061828F /* SceneType.swift in Sources */,
 				6FAA53FC28324F0F0060362A /* SignupViewController.swift in Sources */,
 				BCD83527282A0C7E001273C8 /* BoardListViewController.swift in Sources */,
 				BCD835112824FC98001273C8 /* main.swift in Sources */,

@@ -10,7 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
     let loginView = LoginView()
     let authenticationManager =  AuthenticationManager()
-    var coordinator: ApplicationCoordinator?
+    var coordinator: SceneCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
