@@ -10,6 +10,7 @@ import UIKit
 class BoardListViewController: UIViewController {
     private let boardManager: BoardManager
     private var dummy = [String]()
+    private var coordinator: SceneCoordinator?
 
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -18,9 +19,10 @@ class BoardListViewController: UIViewController {
         return tableView
     }()
 
-    init(boardManager: BoardManager) {
-         self.boardManager = boardManager
-         super.init(nibName: nil, bundle: nil)
+    init(boardManager: BoardManager, coordinator: SceneCoordinator?) {
+        self.boardManager = boardManager
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
      }
 
     required init?(coder: NSCoder) {
@@ -101,9 +103,7 @@ extension BoardListViewController: UITableViewDataSource {
 
 extension BoardListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Present Board!")
-        let board = BoardViewController()
-        navigationController?.pushViewController(board, animated: true)
+        self.coordinator?.performTransition(to: .board, style: .push)
     }
 }
 
@@ -114,7 +114,7 @@ struct BoardListTableViewControllerPreviews: PreviewProvider {
     static var previews: some View {
         UIViewControllerPreview {
             // This is viewController you want to see.
-            let destinationVC = BoardListViewController(boardManager: BoardManager(userUID: "P3OuBRgwk2gZojfq8dmgkicz2fA2"))
+            let destinationVC = BoardListViewController(boardManager: BoardManager(userUID: "P3OuBRgwk2gZojfq8dmgkicz2fA2"), coordinator: nil)
             let navigationViewController = UINavigationController(rootViewController: destinationVC)
             return navigationViewController
         }

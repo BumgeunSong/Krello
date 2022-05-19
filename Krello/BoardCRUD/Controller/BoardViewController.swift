@@ -11,6 +11,16 @@ class BoardViewController: UIViewController {
     let dummyStatus: [Task.Status] = [.todo, .inprogress, .done]
     var boardName: String = "Dummy Board"
     var boardView: BoardView?
+    private var coordinator: SceneCoordinator?
+
+    init(coordinator: SceneCoordinator?) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

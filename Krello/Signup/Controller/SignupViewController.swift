@@ -91,7 +91,7 @@ class SignupViewController: UIViewController {
 
                         // TODO: dismiss 도 coordinator 에서 하도록 변경할 것
                         self.dismiss(animated: false) {
-                            self.coordinator?.performTransition(to: .board(uid: user.uid), style: .root)
+                            self.coordinator?.performTransition(to: .boardList(uid: user.uid), style: .root)
                         }
                     }
                 case .failure(let error):
