@@ -14,7 +14,7 @@ protocol TaskFetching {
 class TaskServiceMock: TaskFetching {
     func fetch(status: Task.Status) -> [Task] {
         return [Task(id: "ASDS234t6xc", title: "테스트1", status: .todo, contents: "오늘은", rowPosition: 0, createdAt: Date()),
-         Task(id: "ASDS234t6xc", title: "테스트2", status: .todo, contents: "오늘은 ", rowPosition: 1, createdAt: Date()),
+                Task(id: "ASDS234dsadt6xc", title: "테스트2", status: .todo, contents: "오늘은 ", rowPosition: 1, createdAt: Date()),
                 Task(id: "ASDS234t6xc", title: "테스트3", status: .done, contents: "오늘은 ", rowPosition: 2, createdAt: Date())].filter({$0.status == status})
     }
 
@@ -76,7 +76,8 @@ class TaskViewController: UIViewController {
             1
         } numberOfSections: { models in
             models.count
-        }
+        } titleForHeaderInSection: {nil}
+
         self.tableViewdataSource = TableViewDataSource(models: self.tasks,
                                                        reuseIdentifier: TaskTableViewCell.identifier,
                                                        tableConfigurator: tableConfigurator)

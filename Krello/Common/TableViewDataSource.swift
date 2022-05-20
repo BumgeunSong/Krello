@@ -10,6 +10,7 @@ struct TableConfigurator<Model> {
      let cellConfigurator: (Model, UITableViewCell) -> Void
      let numberOfRowsInSection: ([Model]) -> Int
      let numberOfSections: ([Model]) -> Int
+     let titleForHeaderInSection: (() -> String?)
 }
 
 class TableViewDataSource<Model>: NSObject, UITableViewDataSource {
@@ -23,6 +24,11 @@ class TableViewDataSource<Model>: NSObject, UITableViewDataSource {
         self.models = models
         self.reuseIdentifier = reuseIdentifier
         self.tableConfigurator = tableConfigurator
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let title = tableConfigurator.titleForHeaderInSection() else {return nil}
+        return title
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {

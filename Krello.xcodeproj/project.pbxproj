@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2489037CC5378EEE0CE8730A /* Pods_Krello.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D15D9EBA901D0B5B1CA0FD61 /* Pods_Krello.framework */; };
 		6F991BFB28323C7200F4F772 /* BoardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F991BFA28323BDE00F4F772 /* BoardManager.swift */; };
-		6F991C002832435900F4F772 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F991BFF2832435900F4F772 /* FirestoreService.swift */; };
 		6FAA53FC28324F0F0060362A /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA53FB28324F0F0060362A /* SignupViewController.swift */; };
 		6FAA540028324F260060362A /* ValidationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA53FD28324F250060362A /* ValidationLabel.swift */; };
 		6FAA540128324F260060362A /* SignupTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA53FE28324F260060362A /* SignupTextField.swift */; };
@@ -17,6 +16,12 @@
 		9CFD1B2C1F608EA9228C54AB /* Pods_KrelloTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992A62047D85C6E5349BC267 /* Pods_KrelloTests.framework */; };
 		B72508322834070300AD7595 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72508312834070300AD7595 /* TaskViewController.swift */; };
 		B725085A2836670700AD7595 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72508592836670700AD7595 /* TableViewDataSource.swift */; };
+		B72508632837383800AD7595 /* FirestoreRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725085D2837383800AD7595 /* FirestoreRequest.swift */; };
+		B72508642837383800AD7595 /* ActivityLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725085E2837383800AD7595 /* ActivityLog.swift */; };
+		B72508652837383800AD7595 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725085F2837383800AD7595 /* FirestoreService.swift */; };
+		B72508662837383800AD7595 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72508602837383800AD7595 /* Task.swift */; };
+		B72508672837383800AD7595 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72508612837383800AD7595 /* UserProfile.swift */; };
+		B72508682837383800AD7595 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72508622837383800AD7595 /* Board.swift */; };
 		B73E718328328AC6007B4654 /* AuthenticationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D570E2826E1F4009EEAEC /* AuthenticationTest.swift */; };
 		B73E718428328AC6007B4654 /* AuthenticationManagerIntegrationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D570C2824F88C009EEAEC /* AuthenticationManagerIntegrationTest.swift */; };
 		B73E718528328AC6007B4654 /* ValidatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D57032823F694009EEAEC /* ValidatorTest.swift */; };
@@ -70,7 +75,6 @@
 /* Begin PBXFileReference section */
 		01560B6CE738BCBD939EADB8 /* Pods-Krello.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Krello.release.xcconfig"; path = "Target Support Files/Pods-Krello/Pods-Krello.release.xcconfig"; sourceTree = "<group>"; };
 		6F991BFA28323BDE00F4F772 /* BoardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardManager.swift; sourceTree = "<group>"; };
-		6F991BFF2832435900F4F772 /* FirestoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		6FAA53FB28324F0F0060362A /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		6FAA53FD28324F250060362A /* ValidationLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationLabel.swift; sourceTree = "<group>"; };
 		6FAA53FE28324F260060362A /* SignupTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupTextField.swift; sourceTree = "<group>"; };
@@ -83,6 +87,12 @@
 		AAB53DB7ADEBD0FCFCF20435 /* Pods-Krello.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Krello.debug.xcconfig"; path = "Target Support Files/Pods-Krello/Pods-Krello.debug.xcconfig"; sourceTree = "<group>"; };
 		B72508312834070300AD7595 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		B72508592836670700AD7595 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
+		B725085D2837383800AD7595 /* FirestoreRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreRequest.swift; sourceTree = "<group>"; };
+		B725085E2837383800AD7595 /* ActivityLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityLog.swift; sourceTree = "<group>"; };
+		B725085F2837383800AD7595 /* FirestoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		B72508602837383800AD7595 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		B72508612837383800AD7595 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		B72508622837383800AD7595 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		B74502312823944000172502 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Validator.swift; path = Krello/Signup/Model/Validator.swift; sourceTree = SOURCE_ROOT; };
 		B74C02182828D90400C3602D /* AuthenticationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationEngine.swift; sourceTree = "<group>"; };
 		B74C0222282A294700C3602D /* BoardLayoutMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardLayoutMaker.swift; sourceTree = "<group>"; };
@@ -160,7 +170,6 @@
 		6F991BFE2832432A00F4F772 /* Firestore */ = {
 			isa = PBXGroup;
 			children = (
-				6F991BFF2832435900F4F772 /* FirestoreService.swift */,
 			);
 			path = Firestore;
 			sourceTree = "<group>";
@@ -354,6 +363,12 @@
 		BCDB11F7282CEA3800A90202 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B725085E2837383800AD7595 /* ActivityLog.swift */,
+				B72508622837383800AD7595 /* Board.swift */,
+				B725085D2837383800AD7595 /* FirestoreRequest.swift */,
+				B725085F2837383800AD7595 /* FirestoreService.swift */,
+				B72508602837383800AD7595 /* Task.swift */,
+				B72508612837383800AD7595 /* UserProfile.swift */,
 				6F991BFE2832432A00F4F772 /* Firestore */,
 				B76D570A2824EE21009EEAEC /* AuthenticationInfo.swift */,
 				B76D57082824ED2F009EEAEC /* AuthenticationManager.swift */,
@@ -655,12 +670,15 @@
 				B725085A2836670700AD7595 /* TableViewDataSource.swift in Sources */,
 				BCD83527282A0C7E001273C8 /* BoardListViewController.swift in Sources */,
 				BCD835112824FC98001273C8 /* main.swift in Sources */,
-				6F991C002832435900F4F772 /* FirestoreService.swift in Sources */,
+				B72508632837383800AD7595 /* FirestoreRequest.swift in Sources */,
+				B72508662837383800AD7595 /* Task.swift in Sources */,
 				6F991BFB28323C7200F4F772 /* BoardManager.swift in Sources */,
 				BCD8352E282B9540001273C8 /* PaddedLabel.swift in Sources */,
 				B72508322834070300AD7595 /* TaskViewController.swift in Sources */,
 				BCD8353A282BB1E2001273C8 /* TaskStackView.swift in Sources */,
 				B74502322823944000172502 /* Validator.swift in Sources */,
+				B72508672837383800AD7595 /* UserProfile.swift in Sources */,
+				B72508652837383800AD7595 /* FirestoreService.swift in Sources */,
 				BCD83525282A0C75001273C8 /* BoardCollectionViewCell.swift in Sources */,
 				B76D57092824ED2F009EEAEC /* AuthenticationManager.swift in Sources */,
 				B74C0225282A294700C3602D /* BoardLayoutMaker.swift in Sources */,
@@ -669,9 +687,11 @@
 				B74C0227282A294700C3602D /* BoardViewController.swift in Sources */,
 				6FAA540228324F260060362A /* SignupFormView.swift in Sources */,
 				B74C0226282A294700C3602D /* PagingIndicatorReusableView.swift in Sources */,
+				B72508642837383800AD7595 /* ActivityLog.swift in Sources */,
 				BCD8352B282B8652001273C8 /* BoardView.swift in Sources */,
 				BC2209842823A86000159AC0 /* DefaultView.swift in Sources */,
 				6FAA540128324F260060362A /* SignupTextField.swift in Sources */,
+				B72508682837383800AD7595 /* Board.swift in Sources */,
 				BCD8350D2823C5C6001273C8 /* UIVIew+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,11 +10,12 @@ import UIKit
 class BoardListViewController: UIViewController {
     private let boardManager: BoardManager
     private var dummy = [String]()
+    private var tableViewdataSource: UITableViewDataSource?
 
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "BoardListTableViewCell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: BoardCollectionViewCell.identifier)
         return tableView
     }()
 
@@ -41,7 +42,7 @@ class BoardListViewController: UIViewController {
 
     private func configureSubviews() {
         tableView.delegate = self
-        tableView.dataSource = self
+
         view.addSubview(tableView)
     }
 
@@ -60,11 +61,28 @@ class BoardListViewController: UIViewController {
     }
 
     private func loadViewData() {
-        // TODO: - 초기 데이터를 가져오지 못했을경우 에러처리.: Firebase store 에서 에러를 어떻게 주는지 알아보기.
         boardManager.loadInitialData { [self] _ in
             self.dummy = self.boardManager.boardTitles
+            setDataSource()
             self.tableView.reloadData()
         }
+    }
+
+    private func setDataSource() {
+        let tableConfigurator = TableConfigurator <String> { title, cell in
+            cell.textLabel?.text = title
+        } numberOfRowsInSection: { titles in
+            titles.count
+        } numberOfSections: { _ in
+            1
+        } titleForHeaderInSection: {
+            "Your Boards"
+        }
+
+        self.tableViewdataSource = TableViewDataSource(models: self.dummy,
+                                                       reuseIdentifier: BoardCollectionViewCell.identifier,
+                                                       tableConfigurator: tableConfigurator)
+        self.tableView.dataSource = tableViewdataSource
     }
 
     private func setupNavigation() {
@@ -78,24 +96,6 @@ class BoardListViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
-    }
-}
-
-extension BoardListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dummy.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BoardListTableViewCell", for: indexPath)
-
-        cell.textLabel?.text = dummy[indexPath.row]
-
-        return cell
-    }
-
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Your Boards"
     }
 }
 
