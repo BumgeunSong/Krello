@@ -11,14 +11,14 @@ class BoardCollectionViewCell: UICollectionViewCell {
 
     static let identifier = "BoardCollectionViewCell"
 
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.contentView.subviews.last?.removeFromSuperview()
-    }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureDisplay()
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.contentView.subviews.last?.removeFromSuperview()
     }
 
     override func layoutSubviews() {

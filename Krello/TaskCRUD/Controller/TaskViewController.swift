@@ -14,7 +14,7 @@ protocol TaskFetching {
 class TaskServiceMock: TaskFetching {
     func fetch(status: Task.Status) -> [Task] {
         return [Task(id: "ASDS234t6xc", title: "테스트1", status: .todo, contents: "오늘은", rowPosition: 0, createdAt: Date()),
-         Task(id: "ASDS234t6xc", title: "테스트2", status: .inprogress, contents: "오늘은 ", rowPosition: 1, createdAt: Date()),
+                Task(id: "ASDS234dsadt6xc", title: "테스트2", status: .todo, contents: "오늘은 ", rowPosition: 1, createdAt: Date()),
                 Task(id: "ASDS234t6xc", title: "테스트3", status: .done, contents: "오늘은 ", rowPosition: 2, createdAt: Date())].filter({$0.status == status})
     }
 
@@ -22,10 +22,13 @@ class TaskServiceMock: TaskFetching {
 
 class TaskViewController: UIViewController {
 
-    lazy var taskStackView = TaskStackView(frame: self.view.bounds,
-                                           delegate: self, dataSource: self,
-                                           dragDelegate: self, dropDelegate: self)
-    private var tasks: [Task]?
+    lazy var taskStackView = TaskStackView(frame: self.view.bounds)
+    private var tableViewdataSource: UITableViewDataSource?
+    private var tableViewDelegate: UITableViewDelegate?
+    private var tableViewDragDelegate: UITableViewDragDelegate?
+    private var tableViewDropDelegate: UITableViewDropDelegate?
+
+    private var tasks = [Task]()
     private var status: Task.Status
     private let taskService: TaskFetching = TaskServiceMock()
 
@@ -47,13 +50,7 @@ class TaskViewController: UIViewController {
 
     private func configureContraints() {
         self.view.translatesAutoresizingMaskIntoConstraints = false
-        taskStackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            taskStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            taskStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            taskStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            taskStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8)
-        ])
+        taskStackView.setConstraints(to: self.view)
     }
 
     private func configureSubviews() {
@@ -61,46 +58,42 @@ class TaskViewController: UIViewController {
     }
 
     private func configureDisplay() {
+        setDataSource()
         updateTable()
+        tableViewDelegate =  self
+        tableViewDragDelegate = self
+        tableViewDropDelegate = self
+        self.taskStackView.taskTableView.delegate = tableViewDelegate
+        self.taskStackView.taskTableView.dragDelegate = tableViewDragDelegate
+        self.taskStackView.taskTableView.dropDelegate = tableViewDropDelegate
+    }
+
+    private func setDataSource() {
+        self.tasks = taskService.fetch(status: self.status)
+        let tableConfigurator = TableConfigurator <Task> { task, cell in
+            cell.textLabel?.text = task.title
+        } numberOfRowsInSection: { _ in
+            1
+        } numberOfSections: { models in
+            models.count
+        } titleForHeaderInSection: {nil}
+
+        self.tableViewdataSource = TableViewDataSource(models: self.tasks,
+                                                       reuseIdentifier: TaskTableViewCell.identifier,
+                                                       tableConfigurator: tableConfigurator)
+        self.taskStackView.taskTableView.dataSource = tableViewdataSource
     }
 
     private func updateTable() {
-        tasks = taskService.fetch(status: self.status)
+        self.taskStackView.tableViewDelegate = self
         DispatchQueue.main.async {
             self.taskStackView.headerLabel.text = self.status.rawValue
             self.taskStackView.taskTableView.reloadData()
         }
     }
-
 }
 
-extension TaskViewController: UITableViewDataSource, UITableViewDelegate {
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        guard let tasks = tasks else {return 0}
-        return tasks.count
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        5
-    }
-
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        5
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let tasks = tasks else {return UITableViewCell()}
-        let cell = tableView.dequeueReusableCell(withIdentifier: TaskTableViewCell.identifier, for: indexPath)
-
-        cell.textLabel?.text = tasks[indexPath.section].title
-
-        return cell
-    }
+extension TaskViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
@@ -115,16 +108,12 @@ extension TaskViewController: UITableViewDataSource, UITableViewDelegate {
         view.heightAnchor.constraint(equalToConstant: 5).isActive = true
         return view
     }
-
 }
 
-extension TaskViewController: UITableViewDragDelegate, UITableViewDropDelegate {
+ extension TaskViewController: UITableViewDragDelegate, UITableViewDropDelegate {
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
 
-        guard let taskData = tasks?[indexPath.section] else {
-            return []
-        }
-
+        let taskData = tasks[indexPath.section]
         let itemProvider = NSItemProvider(object: taskData)
         let dragItem = UIDragItem(itemProvider: itemProvider)
         session.localContext = (self, indexPath, tableView)
@@ -151,8 +140,8 @@ extension TaskViewController: UITableViewDragDelegate, UITableViewDropDelegate {
                 }
 
                 self?.taskStackView.taskTableView.beginUpdates()
-                self?.tasks?.remove(at: from.section)
-                self?.tasks?.insert(draggedTask, at: to.section)
+                self?.tasks.remove(at: from.section)
+                self?.tasks.insert(draggedTask, at: to.section)
                 self?.taskStackView.taskTableView.reloadSections(updatedIndexSets, with: .automatic)
                 self?.taskStackView.taskTableView.endUpdates()
 
@@ -160,15 +149,15 @@ extension TaskViewController: UITableViewDragDelegate, UITableViewDropDelegate {
                 self?.removeFromTableData(localContext: coordinator.session.localDragSession?.localContext)
 
                 self?.taskStackView.taskTableView.beginUpdates()
-                self?.tasks?.insert(draggedTask, at: to.section)
+                self?.tasks.insert(draggedTask, at: to.section)
                 self?.taskStackView.taskTableView.insertSections(IndexSet(integer: to.section), with: .automatic)
                 self?.taskStackView.taskTableView.endUpdates()
 
             case (nil, nil):
                 self?.removeFromTableData(localContext: coordinator.session.localDragSession?.localContext)
                 self?.taskStackView.taskTableView.beginUpdates()
-                self?.tasks?.append(draggedTask)
-                self?.taskStackView.taskTableView.insertSections(IndexSet(integer: (self?.tasks!.count)!-1), with: .automatic)
+                self?.tasks.append(draggedTask)
+                self?.taskStackView.taskTableView.insertSections(IndexSet(integer: (self?.tasks.count)!-1), with: .automatic)
                 self?.taskStackView.taskTableView.endUpdates()
 
             default: break
@@ -182,7 +171,7 @@ extension TaskViewController: UITableViewDragDelegate, UITableViewDropDelegate {
         guard let (dataSource, from, tableView) = localContext as? (TaskViewController, IndexPath, UITableView) else { return }
 
         tableView.beginUpdates()
-        dataSource.tasks?.remove(at: from.section)
+        dataSource.tasks.remove(at: from.section)
         tableView.deleteSections(IndexSet(integer: from.section), with: .automatic)
         tableView.endUpdates()
     }
@@ -190,4 +179,4 @@ extension TaskViewController: UITableViewDragDelegate, UITableViewDropDelegate {
     func tableView(_ tableView: UITableView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
         UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
     }
-}
+ }

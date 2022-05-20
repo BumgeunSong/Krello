@@ -25,16 +25,9 @@ class TaskStackView: UIStackView {
     lazy var taskTableView: UITableView = { [weak self] in
         let tableview = UITableView(frame: .zero, style: .grouped)
         tableview.register(TaskTableViewCell.self, forCellReuseIdentifier: TaskTableViewCell.identifier)
-
         tableview.backgroundColor = .krelloGray
-        tableview.delegate = tableViewDelegate
-        tableview.dataSource = tableViewDataSource
-
         tableview.dragInteractionEnabled = true
-        tableview.dropDelegate = tableViewDropDelegate
-        tableview.dragDelegate = tableViewDragDelegate
         tableview.translatesAutoresizingMaskIntoConstraints = false
-
         return tableview
     }()
 
@@ -61,16 +54,8 @@ class TaskStackView: UIStackView {
     var tableViewDragDelegate: UITableViewDragDelegate?
     var tableViewDropDelegate: UITableViewDropDelegate?
 
-    init(frame: CGRect,
-         delegate: UITableViewDelegate,
-         dataSource: UITableViewDataSource,
-         dragDelegate: UITableViewDragDelegate,
-         dropDelegate: UITableViewDropDelegate) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
-        self.tableViewDelegate = delegate
-        self.tableViewDataSource = dataSource
-        self.tableViewDragDelegate = dragDelegate
-        self.tableViewDropDelegate = dropDelegate
 
         axis = .vertical
         distribution = .fill
@@ -84,6 +69,16 @@ class TaskStackView: UIStackView {
         ])
     }
 
+    func setConstraints(to view: UIView) {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            self.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            self.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            self.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8)
+        ])
+
+    }
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
