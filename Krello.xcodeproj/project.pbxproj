@@ -16,6 +16,7 @@
 		6FAA540228324F260060362A /* SignupFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA53FF28324F260060362A /* SignupFormView.swift */; };
 		9CFD1B2C1F608EA9228C54AB /* Pods_KrelloTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992A62047D85C6E5349BC267 /* Pods_KrelloTests.framework */; };
 		B72508322834070300AD7595 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72508312834070300AD7595 /* TaskViewController.swift */; };
+		B725085A2836670700AD7595 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72508592836670700AD7595 /* TableViewDataSource.swift */; };
 		B73E718328328AC6007B4654 /* AuthenticationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D570E2826E1F4009EEAEC /* AuthenticationTest.swift */; };
 		B73E718428328AC6007B4654 /* AuthenticationManagerIntegrationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D570C2824F88C009EEAEC /* AuthenticationManagerIntegrationTest.swift */; };
 		B73E718528328AC6007B4654 /* ValidatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D57032823F694009EEAEC /* ValidatorTest.swift */; };
@@ -81,6 +82,7 @@
 		A3D344D63B79E92BEEC611E7 /* Pods-KrelloTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KrelloTests.release.xcconfig"; path = "Target Support Files/Pods-KrelloTests/Pods-KrelloTests.release.xcconfig"; sourceTree = "<group>"; };
 		AAB53DB7ADEBD0FCFCF20435 /* Pods-Krello.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Krello.debug.xcconfig"; path = "Target Support Files/Pods-Krello/Pods-Krello.debug.xcconfig"; sourceTree = "<group>"; };
 		B72508312834070300AD7595 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
+		B72508592836670700AD7595 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		B74502312823944000172502 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Validator.swift; path = Krello/Signup/Model/Validator.swift; sourceTree = SOURCE_ROOT; };
 		B74C02182828D90400C3602D /* AuthenticationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationEngine.swift; sourceTree = "<group>"; };
 		B74C0222282A294700C3602D /* BoardLayoutMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardLayoutMaker.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				BCD8350C2823C5C6001273C8 /* UIVIew+Extension.swift */,
 				BC22098C2823ADB200159AC0 /* UIStackView+Extension.swift */,
 				BCD8352D282B9540001273C8 /* PaddedLabel.swift */,
+				B72508592836670700AD7595 /* TableViewDataSource.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				B76D570B2824EE21009EEAEC /* AuthenticationInfo.swift in Sources */,
 				BCD83531282B9F9B001273C8 /* TaskTableViewCell.swift in Sources */,
 				6FAA53FC28324F0F0060362A /* SignupViewController.swift in Sources */,
+				B725085A2836670700AD7595 /* TableViewDataSource.swift in Sources */,
 				BCD83527282A0C7E001273C8 /* BoardListViewController.swift in Sources */,
 				BCD835112824FC98001273C8 /* main.swift in Sources */,
 				6F991C002832435900F4F772 /* FirestoreService.swift in Sources */,

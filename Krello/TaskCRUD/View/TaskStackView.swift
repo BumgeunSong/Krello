@@ -25,16 +25,9 @@ class TaskStackView: UIStackView {
     lazy var taskTableView: UITableView = { [weak self] in
         let tableview = UITableView(frame: .zero, style: .grouped)
         tableview.register(TaskTableViewCell.self, forCellReuseIdentifier: TaskTableViewCell.identifier)
-
         tableview.backgroundColor = .krelloGray
-        tableview.delegate = tableViewDelegate
-        tableview.dataSource = tableViewDataSource
-
         tableview.dragInteractionEnabled = true
-        tableview.dropDelegate = tableViewDropDelegate
-        tableview.dragDelegate = tableViewDragDelegate
         tableview.translatesAutoresizingMaskIntoConstraints = false
-
         return tableview
     }()
 
@@ -61,16 +54,8 @@ class TaskStackView: UIStackView {
     var tableViewDragDelegate: UITableViewDragDelegate?
     var tableViewDropDelegate: UITableViewDropDelegate?
 
-    init(frame: CGRect,
-         delegate: UITableViewDelegate,
-         dataSource: UITableViewDataSource,
-         dragDelegate: UITableViewDragDelegate,
-         dropDelegate: UITableViewDropDelegate) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
-        self.tableViewDelegate = delegate
-        self.tableViewDataSource = dataSource
-        self.tableViewDragDelegate = dragDelegate
-        self.tableViewDropDelegate = dropDelegate
 
         axis = .vertical
         distribution = .fill
